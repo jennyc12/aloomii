@@ -934,7 +934,8 @@
 <nav>
   <a href="#" class="nav-logo"><img src="/images/logos/brand-logo.png" alt="Aloomii"></a>
   <ul class="nav-links">
-    <li><a href="#offerings">Services</a></li>
+    <li><a href="#studio-system">The Studio</a></li>
+    <li><a href="/table">The Table</a></li>
     <li><a href="/events">Events</a></li>
     <li><a href="#how">How It Works</a></li>
     <li><a href="#team">Team</a></li>
@@ -944,7 +945,8 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#offerings" onclick="closeMenu()">Services</a>
+  <a href="#studio-system" onclick="closeMenu()">The Studio</a>
+  <a href="/table" onclick="closeMenu()">The Table</a>
   <a href="/events" onclick="closeMenu()">Events</a>
   <a href="#how" onclick="closeMenu()">How It Works</a>
   <a href="#team" onclick="closeMenu()">Team</a>
@@ -954,10 +956,10 @@
 <!-- HERO -->
 <section class="hero" style="animation: heroFadeIn 1s ease forwards;">
   <h1>Building Communities and Software</h1>
-  <p class="sub">Software that scales. Communities that thrive.</p>
+  <p class="sub">That's not a slogan. It's the org chart. Aloomii is a studio: services fund the work, properties compound it.</p>
   <div class="hero-ctas">
-    <a href="#contact" class="btn-primary">Book a Discovery Call</a>
-    <a href="#how-we-work" class="btn-secondary">See How We Work</a>
+    <a href="#studio-system" class="btn-primary">See the System</a>
+    <a href="#contact" class="btn-secondary">Start a Conversation</a>
   </div>
   <div class="proof-bar reveal">
     <div class="label">Built by operators from</div>
@@ -965,6 +967,44 @@
       <img src="/images/logos/jpmorgan.png" alt="JP Morgan">
       <img src="/images/logos/mto.png" alt="Ontario Government" style="height: 105px !important;">
       <img src="/images/logos/ibm.png" alt="IBM">
+    </div>
+  </div>
+</section>
+
+<!-- STUDIO SYSTEM -->
+<section class="pillars reveal" id="studio-system">
+  <div class="pillars-inner">
+    <div class="section-label reveal">The studio, literally</div>
+    <h2 class="section-heading reveal">Four properties. One system.</h2>
+    <p class="section-sub reveal" style="text-align:center;max-width:700px;margin:0 auto 40px;">Communities on one side, software on the other. Services fund the studio. The properties compound.</p>
+    <div class="offering-grid">
+      <a href="/table" class="offering-card founders glass reveal-scale" style="text-decoration:none;display:block;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Service</div>
+        <h3 style="font-size:20px;margin-bottom:10px;color:#fff;">The Table</h3>
+        <p style="font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;">Founder GTM engagement. Podcasts, press, and the rooms that matter, run for you.</p>
+        <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:600;color:var(--accent);">aloomii.com/table &rarr;</span>
+      </a>
+      <a href="https://devkick.com" target="_blank" rel="noopener" class="offering-card founders glass reveal-scale" style="text-decoration:none;display:block;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Community</div>
+        <h3 style="font-size:20px;margin-bottom:10px;color:#fff;">DevKick</h3>
+        <p style="font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;">The builder community we own and run. Meetups, demo nights, and the people shipping with AI agents.</p>
+        <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:600;color:var(--accent);">devkick.com &rarr;</span>
+      </a>
+      <a href="/studio" class="offering-card founders glass reveal-scale" style="text-decoration:none;display:block;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Production</div>
+        <h3 style="font-size:20px;margin-bottom:10px;color:#fff;">Studio</h3>
+        <p style="font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;">Production. Where the shows, the media, and the content that opens doors get made.</p>
+        <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:600;color:var(--accent);">aloomii.com/studio &rarr;</span>
+      </a>
+      <a href="#builds" class="offering-card founders glass reveal-scale" style="text-decoration:none;display:block;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Software</div>
+        <h3 style="font-size:20px;margin-bottom:10px;color:#fff;">Builds</h3>
+        <p style="font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;">Selective client software. By referral. We take on a small number of builds and ship them end to end.</p>
+        <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:600;color:var(--accent);">How builds work &rarr;</span>
+      </a>
+    </div>
+    <div class="glass" style="max-width:800px;margin:40px auto 0;padding:32px 40px;border-left:3px solid var(--accent);border-radius:0 20px 20px 0;">
+      <p style="font-size:17px;color:#fff;line-height:1.7;font-weight:500;margin:0;">The properties feed each other. The community surfaces the builders. The podcast opens the doors. The software ships the work. And <a href="https://palebluenexus.com" target="_blank" rel="noopener" style="color:var(--accent);">Pale Blue Nexus</a> is the media proof running through all of it.</p>
     </div>
   </div>
 </section>
@@ -1077,10 +1117,11 @@
 
 <!-- OFFERINGS -->
 <section class="offerings" id="offerings">
+  <a id="builds"></a>
   <div class="offerings-inner">
-    <div class="section-label reveal">Two stages</div>
+    <div class="section-label reveal">Builds &middot; Selective, by referral</div>
     <h2 class="section-heading reveal">Diagnose. Then deploy.</h2>
-    <p class="section-sub reveal">Start with The Audit. When you're ready, we install Relationship Intelligence on your existing CRM and run it for you.</p>
+    <p class="section-sub reveal">We take on a small number of client builds, by referral. Every engagement starts with The Audit; when it's a fit, we install Relationship Intelligence on your existing CRM and run it for you.</p>
     <div class="offering-grid">
 <div class="offering-card founders glass reveal-scale full-width">
         <div class="card-tag">Stage 1 - Diagnose</div>
@@ -1233,10 +1274,13 @@
     </div>
     <!-- END receipt-grid -->
 
-    <!-- FUTURE PROOF CARD: Chamber of Commerce build.
-    Format: [member count] members. Custom CMS + CRM + website.
-    "Software and community in one build: the platform that runs a
-    700+ member organization." Add once live with real metrics. -->
+    <!-- Chambers vertical case study placeholder: real content ships with the chamber website this fall. Do not invent metrics. -->
+    <div class="receipt-card glass reveal" style="margin-top:24px;opacity:0.85;border-style:dashed;">
+      <p class="receipt-tag">Community + Software &rarr; One Build</p>
+      <h3 class="receipt-number" style="font-size:26px;">Chambers of Commerce <span style="font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;background:rgba(0,158,150,0.15);color:var(--accent);border:1px solid rgba(0,158,150,0.35);padding:3px 10px;border-radius:100px;vertical-align:middle;margin-left:8px;">Coming</span></h3>
+      <p class="receipt-label">Case study ships this fall</p>
+      <p class="receipt-body">We're building the platform that runs a regional chamber of commerce: website, CRM, and member operations in one system. The full case study lands here when the chamber website ships this fall.</p>
+    </div>
 
     <!-- Bottom Line -->
     <div class="proof-bottom-line reveal-scale glass">
@@ -1548,7 +1592,7 @@ document.querySelectorAll('.faq-question').forEach(function(btn) {
         <a class="libutton" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7445126674708451328" target="_blank">Subscribe on LinkedIn</a>
       </div>
     </div>
-    <div class="footer-col"><h4>Services</h4><a href="#offerings">Relationship Intelligence</a><a href="/events">Events</a></div>
+    <div class="footer-col"><h4>The Studio</h4><a href="/table">The Table</a><a href="https://devkick.com" target="_blank" rel="noopener">DevKick</a><a href="/studio">Studio</a><a href="#builds">Builds</a><a href="https://palebluenexus.com" target="_blank" rel="noopener">Pale Blue Nexus</a><a href="/events">Events</a></div>
     <div class="footer-col"><h4>Company</h4><a href="#team">About</a><a href="https://aloomii.com/blog/">Blog</a><a href="#contact">Contact</a></div>
     <div class="footer-col"><h4>Legal</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="client-terms.html">Client Terms</a></div>
   </div>
