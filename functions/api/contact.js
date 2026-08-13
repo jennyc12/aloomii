@@ -2,6 +2,7 @@ import {
   emailLink,
   escapeHtml,
   formatEmailValue,
+  CONTACT_RECIPIENTS,
   sendResendEmail,
 } from "../lib/notifications.js";
 
@@ -44,6 +45,7 @@ export async function onRequestPost(context) {
     try {
       if (context.env.RESEND_API_KEY) {
         await sendResendEmail(context.env.RESEND_API_KEY, {
+          to: CONTACT_RECIPIENTS,
           subject: `New consultation request from ${name}${company ? ` (${company})` : ''}`,
           html: `
             <h2>New Consultation Request</h2>

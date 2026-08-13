@@ -1,6 +1,7 @@
 import {
   emailLink,
   formatEmailValue,
+  YOHANN_RECIPIENTS,
   sendResendEmail,
 } from "../lib/notifications.js";
 
@@ -37,6 +38,7 @@ export async function onRequestPost(context) {
     try {
       if (context.env.RESEND_API_KEY) {
         await sendResendEmail(context.env.RESEND_API_KEY, {
+          to: YOHANN_RECIPIENTS,
           subject: `New newsletter signup: ${email}`,
           html: `
             <h2>New Newsletter Signup</h2>

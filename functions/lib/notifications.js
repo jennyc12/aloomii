@@ -1,9 +1,13 @@
-export const NOTIFICATION_RECIPIENTS = [
+export const CONTACT_RECIPIENTS = [
   "yohann@aloomii.com",
   "jenny@aloomii.com",
 ];
 
-export async function sendResendEmail(apiKey, { subject, html }) {
+export const YOHANN_RECIPIENTS = [
+  "yohann@aloomii.com",
+];
+
+export async function sendResendEmail(apiKey, { to, subject, html }) {
   return fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
@@ -12,7 +16,7 @@ export async function sendResendEmail(apiKey, { subject, html }) {
     },
     body: JSON.stringify({
       from: "Aloomii Inbox <inbox@aloomii.com>",
-      to: NOTIFICATION_RECIPIENTS,
+      to,
       subject,
       html,
     }),
