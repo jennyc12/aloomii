@@ -1,3 +1,7 @@
+# Keep privacy.html on disk for compatibility, but make the canonical legal page authoritative.
+/privacy.html /legal/privacy/ 301
+/privacy /legal/privacy/ 301
+
 # Redirect Clerk auth flows from apex to app subdomain.
 # Required because Clerk's proxy URL is on the apex (https://aloomii.com/__clerk),
 # so OAuth callbacks land on aloomii.com after sign-in. The portal lives on
