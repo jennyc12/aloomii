@@ -24,6 +24,7 @@ const STATIC_PAGES = [
   { loc: '/events',              changefreq: 'weekly',  priority: '0.8' },
   { loc: '/blog/',               changefreq: 'weekly',  priority: '0.9' },
   { loc: '/jenny/',              changefreq: 'monthly', priority: '0.7' },
+  { loc: '/services/',            changefreq: 'monthly', priority: '0.8' },
   { loc: '/aloomii-os.html',     changefreq: 'monthly', priority: '0.8' },
   { loc: '/legal/privacy/',      changefreq: 'yearly',  priority: '0.3' },
   { loc: '/terms.html',          changefreq: 'yearly',  priority: '0.3' },
