@@ -28,26 +28,37 @@
     ]
   }
   </script>
+  <link rel="stylesheet" href="/snippets/canonical-nav.css">
 </head>
 <body>
-<nav class="nav">
-  <a href="/" class="nav-logo"><img src="/images/logos/brand-logo.png" alt="Aloomii" width="120" height="36"></a>
-  <ul class="nav-links">
-    <li><a href="/">Home</a></li>
-    <li><a href="/#offerings">Services</a></li>
-    <li><a href="/#how">How It Works</a></li>
+<!-- CANONICAL_NAV_START -->
+<nav class="canonical-nav">
+  <a href="/" class="canonical-nav-logo"><img src="/images/logos/brand-logo.png" alt="Aloomii"></a>
+  <ul class="canonical-nav-links">
     <li><a href="/studio/">Studio</a></li>
-    <li><a href="/table" style="color:#009e96;font-weight:600;">The Table</a></li>
-    <li><a href="/blog" aria-current="page">Blog</a></li>
-    <li><a href="/#contact">Contact</a></li>
+    <li><a href="https://devkick.com" target="_blank" rel="noopener">DevKick</a></li>
+    <li><a href="/#builds">Builds</a></li>
+    <li><a href="/agent-adoption/">Agent Adoption</a></li>
+    <li><a href="/playbook/">Playbook</a></li>
+    <li><a href="/events">Events</a></li>
+    <li><a href="/#team">Team</a></li>
+    <li><a href="/#contact" class="canonical-nav-cta">Start a Conversation</a></li>
   </ul>
-  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <button class="canonical-nav-toggle" type="button" aria-label="Toggle menu" aria-controls="canonical-mobile-menu" aria-expanded="false" onclick="var m=document.getElementById('canonical-mobile-menu');var open=m.classList.toggle('active');this.setAttribute('aria-expanded',open);">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-  <a href="/">Home</a><a href="/#offerings">Services</a>
-  <a href="/#how">How It Works</a>
-  <a href="/studio/">Studio</a><a href="/table"<a href="/blog">Blog</a><a href="/#contact">Contact</a>
+<div class="canonical-mobile-menu" id="canonical-mobile-menu">
+  <a href="/studio/">Studio</a>
+  <a href="https://devkick.com" target="_blank" rel="noopener">DevKick</a>
+  <a href="/#builds">Builds</a>
+  <a href="/agent-adoption/">Agent Adoption</a>
+  <a href="/playbook/">Playbook</a>
+  <a href="/events">Events</a>
+  <a href="/#team">Team</a>
+  <a href="/#contact">Start a Conversation</a>
 </div>
+<!-- CANONICAL_NAV_END -->
 <div class="page-wrapper">
   <article class="article-layout">
     <header class="article-header content-wrapper">

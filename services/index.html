@@ -182,11 +182,38 @@
       .service-card:last-child { grid-column: auto; max-width: none; }
     }
   </style>
+  <link rel="stylesheet" href="/snippets/canonical-nav.css">
 </head>
 <body>
   <div class="page-content">
     <!-- CANONICAL_NAV_START -->
-    <!-- CANONICAL_NAV_END -->
+<nav class="canonical-nav">
+  <a href="/" class="canonical-nav-logo"><img src="/images/logos/brand-logo.png" alt="Aloomii"></a>
+  <ul class="canonical-nav-links">
+    <li><a href="/studio/">Studio</a></li>
+    <li><a href="https://devkick.com" target="_blank" rel="noopener">DevKick</a></li>
+    <li><a href="/#builds">Builds</a></li>
+    <li><a href="/agent-adoption/">Agent Adoption</a></li>
+    <li><a href="/playbook/">Playbook</a></li>
+    <li><a href="/events">Events</a></li>
+    <li><a href="/#team">Team</a></li>
+    <li><a href="/#contact" class="canonical-nav-cta">Start a Conversation</a></li>
+  </ul>
+  <button class="canonical-nav-toggle" type="button" aria-label="Toggle menu" aria-controls="canonical-mobile-menu" aria-expanded="false" onclick="var m=document.getElementById('canonical-mobile-menu');var open=m.classList.toggle('active');this.setAttribute('aria-expanded',open);">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="canonical-mobile-menu" id="canonical-mobile-menu">
+  <a href="/studio/">Studio</a>
+  <a href="https://devkick.com" target="_blank" rel="noopener">DevKick</a>
+  <a href="/#builds">Builds</a>
+  <a href="/agent-adoption/">Agent Adoption</a>
+  <a href="/playbook/">Playbook</a>
+  <a href="/events">Events</a>
+  <a href="/#team">Team</a>
+  <a href="/#contact">Start a Conversation</a>
+</div>
+<!-- CANONICAL_NAV_END -->
     <main>
       <header class="hero">
         <div class="section-label">Aloomii services</div>
