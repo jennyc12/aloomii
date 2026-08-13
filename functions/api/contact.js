@@ -1,18 +1,9 @@
-async function sendResendEmail(apiKey, { to, subject, html }) {
-  return fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      "Authorization": `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: "Aloomii Inbox <inbox@aloomii.com>",
-      to,
-      subject,
-      html,
-    }),
-  });
-}
+import {
+  emailLink,
+  escapeHtml,
+  formatEmailValue,
+  sendResendEmail,
+} from "../lib/notifications.js";
 
 export async function onRequestPost(context) {
   const corsHeaders = {
@@ -53,20 +44,22 @@ export async function onRequestPost(context) {
     try {
       if (context.env.RESEND_API_KEY) {
         await sendResendEmail(context.env.RESEND_API_KEY, {
-          to: ["yohann@aloomii.com"],
           subject: `New consultation request from ${name}${company ? ` (${company})` : ''}`,
           html: `
             <h2>New Consultation Request</h2>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-            <p><strong>Company:</strong> ${company || 'N/A'}</p>
-            <p><strong>Service Interest:</strong> ${service || 'N/A'}</p>
-            <p><strong>Budget Range:</strong> ${budget || 'N/A'}</p>
-            <p><strong>Timeline:</strong> ${timeline || 'N/A'}</p>
+            <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+            <p><strong>Email:</strong> ${emailLink(email)}</p>
+            <p><strong>Company:</strong> ${formatEmailValue(company)}</p>
+            <p><strong>Service Interest:</strong> ${formatEmailValue(service)}</p>
+            <p><strong>Budget Range:</strong> ${formatEmailValue(budget)}</p>
+            <p><strong>Timeline:</strong> ${formatEmailValue(timeline)}</p>
+            <p><strong>Submitted:</strong> ${formatEmailValue(timestamp)}</p>
+            <p><strong>Submission type:</strong> ${formatEmailValue("consultation_request")}</p>
+            <p><strong>Status:</strong> ${formatEmailValue("new")}</p>
             <hr>
-            <p><strong>Details:</strong><br>${(details || 'No details provided.').replace(/\n/g, '<br>')}</p>
+            <p><strong>Details:</strong><br>${formatEmailValue(details, "No details provided.")}</p>
             <hr>
-            <p><a href="mailto:${email}">Reply to ${name}</a> &middot; <a href="https://aloomii.com/admin-inbox">View inbox</a></p>
+            <p><a href="mailto:${escapeHtml(email)}">Reply to ${escapeHtml(name)}</a> &middot; <a href="https://aloomii.com/admin-inbox">View inbox</a></p>
           `,
         });
       }
