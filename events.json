@@ -14,41 +14,6 @@
     "description": "An evening for builders shipping with Devin. Demo what you're building, meet the Cognition team, and connect with operators using AI agents in production. Limited to 80 attendees.",
     "rsvpUrl": "https://luma.com/devin?e=evt-fYwJRYXhy9VOG3c",
     "status": "upcoming",
-    "tags": [
-      "AI",
-      "Builders",
-      "Meetup"
-    ],
-    "manualUpdate": "MANUAL UPDATE: Keep this event current as dates, venue, and RSVP details change."
-  },
-  {
-    "id": "devkick-build-night-waterloo-2026-08-14",
-    "title": "Waterloo Build Night with Devin",
-    "subtitle": "Builders Club KW",
-    "date": "2026-08-14",
-    "time": "5:30 PM ET",
-    "location": "Kitchener-Waterloo",
-    "venue": "Builders Club, Kitchener",
-    "partner": "Cognition",
-    "status": "upcoming",
-    "manualUpdate": "MANUAL UPDATE: Keep this event current as dates, venue, and RSVP details change."
-  },
-  {
-    "id": "devkick-kick-02-2026-09-17",
-    "title": "Kick 02",
-    "date": "2026-09-17",
-    "time": "Evening",
-    "location": "Kitchener",
-    "status": "upcoming",
-    "manualUpdate": "MANUAL UPDATE: Keep this event current as dates, venue, and RSVP details change."
-  },
-  {
-    "id": "devkick-kick-03-2026-10-15",
-    "title": "Kick 03",
-    "date": "2026-10-15",
-    "time": "Evening",
-    "location": "Toronto",
-    "status": "upcoming",
-    "manualUpdate": "MANUAL UPDATE: Keep this event current as dates, venue, and RSVP details change."
+    "tags": ["AI", "Builders", "Meetup"]
   }
 ]
