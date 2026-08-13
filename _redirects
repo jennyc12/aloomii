@@ -1,4 +1,13 @@
+# Static redirects
 /studio.html /studio/ 301
+/table.html /table/ 301
+/the-table /table/ 301
+/agency / 301
+
+# Keep privacy.html on disk for compatibility, but make the canonical legal page authoritative.
+/privacy.html /legal/privacy/ 301
+/privacy /legal/privacy/ 301
+
 # Redirect Clerk auth flows from apex to app subdomain.
 # Required because Clerk's proxy URL is on the apex (https://aloomii.com/__clerk),
 # so OAuth callbacks land on aloomii.com after sign-in. The portal lives on
@@ -18,6 +27,3 @@
 /user/*               https://app.aloomii.com/user/:splat          302
 /app                  https://app.aloomii.com/app                  302
 /app/*                https://app.aloomii.com/app/:splat           302
-/table.html /table/ 301
-/the-table /table/ 301
-/agency / 301
