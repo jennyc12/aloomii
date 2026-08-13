@@ -1,18 +1,10 @@
-async function sendResendEmail(apiKey, { to, subject, html }) {
-  return fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      "Authorization": `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: "Aloomii Inbox <inbox@aloomii.com>",
-      to,
-      subject,
-      html,
-    }),
-  });
-}
+import {
+  emailLink,
+  escapeHtml,
+  formatEmailValue,
+  YOHANN_RECIPIENTS,
+  sendResendEmail,
+} from "../lib/notifications.js";
 
 export async function onRequestPost(context) {
   const corsHeaders = {
@@ -48,15 +40,17 @@ export async function onRequestPost(context) {
     try {
       if (context.env.RESEND_API_KEY) {
         await sendResendEmail(context.env.RESEND_API_KEY, {
-          to: ["yohann@aloomii.com"],
+          to: YOHANN_RECIPIENTS,
           subject: `Access request from ${name}`,
           html: `
             <h2>New Access Request</h2>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-            <p><strong>Time:</strong> ${timestamp}</p>
+            <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+            <p><strong>Email:</strong> ${emailLink(email)}</p>
+            <p><strong>Submitted:</strong> ${formatEmailValue(timestamp)}</p>
+            <p><strong>Submission type:</strong> ${formatEmailValue("access_request")}</p>
+            <p><strong>Status:</strong> ${formatEmailValue("pending")}</p>
             <hr>
-            <p><a href="mailto:${email}">Reply to ${name}</a> &middot; <a href="https://aloomii.com/admin-inbox">View inbox</a></p>
+            <p><a href="mailto:${escapeHtml(email)}">Reply to ${escapeHtml(name)}</a> &middot; <a href="https://aloomii.com/admin-inbox">View inbox</a></p>
           `,
         });
       }
