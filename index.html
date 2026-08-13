@@ -1356,9 +1356,34 @@ document.querySelectorAll('.faq-question').forEach(function(btn) {
   const canvas = document.getElementById('ghostCanvas');
   const ctx = canvas.getContext('2d');
   let w, h;
+  let dpr = 1;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let frameNumber = 0;
   const mouse = { x: -9999, y: -9999 };
 
-  function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
+  function resize() {
+    const oldW = w, oldH = h;
+    w = window.innerWidth;
+    h = window.innerHeight;
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.round(w * dpr);
+    canvas.height = Math.round(h * dpr);
+    canvas.style.width = `${w}px`;
+    canvas.style.height = `${h}px`;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (oldW && oldH) {
+      const scaleX = w / oldW, scaleY = h / oldH;
+      for (const s of stars) {
+        s.bx *= scaleX; s.by *= scaleY;
+        if (s.x !== undefined) { s.x *= scaleX; s.y *= scaleY; }
+      }
+      for (const c of cats) {
+        c.x *= scaleX; c.y *= scaleY;
+        c.targetX *= scaleX; c.targetY *= scaleY;
+        c.history = c.history.map(point => ({ x: point.x * scaleX, y: point.y * scaleY }));
+      }
+    }
+  }
 
   // ==================== TINY STAR (drifting) ====================
   class TinyStar {
@@ -1405,10 +1430,10 @@ document.querySelectorAll('.faq-question').forEach(function(btn) {
       this.eyeGap = 18 + Math.random()*12;
       this.eyeSize = 8 + Math.random()*10;
       this.depth = 0.3 + Math.random()*0.8;
-      this.alpha = 0; this.maxAlpha = 0.12 + Math.random()*0.08;
+      this.alpha = 0; this.maxAlpha = 0.18 + Math.random()*0.1;
       this.lookAngle = Math.random()*Math.PI*2;
       this.blinkPhase = Math.random()*Math.PI*2;
-      this.blinkSpeed = 0.004 + Math.random()*0.004;
+      this.blinkSpeed = 0.008 + Math.random()*0.006;
       const pals = [[0,200,190],[0,180,210],[100,70,200],[0,230,200]];
       this.color = pals[Math.floor(Math.random()*pals.length)];
       this.state = 'gone'; this.stateTimer = Math.random()*400+100;
@@ -1427,7 +1452,7 @@ document.querySelectorAll('.faq-question').forEach(function(btn) {
         else { this.stateTimer = 300 + Math.random()*600; }
       }
       else if (state === 'blink_out') { this.stateTimer = 18 + Math.random()*10; }
-      else if (state === 'gone') { this.stateTimer = 200 + Math.random()*500; this.x = Math.random()*w; this.y = Math.random()*h; this.history = []; }
+      else if (state === 'gone') { this.stateTimer = 80 + Math.random()*220; this.x = Math.random()*w; this.y = Math.random()*h; this.history = []; }
       else if (state === 'blink_in') { this.stateTimer = 25 + Math.random()*15; }
       else if (state === 'dart') { this.targetX = this.x + (Math.random()-0.5)*w*0.6; this.targetY = this.y + (Math.random()-0.5)*h*0.4; this.stateTimer = 20 + Math.random()*35; this.speed = 0; }
       else if (state === 'pounce') {
@@ -1456,11 +1481,11 @@ document.querySelectorAll('.faq-question').forEach(function(btn) {
         if (this.stateTimer <= 0) {
           if (this.personality === 'zoomer') this.transition(Math.random() < 0.6 ? 'zoom' : 'blink_out');
           else if (this.personality === 'pouncer') this.transition(this.pounceCount < this.maxPounces ? 'pounce' : 'blink_out');
-          else if (this.personality === 'blinker') this.transition(this.blinkCycles < this.maxBlinkCycles ? 'blink_pause' : (Math.random() < 0.3 ? 'dart' : 'blink_out'));
-          else this.transition(Math.random() < 0.25 ? 'dart' : 'blink_out');
+          else if (this.personality === 'blinker') this.transition(this.blinkCycles < this.maxBlinkCycles ? 'blink_pause' : (Math.random() < 0.55 ? 'dart' : 'blink_out'));
+          else this.transition(Math.random() < 0.45 ? 'dart' : 'blink_out');
         }
         // Playful: spontaneous darts
-        if (mouse.x !== -9999 && Math.random() < 0.003) this.transition('dart');
+        if (mouse.x !== -9999 && Math.random() < 0.008) this.transition('dart');
       } else if (this.state === 'blink_out') {
         this.alpha = this.maxAlpha * (this.stateTimer / 15);
         if (this.stateTimer <= 0) this.transition('gone');
@@ -1552,22 +1577,29 @@ document.querySelectorAll('.faq-question').forEach(function(btn) {
 
   function init() {
     const starCount = Math.min(Math.floor(w*h/7000), 130);
-    stars = []; for (let i=0;i<starCount;i++) stars.push(new TinyStar());
+    while (stars.length < starCount) stars.push(new TinyStar());
+    if (stars.length > starCount) stars.length = starCount;
     const personalities = ['watcher','watcher','watcher','blinker','blinker','blinker','zoomer','zoomer','pouncer','pouncer','pouncer','watcher'];
-    cats = [];
-    for (let i=0;i<12;i++) {
-      const gc = new GhostCat(personalities[i]);
-      gc.stateTimer = Math.random()*400;
+    const catCount = prefersReducedMotion ? 12 : 18;
+    while (cats.length < catCount) {
+      const gc = new GhostCat(personalities[cats.length % personalities.length]);
+      gc.stateTimer = Math.random()*300;
       cats.push(gc);
     }
+    if (cats.length > catCount) cats.length = catCount;
   }
 
   function animate() {
     ctx.clearRect(0,0,w,h);
     try {
-      for (const s of stars) { s.update(); s.draw(); }
-      for (const c of cats) { c.update(); c.draw(); }
+      if (!prefersReducedMotion || frameNumber % 2 === 0) {
+        for (const s of stars) s.update();
+        for (const c of cats) c.update();
+      }
+      for (const s of stars) s.draw();
+      for (const c of cats) c.draw();
     } catch(e) { console.error('Animation error:', e); }
+    frameNumber++;
     requestAnimationFrame(animate);
   }
 
