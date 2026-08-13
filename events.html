@@ -356,7 +356,7 @@ function closeMenu() { document.querySelector('.hamburger').classList.remove('ac
   try {
     const res = await fetch('/events.json');
     const events = await res.json();
-    const upcoming = events.filter(function(e) { return e.status === 'upcoming' && new Date(e.date + 'T23:59:59') >= new Date(); });
+    const upcoming = events.filter(function(e) { return e.status === 'upcoming'; });
 
     if (upcoming.length === 0) {
       container.innerHTML = '<div class="empty-state"><p>No upcoming events right now. Check back soon.</p></div>';
