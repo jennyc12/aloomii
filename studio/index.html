@@ -23,10 +23,10 @@
 
 <style>
 /* ========================================================================
-   ALOOMII STUDIO ,  DESIGN TOKENS
+   ALOOMII STUDIO — DESIGN TOKENS
    ======================================================================== */
 :root {
-  /* Palette ,  editorial cosmos */
+  /* Palette — editorial cosmos */
   --deep-space: #0A0E1A;
   --deep-space-2: #11172A;
   --void: #050811;
@@ -74,10 +74,12 @@ body {
   overflow-x: hidden;
 }
 
+a { color: inherit; text-decoration: none; }
+
 ::selection { background: var(--warm-gold); color: var(--void); }
 
 /* ========================================================================
-   COSMIC BACKGROUND LAYERS ,  fixed, ambient
+   COSMIC BACKGROUND LAYERS — fixed, ambient
    ======================================================================== */
 .cosmos {
   position: fixed;
@@ -344,7 +346,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
 .btn .arrow { transition: transform 0.3s ease; }
 .btn:hover .arrow { transform: translateX(3px); }
 
-/* Hero visual ,  episode card with animated waveform */
+/* Hero visual — episode card with animated waveform */
 .episode-card {
   position: relative;
   background: linear-gradient(155deg, rgba(126,184,218,0.08), rgba(201,162,39,0.04));
@@ -697,7 +699,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
 }
 
 /* ========================================================================
-   PHOTO MARQUEE ,  "nine years in the room"
+   PHOTO MARQUEE — "9 years in the room"
    Horizontal infinite scroll of production photos
    ======================================================================== */
 .photo-marquee {
@@ -944,7 +946,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
 
 /* ========================================================================
    VELOCITY SECTION  ★ NEW ★
-   The multiplier engine ,  most visually striking moment on the page
+   The multiplier engine — most visually striking moment on the page
    ======================================================================== */
 .velocity {
   padding: var(--section-y) 0;
@@ -1023,7 +1025,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
 }
 .velocity__pricing strong { color: var(--paper); font-weight: 500; }
 
-/* The multiplier visual ,  single source fans out into thirty pieces */
+/* The multiplier visual — single source fans out into thirty pieces */
 .multiplier {
   position: relative;
   aspect-ratio: 1;
@@ -1074,7 +1076,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
 @keyframes ringSpin {
   to { transform: rotate(360deg); }
 }
-/* Orbiting clip nodes ,  30 of them, distributed in two rings */
+/* Orbiting clip nodes — 30 of them, distributed in two rings */
 .multiplier__node {
   position: absolute;
   left: 50%; top: 50%;
@@ -1638,14 +1640,28 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
   }
 }
 
-/* FAQ uses the homepage accordion rhythm without introducing a new treatment. */
-.studio-faq__list { max-width: 800px; margin: 2.5rem auto 0; display: grid; gap: 6px; }
-.studio-faq details { background: var(--deep-space-2); border: 1px solid var(--border-faint); border-radius: 12px; overflow: hidden; }
-.studio-faq summary { padding: 18px 24px; color: var(--paper); cursor: pointer; font-weight: 600; list-style: none; }
-.studio-faq summary::-webkit-details-marker { display: none; }
-.studio-faq summary::after { content: '+'; float: right; color: var(--pale-blue); font-size: 18px; }
-.studio-faq details[open] summary::after { content: '×'; }
-.studio-faq details p { padding: 0 24px 18px; color: var(--muted); font-size: 0.95rem; line-height: 1.6; }
+/* Studio palette override for the homepage accordion. */
+.studio-faq {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--section-y) clamp(1.25rem, 4vw, 2.5rem);
+}
+.studio-faq .faq-list { display: flex; flex-direction: column; gap: 6px; }
+.studio-faq .faq-item { background: var(--deep-space-2); border: 1px solid var(--border-faint); border-radius: 12px; overflow: hidden; }
+.studio-faq .faq-question {
+  width: 100%; background: none; border: none; padding: 18px 24px;
+  font-size: 15px; font-weight: 600; color: var(--paper); cursor: pointer;
+  text-align: left; display: flex; justify-content: space-between; align-items: center;
+  font-family: inherit;
+}
+.studio-faq .faq-question:hover { background: rgba(255,255,255,0.04); }
+.studio-faq .faq-arrow { font-size: 18px; transition: transform 0.2s; color: var(--pale-blue); }
+.studio-faq .faq-answer {
+  max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 24px; font-size: 14px; color: var(--muted); line-height: 1.6;
+}
+.studio-faq .faq-item.active .faq-answer { max-height: 300px; padding: 0 24px 18px; }
+.studio-faq .faq-item.active .faq-arrow { transform: rotate(45deg); }
 </style>
 </head>
 <body>
@@ -1698,7 +1714,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
 
     <a href="https://youtu.be/t3dDHRRZyHk" target="_blank" rel="noopener" style="text-decoration:none;display:block;position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--border-soft);background:linear-gradient(155deg, rgba(126,184,218,0.08), rgba(201,162,39,0.04));backdrop-filter:blur(8px);transition:transform 0.35s var(--ease-out-cubic),box-shadow 0.35s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 60px -15px rgba(0,0,0,0.5)';" onmouseout="this.style.transform='';this.style.boxShadow='';">
       <div style="position:relative;">
-        <img src="/images/studio/jim-rogers-video.png" alt="Jim Rogers on Pale Blue Nexus ,  Episode 01" style="width:100%;height:auto;display:block;aspect-ratio:16/9;object-fit:cover;">
+        <img src="/images/studio/jim-rogers-video.png" alt="Jim Rogers on Pale Blue Nexus, Episode 01" style="width:100%;height:auto;display:block;aspect-ratio:16/9;object-fit:cover;">
         <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(10,14,26,0.35);transition:background 0.3s ease;">
           <div style="width:72px;height:72px;border-radius:50%;background:rgba(244,241,234,0.95);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(0,0,0,0.4);transition:transform 0.3s ease,background 0.3s ease;">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left:3px;"><path d="M8 5v14l11-7L8 5z" fill="#0A0E1A"/></svg>
@@ -1767,11 +1783,11 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
 
     <div class="timeline">
       <!-- MANUAL UPDATE: Update timeline dates and stats when the show history changes. -->
-      <!-- 2017 to 2018 -->
+      <!-- 2017–2018 -->
       <div class="timeline__item">
         <div class="timeline__dot"></div>
         <div class="timeline__date-col">
-          <div class="timeline__year">2017 ,  2018</div>
+          <div class="timeline__year">2017 to 2018</div>
         </div>
         <div class="timeline__content">
           <div class="timeline__brand">
@@ -1784,11 +1800,11 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
         </div>
       </div>
 
-      <!-- 2020 to 2023 -->
+      <!-- 2020–2023 -->
       <div class="timeline__item timeline__item--right">
         <div class="timeline__dot"></div>
         <div class="timeline__date-col">
-          <div class="timeline__year">2020 ,  2023</div>
+          <div class="timeline__year">2020 to 2023</div>
         </div>
         <div class="timeline__content">
           <div class="timeline__brand">
@@ -1824,7 +1840,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
       <div class="timeline__item timeline__item--right">
         <div class="timeline__dot"></div>
         <div class="timeline__date-col">
-          <div class="timeline__year">2026 ,  Present</div>
+          <div class="timeline__year">2026 to present</div>
         </div>
         <div class="timeline__content">
           <div class="timeline__brand">
@@ -1882,7 +1898,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
 
       <figure class="photo-card">
         <div class="photo-card__media">
-          <img src="/images/podcasts/nft-hype-logo.png" alt="NFT Hype ,  first NFT podcast ever" />
+          <img src="/images/podcasts/nft-hype-logo.png" alt="NFT Hype, first NFT podcast ever" />
         </div>
         <figcaption class="photo-card__caption">
           First NFT Podcast Ever
@@ -1902,7 +1918,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
 
       <figure class="photo-card">
         <div class="photo-card__media">
-          <img src="/images/podcasts/cryptoslam-clubhouse.png" alt="CryptoSlam Clubhouse ,  Preparing for the Next NFT Bull Run" />
+          <img src="/images/podcasts/cryptoslam-clubhouse.png" alt="CryptoSlam Clubhouse, Preparing for the Next NFT Bull Run" />
         </div>
         <figcaption class="photo-card__caption">
           NFT Bull Run panel
@@ -2092,7 +2108,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
           <div class="multiplier__center" style="font-size:4rem;">
             🎙️
           </div>
-          <!-- 30 nodes ,  JS distributes them across two rings -->
+          <!-- 30 nodes — JS distributes them across two rings -->
           <div class="multiplier__node"></div><div class="multiplier__node"></div><div class="multiplier__node"></div>
           <div class="multiplier__node"></div><div class="multiplier__node"></div><div class="multiplier__node"></div>
           <div class="multiplier__node"></div><div class="multiplier__node"></div><div class="multiplier__node"></div>
@@ -2179,6 +2195,27 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
 
 
 
+<!-- ============================ TBPN / SAM ALTMAN PULL QUOTE ============================ -->
+<section class="feature-quote">
+  <div class="container">
+    <div class="feature-quote__inner">
+      <div class="eyebrow" style="justify-content: center;">Why this matters</div>
+      <blockquote class="reveal">
+        TBPN is my favorite tech show. We want them to keep that going and for them to do what they do so well.
+      </blockquote>
+      <cite>Sam Altman · on acquiring TBPN for OpenAI, April 2026</cite>
+      <div class="feature-quote__body">
+        <p class="reveal">
+          OpenAI didn't buy TBPN for the audience size, 58K subscribers. They bought it for the <strong>relationships every episode created</strong>. Zuckerberg, Nadella, Altman. They came on the show because the hosts had built genuine connections over years.
+        </p>
+        <p class="reveal">
+          TBPN started from a text message. 18 months later: $30M in annual revenue and an acquisition by the most valuable AI company in the world. <strong>Media isn't content. Media is infrastructure.</strong> The show is the excuse to have the conversation. The conversation builds the relationship. The relationship is the asset.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============================ FOUNDERS ============================ -->
 <section class="founders">
   <div class="container">
@@ -2212,16 +2249,34 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
 </section>
 
 <!-- ============================ FAQ ============================ -->
-<section class="studio-faq section" id="faq">
+<section class="faq-section studio-faq section reveal" id="faq">
   <div class="container">
     <div class="services-header"><div class="eyebrow">Questions</div><h2>Frequently asked.</h2></div>
-    <div class="studio-faq__list">
-      <details><summary>How does distribution work? Do you need my passwords?</summary><p>No. You add us as a delegate inside your own accounts. YouTube, your podcast host, and your scheduler all support this natively. You keep every password and can remove access any time.</p></details>
-      <details><summary>What if I'd rather post everything myself?</summary><p>Fine. We deliver finished files, correctly formatted and named for each platform, and you post on your own schedule.</p></details>
-      <details><summary>How fast is turnaround?</summary><p>48 hours per episode as standard, from the moment we have the raw files.</p></details>
-      <details><summary>What do I need to record?</summary><p>A decent mic and a stable connection. We'll set you up on Riverside and give you a short recording checklist. You don't need a studio.</p></details>
-      <details><summary>Do you book guests?</summary><p>No. Studio is production only. You record, we handle everything after.</p></details>
-      <details><summary>Can I cancel?</summary><p>All three tiers are month-to-month. No lock-in.</p></details>
+    <div class="faq-list studio-faq__list">
+      <div class="faq-item">
+        <button class="faq-question" type="button"><span>How does distribution work? Do you need my passwords?</span><span class="faq-arrow">+</span></button>
+        <div class="faq-answer">No. You add us as a delegate inside your own accounts. YouTube, your podcast host, and your scheduler all support this natively. You keep every password and can remove access any time.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button"><span>What if I'd rather post everything myself?</span><span class="faq-arrow">+</span></button>
+        <div class="faq-answer">Fine. We deliver finished files, correctly formatted and named for each platform, and you post on your own schedule.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button"><span>How fast is turnaround?</span><span class="faq-arrow">+</span></button>
+        <div class="faq-answer">48 hours per episode as standard, from the moment we have the raw files.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button"><span>What do I need to record?</span><span class="faq-arrow">+</span></button>
+        <div class="faq-answer">A decent mic and a stable connection. We'll set you up on Riverside and give you a short recording checklist. You don't need a studio.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button"><span>Do you book guests?</span><span class="faq-arrow">+</span></button>
+        <div class="faq-answer">No. Studio is production only. You record, we handle everything after.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button"><span>Can I cancel?</span><span class="faq-arrow">+</span></button>
+        <div class="faq-answer">All three tiers are month-to-month. No lock-in.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -2259,11 +2314,11 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
         <h5>Services</h5>
         <ul>
           <li><a href="https://aloomii.com/studio/">Studio</a></li>
-          <li><a href="https://aloomii.com/devkick/">DevKick</a></li>
-          <li><a href="https://aloomii.com/builds/">Builds</a></li>
+          <li><a href="https://devkick.com">DevKick</a></li>
+          <li><a href="https://aloomii.com/#builds">Builds</a></li>
           <li><a href="https://aloomii.com/playbook/">Playbook</a></li>
           <li><a href="https://palebluenexus.com">Pale Blue Nexus</a></li>
-          <li><a href="https://aloomii.com/events/">Events</a></li>
+          <li><a href="https://aloomii.com/events">Events</a></li>
         </ul>
       </div>
       <div class="footer__col">
@@ -2294,6 +2349,15 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
   </div>
 </footer>
 
+<script>
+document.querySelectorAll('.faq-question').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var item = this.closest('.faq-item');
+    item.classList.toggle('active');
+  });
+});
+</script>
+
 <!-- ============================ MOTION JS ============================ -->
 <script>
 (() => {
@@ -2303,7 +2367,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
     bar.style.animationDuration = `${1.2 + (i % 3) * 0.2}s`;
   });
 
-  // 2. Distribute multiplier nodes ,  half on inner ring, half on outer
+  // 2. Distribute multiplier nodes — half on inner ring, half on outer
   const nodes = document.querySelectorAll('.multiplier__node');
   const total = nodes.length;
   nodes.forEach((node, i) => {
