@@ -870,13 +870,17 @@
   font-size: 13px;
   font-weight: 600;
 }
+.offering-card .card-tag { align-self: flex-start; }
+.team-member-info { min-width: 0; }
+.newsletter-inline { padding: 32px var(--section-pad-h); }
+.newsletter-inline .newsletter-inner { padding: 24px 32px; }
+#builds .offering-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .newsletter-inline .newsletter-link:hover,
 .diff-card .inline-link:hover,
 .offering-card .card-link:hover,
 .faq-link:hover {
   text-decoration: underline;
 }
-.credential-row { max-width: 1000px; margin: 28px auto 0; padding: 18px 0; border-top: 1px solid rgba(255,255,255,0.06); text-align: center; font-size: 12px; color: rgba(255,255,255,0.35); letter-spacing: 0.02em; line-height: 1.8; }
 .card-note { display: block; margin-top: 8px; font-size: 13px; color: rgba(255,255,255,0.55); }
 .form-col { min-width: 0; }
 .form-group--full { grid-column: 1 / -1; }
@@ -899,6 +903,12 @@
 .faq-question:hover { background: rgba(255,255,255,0.04); }
 .faq-item.active .faq-answer { max-height: 300px; padding: 0 24px 18px; }
 .faq-item.active .faq-arrow { transform: rotate(45deg); }
+@media (max-width: 768px) {
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .team-member { flex-direction: column; }
+  .team-member-info { width: 100%; }
+  .newsletter-inline { padding-top: 24px !important; padding-bottom: 24px !important; }
+}
 .hero-support { max-width: 660px; margin: 18px auto 0; color: rgba(255,255,255,0.72); font-size: 16px; line-height: 1.7; }
 .devkick-events { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; max-width: 1000px; margin: 0 auto; }
 .devkick-event { padding: 24px; text-align: left; }
@@ -945,6 +955,7 @@
 <section class="hero" style="animation: heroFadeIn 1s ease forwards;">
   <h1>Building Communities and Software</h1>
   <p class="sub">We produce the shows that build the room, and the software that runs it.</p>
+  <!-- MANUAL UPDATE: Update the podcast count and related hero proof when the source story changes. -->
   <p class="hero-support">Nine years, five podcasts, a builder community we own, and the systems behind them. We've done this for ourselves before we ever did it for anyone else.</p>
   <div class="hero-ctas">
     <a href="/studio/" class="btn-primary">See the Studio &rarr;</a>
@@ -1064,6 +1075,7 @@
       <div class="receipt-card glass reveal-child">
         <div class="receipt-accent"></div>
         <p class="receipt-tag">Production → Launch → Global Event</p>
+        <!-- MANUAL UPDATE: Update this launch value if the source metric changes. -->
         <h3 class="receipt-number">$4B</h3>
         <p class="receipt-label">ICO - largest in history</p>
         <p class="receipt-body">Jenny produced the live broadcast of the EOS blockchain launch. 200 guests. The famous Go/No-Go call. A global audience watching in real time. She created every live show, launch special, and piece of promotional content for EOS Go. No playbook existed. She wrote it.</p>
@@ -1078,11 +1090,14 @@
       <div class="receipt-card glass reveal-child">
         <div class="receipt-accent"></div>
         <p class="receipt-tag">Content → Distribution → Growth</p>
+        <!-- MANUAL UPDATE: Update this view count when the episode metrics change. -->
         <h3 class="receipt-number">23K+</h3>
         <p class="receipt-label">Views on Episode 1</p>
+        <!-- MANUAL UPDATE: Update the relationship duration and subscriber count when the source story changes. -->
         <p class="receipt-body">Our first Pale Blue Nexus guest was Jim Rogers - billionaire investor, co-founder of the Quantum Fund. Not because we pitched him cold. Because we built a relationship over 17 years before we ever asked. The episode grew the channel to 4,400+ subscribers and counting.</p>
         <div class="receipt-tags">
           <span>JIM ROGERS</span>
+          <!-- MANUAL UPDATE: Update the subscriber count when the episode metrics change. -->
           <span>4,400+ SUBSCRIBERS</span>
           <span>PALE BLUE NEXUS</span>
         </div>
@@ -1094,13 +1109,16 @@
     <div class="receipt-card glass reveal" style="margin-top:24px;opacity:0.85;border-style:dashed;">
       <p class="receipt-tag">Community + Software &rarr; One Build</p>
       <h3 class="receipt-number" style="font-size:26px;">Chambers of Commerce <span style="font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;background:rgba(0,158,150,0.15);color:var(--accent);border:1px solid rgba(0,158,150,0.35);padding:3px 10px;border-radius:100px;vertical-align:middle;margin-left:8px;">Coming</span></h3>
+      <!-- MANUAL UPDATE: Update when the chamber website case study ships. -->
       <p class="receipt-label">Case study ships this fall</p>
+      <!-- MANUAL UPDATE: Update when the chamber website case study ships. -->
       <p class="receipt-body">We're building the platform that runs a regional chamber of commerce: website, CRM, and member operations in one system. The full case study lands here when the chamber website ships this fall.</p>
     </div>
 
     <!-- Bottom Line -->
     <div class="proof-bottom-line reveal-scale glass">
-      <p>We didn't start Aloomii with a product. We started with 17 years of relationships, 5 podcasts, and a track record of turning conversations into capital. The AI and the systems came later. The instinct for relationships came first.</p>
+      <!-- MANUAL UPDATE: Update the relationship history and podcast count when the source story changes. -->
+      <p>We didn't start Aloomii with a product. We started with 17 years of relationships, five podcasts, and a track record of turning conversations into capital. The AI and the systems came later. The instinct for relationships came first.</p>
     </div>
   </div>
 </section>
@@ -1113,7 +1131,7 @@
     <p class="section-sub reveal" style="text-align:center;max-width:800px;margin:0 auto 40px;">We both build websites and the internal tools that make our own work faster. Yohann is a formally trained software engineer who shipped production code at JP Morgan, IBM and the Ontario Government, and he takes the larger platform builds. Between us, a small business site goes out fast and a platform gets built properly.</p>
     <div class="offering-grid">
       <div class="offering-card founders glass reveal-scale"><div class="card-tag">Websites, from $599</div><h3>Websites</h3><p>Clean, fast, mobile-first sites for small businesses, trades and founders. Built in-house, yours to own, no lock-in, no monthly platform fee. One-pagers from $599, full sites from $1,200.</p><p class="card-note">One-pagers in about four days.</p><a href="#contact" class="card-cta">Start a website &rarr;</a></div>
-      <div class="offering-card founders glass reveal-scale"><div class="card-tag">Selective builds</div><h3>Platforms</h3><p>Systems that run an organization. Website, CRM and member operations in one build. Currently building the platform for a regional chamber of commerce. Selective, usually by referral.</p><p class="card-note">Case study ships this fall.</p></div>
+      <div class="offering-card founders glass reveal-scale"><div class="card-tag">Selective builds</div><h3>Platforms</h3><p>Systems that run an organization. Website, CRM and member operations in one build. Currently building the platform for a regional chamber of commerce. Selective, usually by referral.</p><!-- MANUAL UPDATE: Update when the chamber website case study ships. --><p class="card-note">Case study ships this fall.</p><a href="#contact" class="card-cta">Talk about a platform &rarr;</a></div>
       <div class="offering-card founders glass reveal-scale"><div class="card-tag">Built for our work</div><h3>Internal tools</h3><p>The tooling that makes the work faster. Velocity, the clip discovery and distribution pipeline Studio runs on, is one of ours.</p></div>
     </div>
   </div>
@@ -1128,7 +1146,6 @@
     <div class="team-member glass reveal-child"><img src="/images/yohann-calpu.jpg" alt="Yohann Calpu" class="team-member-photo"><div class="team-member-info"><h3>Yohann Calpu</h3><div class="role">Co-Founder &middot; DevKick &amp; Software</div><a href="https://www.linkedin.com/in/yohanncalpu/" target="_blank" rel="noopener noreferrer" class="linkedin-link" aria-label="Yohann Calpu on LinkedIn"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 24.792 0 24 0h.003z"/></svg></a><p>Formally trained software engineer who became a startup operator. Shipped production code and managed releases at JP Morgan, IBM and the Ontario Government before going startup-side at CryptoSlam, where he closed $2M in deals and helped raise a $9M seed round backed by Mark Cuban. He runs DevKick, architects the larger builds, and hosts Pale Blue Nexus.</p></div></div>
     <div class="team-member glass reveal-child"><img src="/images/jenny-calpu.jpeg" alt="Jenny Calpu" class="team-member-photo"><div class="team-member-info"><h3>Jenny Calpu</h3><div class="role">Co-Founder &middot; Producer &amp; Head of Studio</div><a href="https://www.linkedin.com/in/jenny-calpu/" target="_blank" rel="noopener noreferrer" class="linkedin-link" aria-label="Jenny Calpu on LinkedIn"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452H3.555zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 24 .774 24 0h.003z"/></svg></a><p>Jenny runs Studio. She produced the live broadcast of the EOS blockchain launch, 200 guests, the GO/NO-GO call, a global audience, and has produced five shows end to end across nine years, including Pale Blue Nexus. She built Velocity, the pipeline Studio runs on, and built aloomii.com, vibrnt.ai and palebluenexus.com from scratch. Every cut, every thumbnail, every episode ships through her.</p></div></div>
   </div>
-  <div class="credential-row" style="text-align:center; margin:28px 0 0; padding:18px 0; border-top:1px solid rgba(255,255,255,0.06); font-family:'SF Mono','Fira Code','JetBrains Mono','Courier New',monospace; font-size:12px; color:rgba(255,255,255,0.35); letter-spacing:0.02em; line-height:1.8;">15+ years shipping production systems at JP Morgan, IBM and the Ontario Government &middot; Five podcasts produced across nine years &middot; One builder community, ours</div>
 </section>
 
 <!-- COMMUNITY AS MOAT -- Positioning thesis (promoted to own section) -->
@@ -1323,6 +1340,7 @@ document.querySelectorAll('.faq-question').forEach(function(btn) {
     <div class="footer-col"><h4>Legal</h4><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms of Service</a><a href="/client-terms.html">Client Terms</a></div>
   </div>
   <div class="footer-bottom">
+    <!-- MANUAL UPDATE: Update the copyright year annually. -->
     <span>&copy; 2026 Aloomii &middot; <a href="https://palebluenexus.com" target="_blank">Pale Blue Nexus</a></span>
     <div class="footer-social"><a href="https://linkedin.com" target="_blank">LinkedIn</a><a href="mailto:yohann@aloomii.com">Email</a></div>
   </div>
