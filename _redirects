@@ -18,3 +18,6 @@
 /user/*               https://app.aloomii.com/user/:splat          302
 /app                  https://app.aloomii.com/app                  302
 /app/*                https://app.aloomii.com/app/:splat           302
+/table.html /table/ 301
+/the-table /table/ 301
+/agency / 301
