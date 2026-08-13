@@ -23,7 +23,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aloomii.com/privacy.html</loc>
+    <loc>https://aloomii.com/legal/privacy/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -36,6 +36,11 @@
     <loc>https://aloomii.com/client-terms.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://aloomii.com/agent-adoption</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- Blog Posts (87 articles — auto-generated 2026-05-22) -->
