@@ -10,7 +10,10 @@ START = "<!-- CANONICAL_NAV_START -->"
 END = "<!-- CANONICAL_NAV_END -->"
 BLOCK = f"{START}\n{SNIPPET.rstrip()}\n{END}"
 STYLESHEET = '<link rel="stylesheet" href="/snippets/canonical-nav.css">'
+SCRIPT = '<script src="/snippets/canonical-nav.js"></script>'
 EXCLUDED = (
+    # The homepage is the source of truth for this snippet and is never rewritten.
+    "index.html",
     "legal/",
     "playbook/",
     "aloomii-os.html",
@@ -33,6 +36,29 @@ def excluded(path: Path) -> bool:
     return relative.startswith(EXCLUDED) or ".bak." in relative
 
 
+def normalized_homepage_nav() -> str:
+    homepage = (ROOT / "index.html").read_text()
+    match = re.search(
+        r"<!-- NAV -->\s*(<nav\b.*?</nav>\s*<div\b[^>]*class=\"mobile-menu\".*?</div>)",
+        homepage,
+        re.I | re.S,
+    )
+    if not match:
+        raise RuntimeError("Homepage NAV source could not be found")
+    return re.sub(
+        r'href="(#(?:builds|team|contact)|#)"',
+        lambda m: f'href="/{m.group(1)}"'.replace('href="/#"', 'href="/"'),
+        match.group(1).strip(),
+    )
+
+
+def assert_snippet_matches_homepage() -> None:
+    if SNIPPET.strip() != normalized_homepage_nav():
+        raise RuntimeError(
+            "snippets/canonical-nav.html has drifted from index.html navigation"
+        )
+
+
 def replace_navigation(text: str) -> str | None:
     if START in text and END in text:
         pattern = re.compile(re.escape(START) + r".*?" + re.escape(END), re.S)
@@ -51,6 +77,7 @@ def replace_navigation(text: str) -> str | None:
 
 
 def main() -> None:
+    assert_snippet_matches_homepage()
     changed = []
     for path in sorted(ROOT.rglob("*.html")):
         if excluded(path):
@@ -61,6 +88,8 @@ def main() -> None:
             continue
         if STYLESHEET not in updated:
             updated = updated.replace("</head>", f"  {STYLESHEET}\n</head>", 1)
+        if SCRIPT not in updated:
+            updated = updated.replace("</body>", f"  {SCRIPT}\n</body>", 1)
         if updated != original:
             path.write_text(updated)
             changed.append(path.relative_to(ROOT).as_posix())

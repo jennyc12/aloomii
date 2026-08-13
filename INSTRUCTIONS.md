@@ -70,7 +70,7 @@ git push origin main
    ```
 4. Review the generated diff, then commit and push (see above)
 
-The canonical navigation markup lives in `snippets/canonical-nav.html` and its shared styling lives in `snippets/canonical-nav.css`. The sync script writes the static HTML into eligible pages so navigation remains crawlable without JavaScript. Legal pages, the Playbook product page and `aloomii-os.html` intentionally keep their specialized navigation.
+The canonical navigation markup in `snippets/canonical-nav.html` is derived from the `index.html` navigation. The homepage is the source of truth and is explicitly excluded from `scripts/sync-nav.py`, so the script never rewrites its markup, classes or handlers. The sync script checks that the snippet has not drifted from the homepage before writing static HTML into eligible pages. Shared styling is extracted into `snippets/canonical-nav.css`, and the small interaction helper is `snippets/canonical-nav.js`. Legal pages, the Playbook product page and `aloomii-os.html` intentionally keep their specialized navigation.
 
 ---
 
