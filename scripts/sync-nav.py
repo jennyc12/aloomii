@@ -45,10 +45,14 @@ def normalized_homepage_nav() -> str:
     )
     if not match:
         raise RuntimeError("Homepage NAV source could not be found")
-    return re.sub(
+    normalized = re.sub(
         r'href="(#(?:builds|team|contact)|#)"',
         lambda m: f'href="/{m.group(1)}"'.replace('href="/#"', 'href="/"'),
         match.group(1).strip(),
+    )
+    return normalized.replace(
+        '<button class="hamburger"',
+        '<button id="hamburger" class="hamburger"',
     )
 
 
@@ -89,7 +93,10 @@ def main() -> None:
         if STYLESHEET not in updated:
             updated = updated.replace("</head>", f"  {STYLESHEET}\n</head>", 1)
         if SCRIPT not in updated:
-            updated = updated.replace("</body>", f"  {SCRIPT}\n</body>", 1)
+            if "</body>" in updated:
+                updated = updated.replace("</body>", f"  {SCRIPT}\n</body>", 1)
+            else:
+                updated = f"{updated.rstrip()}\n{SCRIPT}\n"
         if updated != original:
             path.write_text(updated)
             changed.append(path.relative_to(ROOT).as_posix())
