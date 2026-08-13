@@ -3,20 +3,30 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The Studio — Aloomii | Podcast-Powered GTM for Founders</title>
-<meta name="description" content="End-to-end podcast production and content multiplication for founders. We build the show, then turn every episode into thirty pieces of content across five platforms." />
+<title>The Studio — Aloomii | Podcast Production, Clips &amp; Distribution</title>
+<meta name="description" content="You tape the show. We handle editing, clips, show notes, publishing and distribution. End-to-end podcast production from the team behind nine years of shows." />
+<link rel="canonical" href="https://aloomii.com/studio/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Studio — Aloomii | Podcast Production, Clips &amp; Distribution">
+<meta property="og:description" content="You tape the show. We handle editing, clips, show notes, publishing and distribution. End-to-end podcast production from the team behind nine years of shows.">
+<meta property="og:url" content="https://aloomii.com/studio/">
+<meta property="og:site_name" content="Aloomii">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Studio — Aloomii | Podcast Production, Clips &amp; Distribution">
+<meta name="twitter:description" content="You tape the show. We handle editing, clips, show notes, publishing and distribution. End-to-end podcast production from the team behind nine years of shows.">
+<link rel="stylesheet" href="/assets/css/aloomii-tokens.css">
 
-<!-- Fonts: Cormorant Garamond (display serif), Manrope (body), IBM Plex Mono (technical accents) -->
+<!-- Page-specific fonts preserve the existing Studio presentation. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 /* ========================================================================
-   ALOOMII STUDIO — DESIGN TOKENS
+   ALOOMII STUDIO ,  DESIGN TOKENS
    ======================================================================== */
 :root {
-  /* Palette — editorial cosmos */
+  /* Palette ,  editorial cosmos */
   --deep-space: #0A0E1A;
   --deep-space-2: #11172A;
   --void: #050811;
@@ -64,13 +74,10 @@ body {
   overflow-x: hidden;
 }
 
-img { max-width: 100%; height: auto; display: block; }
-a { color: inherit; text-decoration: none; }
-
 ::selection { background: var(--warm-gold); color: var(--void); }
 
 /* ========================================================================
-   COSMIC BACKGROUND LAYERS — fixed, ambient
+   COSMIC BACKGROUND LAYERS ,  fixed, ambient
    ======================================================================== */
 .cosmos {
   position: fixed;
@@ -337,7 +344,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
 .btn .arrow { transition: transform 0.3s ease; }
 .btn:hover .arrow { transform: translateX(3px); }
 
-/* Hero visual — episode card with animated waveform */
+/* Hero visual ,  episode card with animated waveform */
 .episode-card {
   position: relative;
   background: linear-gradient(155deg, rgba(126,184,218,0.08), rgba(201,162,39,0.04));
@@ -690,7 +697,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
 }
 
 /* ========================================================================
-   PHOTO MARQUEE — "9 years in the room"
+   PHOTO MARQUEE ,  "nine years in the room"
    Horizontal infinite scroll of production photos
    ======================================================================== */
 .photo-marquee {
@@ -937,7 +944,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
 
 /* ========================================================================
    VELOCITY SECTION  ★ NEW ★
-   The multiplier engine — most visually striking moment on the page
+   The multiplier engine ,  most visually striking moment on the page
    ======================================================================== */
 .velocity {
   padding: var(--section-y) 0;
@@ -1016,7 +1023,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
 }
 .velocity__pricing strong { color: var(--paper); font-weight: 500; }
 
-/* The multiplier visual — single source fans out into thirty pieces */
+/* The multiplier visual ,  single source fans out into thirty pieces */
 .multiplier {
   position: relative;
   aspect-ratio: 1;
@@ -1067,7 +1074,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
 @keyframes ringSpin {
   to { transform: rotate(360deg); }
 }
-/* Orbiting clip nodes — 30 of them, distributed in two rings */
+/* Orbiting clip nodes ,  30 of them, distributed in two rings */
 .multiplier__node {
   position: absolute;
   left: 50%; top: 50%;
@@ -1630,6 +1637,15 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
     transition-duration: 0.01ms !important;
   }
 }
+
+/* FAQ uses the homepage accordion rhythm without introducing a new treatment. */
+.studio-faq__list { max-width: 800px; margin: 2.5rem auto 0; display: grid; gap: 6px; }
+.studio-faq details { background: var(--deep-space-2); border: 1px solid var(--border-faint); border-radius: 12px; overflow: hidden; }
+.studio-faq summary { padding: 18px 24px; color: var(--paper); cursor: pointer; font-weight: 600; list-style: none; }
+.studio-faq summary::-webkit-details-marker { display: none; }
+.studio-faq summary::after { content: '+'; float: right; color: var(--pale-blue); font-size: 18px; }
+.studio-faq details[open] summary::after { content: '×'; }
+.studio-faq details p { padding: 0 24px 18px; color: var(--muted); font-size: 0.95rem; line-height: 1.6; }
 </style>
 </head>
 <body>
@@ -1651,7 +1667,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
       <a href="https://aloomii.com#offerings">Services</a>
       <a href="https://aloomii.com/blog/">Blog</a>
       <a href="https://palebluenexus.com">Podcast</a>
-      <a href="https://aloomii.com/table" class="nav__cta">Apply for The Table →</a>
+      <a href="https://aloomii.com/#contact" class="nav__cta">Start a Conversation →</a>
     </div>
   </div>
 </nav>
@@ -1666,10 +1682,11 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
         <span class="accent">like this</span> for founders.
       </h1>
       <p class="hero__sub">
-        End-to-end podcast production, multiplied across every platform that matters. Built by operators who've been doing this for nine years.
+        You tape the show. We do everything else: editing, clips, show notes, publishing and distribution across every platform that matters. Produced by the team behind nine years of shows.
       </p>
       <div class="hero__meta">
         <span>◐ Episode 01 · Pale Blue Nexus</span>
+        <!-- MANUAL UPDATE: Update the episode date when the featured episode changes. -->
         <span>◐ March 2026</span>
         <span>◐ Full Interview</span>
       </div>
@@ -1681,7 +1698,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
 
     <a href="https://youtu.be/t3dDHRRZyHk" target="_blank" rel="noopener" style="text-decoration:none;display:block;position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--border-soft);background:linear-gradient(155deg, rgba(126,184,218,0.08), rgba(201,162,39,0.04));backdrop-filter:blur(8px);transition:transform 0.35s var(--ease-out-cubic),box-shadow 0.35s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 60px -15px rgba(0,0,0,0.5)';" onmouseout="this.style.transform='';this.style.boxShadow='';">
       <div style="position:relative;">
-        <img src="/images/studio/jim-rogers-video.png" alt="Jim Rogers on Pale Blue Nexus — Episode 01" style="width:100%;height:auto;display:block;aspect-ratio:16/9;object-fit:cover;">
+        <img src="/images/studio/jim-rogers-video.png" alt="Jim Rogers on Pale Blue Nexus ,  Episode 01" style="width:100%;height:auto;display:block;aspect-ratio:16/9;object-fit:cover;">
         <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(10,14,26,0.35);transition:background 0.3s ease;">
           <div style="width:72px;height:72px;border-radius:50%;background:rgba(244,241,234,0.95);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(0,0,0,0.4);transition:transform 0.3s ease,background 0.3s ease;">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left:3px;"><path d="M8 5v14l11-7L8 5z" fill="#0A0E1A"/></svg>
@@ -1714,6 +1731,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
     <div class="story__grid">
       <div class="story__title reveal">
         <div class="eyebrow">The Jim Rogers Story</div>
+        <!-- MANUAL UPDATE: Update the Jim Rogers story dates if the narrative changes. -->
         <h2>A cold email in <span class="italic-display">2009</span>. A podcast guest in <span class="italic-display">2026</span>.</h2>
       </div>
       <div class="story__body reveal">
@@ -1728,6 +1746,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
         </p>
         <p>
           No agency would have kept that thread alive for 17 years. Most wouldn't last 17 weeks. This is the difference between transactional media and <strong>relationship-driven media</strong>. We build the second kind.
+          That's why we build shows. It isn't what we sell you. We sell the production that makes a show worth someone's seventeen years.
         </p>
         <div class="story__quote">
           <p>Please figure out a way to find out what you love the most. Many people never find it. Or even if they find it, they're afraid to do it. Pursue it, pursue it, pursue it.</p>
@@ -1747,11 +1766,12 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
     </div>
 
     <div class="timeline">
-      <!-- 2017–2018 -->
+      <!-- MANUAL UPDATE: Update timeline dates and stats when the show history changes. -->
+      <!-- 2017 to 2018 -->
       <div class="timeline__item">
         <div class="timeline__dot"></div>
         <div class="timeline__date-col">
-          <div class="timeline__year">2017 — 2018</div>
+          <div class="timeline__year">2017 ,  2018</div>
         </div>
         <div class="timeline__content">
           <div class="timeline__brand">
@@ -1764,11 +1784,11 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
         </div>
       </div>
 
-      <!-- 2020–2023 -->
+      <!-- 2020 to 2023 -->
       <div class="timeline__item timeline__item--right">
         <div class="timeline__dot"></div>
         <div class="timeline__date-col">
-          <div class="timeline__year">2020 — 2023</div>
+          <div class="timeline__year">2020 ,  2023</div>
         </div>
         <div class="timeline__content">
           <div class="timeline__brand">
@@ -1804,7 +1824,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
       <div class="timeline__item timeline__item--right">
         <div class="timeline__dot"></div>
         <div class="timeline__date-col">
-          <div class="timeline__year">2026 — Present</div>
+          <div class="timeline__year">2026 ,  Present</div>
         </div>
         <div class="timeline__content">
           <div class="timeline__brand">
@@ -1820,10 +1840,11 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
   </div>
 </section>
 
+<!-- MANUAL UPDATE: Update dated photo captions when the production archive changes. -->
 <!-- ============================ PHOTO MARQUEE ============================ -->
 <section class="photo-marquee" aria-label="Production photos across nine years">
   <div class="photo-marquee__header">
-    <div class="photo-marquee__kicker">9 years in the room</div>
+    <div class="photo-marquee__kicker">nine years in the room</div>
     <h3 class="photo-marquee__title">From <span class="em">Block.one</span> to the <span class="em">SLAMvision</span> stage.</h3>
   </div>
   <div class="photo-marquee__viewport">
@@ -1861,7 +1882,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
 
       <figure class="photo-card">
         <div class="photo-card__media">
-          <img src="/images/podcasts/nft-hype-logo.png" alt="NFT Hype — first NFT podcast ever" />
+          <img src="/images/podcasts/nft-hype-logo.png" alt="NFT Hype ,  first NFT podcast ever" />
         </div>
         <figcaption class="photo-card__caption">
           First NFT Podcast Ever
@@ -1881,7 +1902,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
 
       <figure class="photo-card">
         <div class="photo-card__media">
-          <img src="/images/podcasts/cryptoslam-clubhouse.png" alt="CryptoSlam Clubhouse — Preparing for the Next NFT Bull Run" />
+          <img src="/images/podcasts/cryptoslam-clubhouse.png" alt="CryptoSlam Clubhouse ,  Preparing for the Next NFT Bull Run" />
         </div>
         <figcaption class="photo-card__caption">
           NFT Bull Run panel
@@ -1983,7 +2004,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
       </div>
       <div class="stat reveal">
         <div class="stat__value" data-count="9">0</div>
-        <div class="stat__label">Years producing shows</div>
+        <div class="stat__label">nine years producing shows</div>
       </div>
       <div class="stat reveal">
         <div class="stat__value" data-count="3000" data-suffix="">0</div>
@@ -2008,32 +2029,27 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
       <div class="service-card reveal">
         <div class="service-card__icon">🎙</div>
         <h3>End-to-end production</h3>
-        <p>Concept, format design, recording, editing, publishing, distribution. You show up and talk. We handle everything else. From zero to published in under two weeks.</p>
+        <p>You record. We handle the rest: full edit and mix, show notes and titles, episode thumbnail, and publishing. From raw file to live episode, typically inside 48 hours.</p>
       </div>
       <div class="service-card reveal">
-        <div class="service-card__icon">🤝</div>
-        <h3>Guest booking that opens doors</h3>
-        <p>Not cold DMs to people with 500 followers. Operators, investors, and founders who move markets. Every guest becomes a relationship asset, not a content credit.</p>
+        <div class="service-card__icon">✂️</div>
+        <h3>Clips that travel</h3>
+        <p>Vertical clips cut from every episode. Hooks, captions, platform formatting for TikTok, Shorts, Reels, X and LinkedIn. One conversation becomes a month of short-form.</p>
       </div>
       <div class="service-card reveal">
         <div class="service-card__icon">📡</div>
-        <h3>Live panels and audio events</h3>
-        <p>We ran live Clubhouse rooms during the NFT boom for a Mark Cuban-backed platform. We know how to fill a room, keep it sharp, and make you the convener, not the attendee.</p>
+        <h3>Publishing and distribution</h3>
+        <p>We publish to YouTube, Spotify, Apple and your host, and schedule your short-form. You invite us in through your own tools. We never need your passwords.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-card__icon">⚡</div>
+        <h3>Velocity</h3>
+        <p>The AI multiplication layer running inside every Studio engagement. Clip discovery, hook generation, multi-platform distribution. Built in-house. Full breakdown below.</p>
       </div>
       <div class="service-card reveal">
         <div class="service-card__icon">🎨</div>
         <h3>Brand voice and creative direction</h3>
-        <p>Your show sounds like you, not a template. AI-enhanced visuals, soundscapes, and editing. Jenny's creative direction has defined brand identities across crypto, NFTs, and founder content for 8+ years.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-card__icon">📈</div>
-        <h3>Relationship compounding</h3>
-        <p>Every guest is tracked in your relationship intelligence system. Post-episode follow-ups. Reconnection triggers. The person from Episode 3 introduces you to your biggest client by Episode 20.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-card__icon">⚡</div>
-        <h3>Velocity™ engine</h3>
-        <p>The AI multiplication layer running inside every Studio engagement. Clip discovery, hook generation, multi-platform distribution. The full breakdown is below.</p>
+        <p>Your show looks and sounds like you, not a template. Artwork, thumbnails, soundscapes and edit style set once, then held consistent every episode. Jenny's last set of eyes before anything ships.</p>
       </div>
     </div>
   </div>
@@ -2044,7 +2060,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
   <div class="container">
     <div class="velocity__grid">
       <div class="reveal">
-        <div class="eyebrow">★ Velocity™ · The engine inside the studio</div>
+        <div class="eyebrow">★ Velocity · The engine inside the studio</div>
         <h2 class="velocity__title">
           One conversation.<br>
           Thirty pieces of content.<br>
@@ -2057,7 +2073,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
           <li><strong>Clip discovery.</strong> Agents watch every recording, identify high-engagement moments using audio energy, chat signal, and topic shifts.</li>
           <li><strong>Hook engineering.</strong> Platform-specific opening lines, captions, and titles tuned to TikTok, Shorts, Reels, X, and LinkedIn.</li>
           <li><strong>Distribution + scheduling.</strong> Posts sequenced over weeks, scheduled at optimal times per platform, killed if they underperform.</li>
-          <li><strong>Performance loop.</strong> Underperformers get killed. Hits get amplified. Weekly intel brief on what's working and why.</li>
+          <li><strong>Format and cadence.</strong> Posts sequenced over weeks and scheduled per platform, so the archive keeps working long after the recording.</li>
           <li><strong>Founder voice locked in.</strong> Jenny's last set of eyes. Nothing ships that doesn't sound like you.</li>
         </ul>
         <div class="velocity__pricing">
@@ -2076,7 +2092,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
           <div class="multiplier__center" style="font-size:4rem;">
             🎙️
           </div>
-          <!-- 30 nodes — JS distributes them across two rings -->
+          <!-- 30 nodes ,  JS distributes them across two rings -->
           <div class="multiplier__node"></div><div class="multiplier__node"></div><div class="multiplier__node"></div>
           <div class="multiplier__node"></div><div class="multiplier__node"></div><div class="multiplier__node"></div>
           <div class="multiplier__node"></div><div class="multiplier__node"></div><div class="multiplier__node"></div>
@@ -2123,98 +2139,45 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
     <div class="pricing__header reveal">
       <div class="eyebrow" style="justify-content: center;">Engagement options</div>
       <h2>Three ways to <span class="italic-display">start.</span></h2>
-      <p>Every tier ships on Velocity™. Pick where you are now — graduate as your show gets bigger.</p>
+      <p>Every tier runs on Velocity. Start where you are, move up as your show grows.</p>
     </div>
-
     <div class="pricing__grid">
-      <!-- Tier A — Clips -->
       <div class="tier reveal">
-        <div class="tier__eyebrow">Tier A</div>
-        <h3 class="tier__name">Clips</h3>
-        <p class="tier__audience">For founders who want short-form distribution without building a full show yet.</p>
-        <div class="tier__price">
-          <span class="tier__price-amount">$699</span>
-          <span class="tier__price-period">/ month</span>
-        </div>
+        <div class="tier__eyebrow">Tier A · Clips</div><h3 class="tier__name">Clips</h3>
+        <p class="tier__audience">For founders and creators with recordings already sitting there.</p>
+        <div class="tier__price"><span class="tier__price-amount">$749</span><span class="tier__price-period">/ month</span></div>
         <span class="tier__commitment">Month-to-month</span>
         <ul class="tier__features">
-          <li>One 45-min directed session per month, led by Yohann</li>
-          <li>Pre-session research and strategic question development</li>
-          <li>10–12 produced short-form videos per month, powered by Velocity</li>
-          <li>Editing, captions, thumbnails, platform-formatted</li>
-          <li>You post on your own channels, on your own schedule</li>
+          <li>12 vertical clips per month from your existing recordings</li><li>Hook writing, captions, and platform formatting</li><li>Cut for TikTok, Shorts, Reels, X and LinkedIn</li><li>Delivered ready to post, or scheduled through your own tools</li><li>No new recording required</li>
         </ul>
         <a href="https://aloomii.com/#contact" class="tier__cta">Start with Clips →</a>
       </div>
-
-      <!-- Tier B — Show -->
       <div class="tier reveal">
-        <div class="tier__eyebrow">Tier B</div>
-        <h3 class="tier__name">Show</h3>
-        <p class="tier__audience">For founders building a full show as a strategic asset.</p>
-        <div class="tier__price">
-          <span class="tier__price-amount">$1,299</span>
-          <span class="tier__price-period">/ month</span>
-        </div>
-        <span class="tier__commitment">6-month commitment</span>
+        <span class="tier__badge">MOST POPULAR</span><div class="tier__eyebrow">Tier B · Production</div><h3 class="tier__name">Production</h3>
+        <p class="tier__audience">For founders running a show who want it handled end to end.</p>
+        <div class="tier__price"><span class="tier__price-amount">$1,100</span><span class="tier__price-period">/ month</span></div>
+        <span class="tier__commitment">Or $349 per single episode</span>
         <ul class="tier__features">
-          <li>Full show vision, branding, and platform launch</li>
-          <li>2–4 produced episodes per month with 4 strategic guest bookings</li>
-          <li>25–30 derivative content pieces per episode through Velocity</li>
-          <li>Show notes, blog posts, clips, multi-platform publishing within 48–72 hours</li>
-          <li>Monthly performance report · 2 episodes + 4 bookings guaranteed</li>
+          <li>4 episodes per month, fully produced</li><li>Full edit and mix</li><li>Show notes, titles and chapter markers</li><li>Episode thumbnail</li><li>12 vertical clips per month</li><li>Published to YouTube, Spotify, Apple and your host</li><li>48-hour turnaround per episode</li>
         </ul>
-        <a href="https://aloomii.com/#contact" class="tier__cta">Build the Show →</a>
+        <a href="https://aloomii.com/#contact" class="tier__cta">Produce My Show →</a>
       </div>
-
-      <!-- Tier C — Velocity Pro (NEW) -->
       <div class="tier tier--featured reveal">
-        <span class="tier__badge">New</span>
-        <div class="tier__eyebrow">Tier C · Velocity Pro</div>
-        <h3 class="tier__name">Multiply</h3>
-        <p class="tier__audience">For founders who already have source content and want extreme distribution.</p>
-        <div class="tier__price">
-          <span class="tier__price-amount">$1,899</span>
-          <span class="tier__price-period">/ month</span>
-        </div>
+        <div class="tier__eyebrow">Tier C · Multiply</div><h3 class="tier__name">Multiply</h3>
+        <p class="tier__audience">For founders with an archive and an appetite for volume.</p>
+        <div class="tier__price"><span class="tier__price-amount">$1,799</span><span class="tier__price-period">/ month</span></div>
         <span class="tier__commitment">Bring your own content</span>
         <ul class="tier__features">
-          <li>Up to 60 produced short-form videos per month from your existing recordings</li>
-          <li>5-platform distribution: TikTok, Shorts, Reels, X, LinkedIn</li>
-          <li>AI-driven clip discovery from podcasts, talks, webinars, panels, interviews</li>
-          <li>Platform-specific hook engineering and metadata optimization</li>
-          <li>Weekly intel brief: what's working, what's killed, what's next</li>
+          <li>Up to 40 short-form videos per month from existing recordings</li><li>Podcasts, talks, webinars, panels, interviews, anything already recorded</li><li>AI-driven clip discovery through Velocity</li><li>Platform-specific hooks, titles and metadata</li><li>Five-platform distribution: TikTok, Shorts, Reels, X, LinkedIn</li>
         </ul>
         <a href="https://aloomii.com/#contact" class="tier__cta">Multiply What You Have →</a>
       </div>
     </div>
-
-    <p class="pricing__footnote reveal">
-      Already running a Studio engagement and ready for full GTM? <a href="https://aloomii.com/table">Graduate to The Table →</a>
-    </p>
+    <p class="pricing__footnote reveal">Starting a show from zero? Show setup, which covers format, artwork, channel and directory setup and the first episode, is a one-time $1,500 on top of any tier.</p>
   </div>
 </section>
 
-<!-- ============================ TBPN / SAM ALTMAN PULL QUOTE ============================ -->
-<section class="feature-quote">
-  <div class="container">
-    <div class="feature-quote__inner">
-      <div class="eyebrow" style="justify-content: center;">Why this matters</div>
-      <blockquote class="reveal">
-        TBPN is my favorite tech show. We want them to keep that going and for them to do what they do so well.
-      </blockquote>
-      <cite>Sam Altman · on acquiring TBPN for OpenAI, April 2026</cite>
-      <div class="feature-quote__body">
-        <p class="reveal">
-          OpenAI didn't buy TBPN for the audience size — 58K subscribers. They bought it for the <strong>relationships every episode created</strong>. Zuckerberg, Nadella, Altman. They came on the show because the hosts had built genuine connections over years.
-        </p>
-        <p class="reveal">
-          TBPN started from a text message. 18 months later: $30M in annual revenue and an acquisition by the most valuable AI company in the world. <strong>Media isn't content. Media is infrastructure.</strong> The show is the excuse to have the conversation. The conversation builds the relationship. The relationship is the asset.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- ============================ FOUNDERS ============================ -->
 <section class="founders">
@@ -2227,10 +2190,9 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
       <article class="founder-card reveal">
         <img class="founder-card__avatar" src="https://aloomii.com/images/jenny-calpu.jpg" alt="Jenny Calpu" />
         <div>
-          <div class="founder-card__role">The Studio Producer</div>
+          <div class="founder-card__role">Co-Founder · Producer &amp; Head of Studio</div>
           <h3>Jenny Calpu</h3>
-          <div class="founder-card__title">Creative Director · Producer · Taste</div>
-          <p>Jenny is the reason Aloomii's work feels like a person, not a platform. Started in personal banking, years of building trust face to face. Self-taught design, video editing, web development, and AI creative tools from the ground up. Every visual, every soundscape, every cut goes through her. Built aloomii.com, vibrnt.ai, and palebluenexus.com from scratch. Yohann books the guests. Jenny makes it look and sound like it belongs on a real network. She is the last set of eyes before anything ships.</p>
+          <p>Jenny runs Studio. She produced the live broadcast of the EOS blockchain launch, 200 guests, the GO/NO-GO call, a global audience, and has produced five shows end to end across nine years, including Pale Blue Nexus. She built Velocity, the pipeline Studio runs on, and built aloomii.com, vibrnt.ai and palebluenexus.com from scratch. Every cut, every thumbnail, every episode ships through her.</p>
           <a href="https://www.linkedin.com/in/jenny-calpu/" class="founder-card__link">Connect on LinkedIn →</a>
         </div>
       </article>
@@ -2240,11 +2202,26 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
         <div>
           <div class="founder-card__role">Host & Strategist</div>
           <h3>Yohann Calpu</h3>
-          <div class="founder-card__title">Host · Strategy · Guest Relations</div>
+          <div class="founder-card__title">Host · Strategy · The Table</div>
           <p>Books the guests, runs the strategy, and hosts. JP Morgan, IBM, Ontario Government, then CryptoSlam, where he closed $2M in deals and helped raise a $9M seed round backed by Mark Cuban. Yohann's edge isn't a playbook. It's the ability to sit in a conversation and feel when something is about to shift. He cold-emailed Jim Rogers in 2009. The relationship took 17 years. That's the kind of patience no agency has.</p>
           <a href="https://www.linkedin.com/in/yohanncalpu/" class="founder-card__link">Connect on LinkedIn →</a>
         </div>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="studio-faq section" id="faq">
+  <div class="container">
+    <div class="services-header"><div class="eyebrow">Questions</div><h2>Frequently asked.</h2></div>
+    <div class="studio-faq__list">
+      <details><summary>How does distribution work? Do you need my passwords?</summary><p>No. You add us as a delegate inside your own accounts. YouTube, your podcast host, and your scheduler all support this natively. You keep every password and can remove access any time.</p></details>
+      <details><summary>What if I'd rather post everything myself?</summary><p>Fine. We deliver finished files, correctly formatted and named for each platform, and you post on your own schedule.</p></details>
+      <details><summary>How fast is turnaround?</summary><p>48 hours per episode as standard, from the moment we have the raw files.</p></details>
+      <details><summary>What do I need to record?</summary><p>A decent mic and a stable connection. We'll set you up on Riverside and give you a short recording checklist. You don't need a studio.</p></details>
+      <details><summary>Do you book guests?</summary><p>No. Studio is production only. You record, we handle everything after.</p></details>
+      <details><summary>Can I cancel?</summary><p>All three tiers are month-to-month. No lock-in.</p></details>
     </div>
   </div>
 </section>
@@ -2263,7 +2240,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
       Start a Conversation <span class="arrow">→</span>
     </a>
     <div class="final-cta__meta reveal">
-      Studio engagements start at $699/mo · Ready for full GTM? <a href="https://aloomii.com/table" style="color: var(--warm-gold-soft); border-bottom: 1px solid rgba(201,162,39,0.3);">Graduate to The Table →</a>
+      Studio engagements start at $749/mo
     </div>
   </div>
 </section>
@@ -2281,7 +2258,6 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
       <div class="footer__col">
         <h5>Services</h5>
         <ul>
-          <li><a href="https://aloomii.com/table">The Table</a></li>
           <li><a href="https://aloomii.com/studio">The Studio</a></li>
           <li><a href="https://aloomii.com/#offerings">Relationship Intelligence</a></li>
         </ul>
@@ -2307,6 +2283,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
       Aloomii is named in memory of our two cats, Aloo and Mittens. The company is slightly more productive than they were.
     </div>
     <div class="footer__bottom">
+      <!-- MANUAL UPDATE: Update the copyright year annually. -->
       <span>© 2026 Aloomii. All rights reserved.</span>
       <span>Built with relationships in mind.</span>
     </div>
@@ -2322,7 +2299,7 @@ p { margin: 0 0 1rem 0; color: var(--muted); }
     bar.style.animationDuration = `${1.2 + (i % 3) * 0.2}s`;
   });
 
-  // 2. Distribute multiplier nodes — half on inner ring, half on outer
+  // 2. Distribute multiplier nodes ,  half on inner ring, half on outer
   const nodes = document.querySelectorAll('.multiplier__node');
   const total = nodes.length;
   nodes.forEach((node, i) => {
