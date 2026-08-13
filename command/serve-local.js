@@ -318,7 +318,14 @@ const server = http.createServer(async (req, res) => {
   const contentType = MIME[ext] || 'application/octet-stream';
 
   try {
-    const data = fs.readFileSync(filePath);
+    let data = fs.readFileSync(filePath);
+
+    if (url.pathname === '/app.js') {
+      data = Buffer.concat([
+        Buffer.from(`window.__COMMAND_AUTH_CODE__ = ${JSON.stringify(config.authCode)};\n`),
+        data,
+      ]);
+    }
 
     // Compress text-based responses
     if (['.html', '.css', '.js', '.json'].includes(ext)) {

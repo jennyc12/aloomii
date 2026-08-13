@@ -1,8 +1,13 @@
+const authCode = process.env.AUTH_CODE;
+if (!authCode) {
+  throw new Error('AUTH_CODE must be set before starting the Command Center');
+}
+
 module.exports = {
   port: parseInt(process.env.PORT || '3200'),
   dbUrl: process.env.DATABASE_URL || 'postgresql://superhana@localhost:5432/aloomii',
   allowedOrigin: process.env.ALLOWED_ORIGIN || '*',
-  authCode: process.env.AUTH_CODE || 'aloomii888',
+  authCode,
   cacheTtl: parseInt(process.env.CACHE_TTL || '30000'),
 
   // Cloudflare Access (Phase C — set these for production)
