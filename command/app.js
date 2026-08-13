@@ -58,9 +58,14 @@ function attemptLogin() {
     const messageEl = document.getElementById('gate-message');
     const gate = document.getElementById('gate-overlay');
     
-    // Robust password comparison — explicit string, no char code arrays
+    // The local server injects the environment-backed code at startup.
     const entered = input.value.trim();
-    const code = 'aloomii888';
+    const code = window.__COMMAND_AUTH_CODE__;
+    if (!code) {
+        messageEl.textContent = 'Authentication is not configured';
+        messageEl.style.color = '#f59e0b';
+        return;
+    }
     const matches = entered.toLowerCase() === code;
     
     console.log('[auth] attemptLogin called, entered length:', entered.length, 'matches:', matches);

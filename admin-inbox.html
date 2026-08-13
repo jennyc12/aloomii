@@ -361,12 +361,10 @@
     </div>
 
     <script>
-        // Admin password — different from Aloomii OS password
-        const _ak = [115,117,112,101,114,109,121,115,116,121]; // "supermysty"
-        function _d(a) { return a.map(c => String.fromCharCode(c)).join(''); }
+        const authStorageKey = 'aloomii_admin_token';
 
         // Check session
-        if (sessionStorage.getItem('aloomii_admin') === 'true') {
+        if (sessionStorage.getItem(authStorageKey)) {
             document.getElementById('loginGate').classList.add('hidden');
             document.getElementById('adminPanel').classList.add('visible');
             loadInbox();
@@ -379,16 +377,13 @@
         function adminLogin() {
             const input = document.getElementById('adminPassword');
             const pwd = input.value.trim();
-            if (pwd === _d(_ak)) {
-                sessionStorage.setItem('aloomii_admin', 'true');
-                document.getElementById('loginGate').classList.add('hidden');
-                document.getElementById('adminPanel').classList.add('visible');
-                loadInbox();
-            } else {
+            if (!pwd) {
+                document.getElementById('loginError').textContent = 'Enter the admin access token.';
                 document.getElementById('loginError').classList.add('visible');
-                input.value = '';
-                input.focus();
+                return;
             }
+            sessionStorage.setItem(authStorageKey, pwd);
+            loadInbox(true);
         }
 
         // Inbox data
@@ -396,22 +391,39 @@
         let currentFilter = 'all';
 
         async function loadInbox() {
-            const authKey = [97,108,111,111,109,105,105,56,56,56]; // "aloomii888" for API
+            const authKey = sessionStorage.getItem(authStorageKey);
             try {
-                const res = await fetch('/api/view-requests?auth=' + _d(authKey));
+                const res = await fetch('/api/view-requests', {
+                    headers: { 'Authorization': 'Bearer ' + authKey }
+                });
                 const json = await res.json();
                 if (json.success) {
+                    document.getElementById('loginGate').classList.add('hidden');
+                    document.getElementById('adminPanel').classList.add('visible');
                     allItems = json.requests || [];
                     updateStats();
                     renderTable();
+                } else if (res.status === 503) {
+                    showLoadError('Admin inbox authentication is not configured. Ask the site administrator to set it up.');
+                    sessionStorage.removeItem(authStorageKey);
+                } else if (res.status === 401) {
+                    showLoadError('That admin access token was not accepted.');
+                    sessionStorage.removeItem(authStorageKey);
+                    document.getElementById('loginGate').classList.remove('hidden');
+                    document.getElementById('adminPanel').classList.remove('visible');
                 } else {
-                    document.getElementById('tableContainer').innerHTML =
-                        '<div class="empty-state">Could not load requests.</div>';
+                    showLoadError('Could not load requests.');
                 }
             } catch (e) {
-                document.getElementById('tableContainer').innerHTML =
-                    '<div class="empty-state">Error connecting to server.</div>';
+                showLoadError('Error connecting to server.');
             }
+        }
+
+        function showLoadError(message) {
+            document.getElementById('loginError').textContent = message;
+            document.getElementById('loginError').classList.add('visible');
+            document.getElementById('tableContainer').innerHTML =
+                '<div class="empty-state">' + message + '</div>';
         }
 
         function updateStats() {

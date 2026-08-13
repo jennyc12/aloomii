@@ -1,15 +1,34 @@
 export async function onRequestGet(context) {
   const corsHeaders = {
-    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Origin": "https://aloomii.com",
+    "Access-Control-Allow-Headers": "Authorization",
+    "Vary": "Origin",
     "Content-Type": "application/json",
   };
 
-  // Simple auth check via query param
-  const url = new URL(context.request.url);
-  const auth = url.searchParams.get("auth");
+  const expectedToken = context.env.ADMIN_INBOX_AUTH_TOKEN;
+  if (!expectedToken) {
+    return new Response(JSON.stringify({ error: "Admin inbox authentication is unconfigured" }), {
+      status: 503,
+      headers: corsHeaders,
+    });
+  }
 
-  // Same password as the dashboard gate
-  if (auth !== "aloomii888") {
+  const authHeader = context.request.headers.get("Authorization") || "";
+  const suppliedToken = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : "";
+  const encoder = new TextEncoder();
+  const [expectedDigest, suppliedDigest] = await Promise.all([
+    crypto.subtle.digest("SHA-256", encoder.encode(expectedToken)),
+    crypto.subtle.digest("SHA-256", encoder.encode(suppliedToken)),
+  ]);
+  const expectedBytes = new Uint8Array(expectedDigest);
+  const suppliedBytes = new Uint8Array(suppliedDigest);
+  let mismatch = 0;
+  for (let i = 0; i < expectedBytes.length; i++) {
+    mismatch |= expectedBytes[i] ^ suppliedBytes[i];
+  }
+
+  if (mismatch !== 0) {
     return new Response(JSON.stringify({ error: "Unauthorized" }), {
       status: 401,
       headers: corsHeaders,
