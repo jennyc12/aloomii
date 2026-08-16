@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#140d0e;
+    --panel:#1e1517;
+    --text:#f6f2f2;
+    --muted:#c3b4b6;
+    --accent:#e23b34;
+    --accent2:#ff6f57;
+    --line:#3a2a2c;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{background:#000}
+  .flyer{
+    width:1080px;height:1350px;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    display:flex;flex-direction:column;
+    position:relative;overflow:hidden;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;height:520px;flex:none;
+    background:
+      radial-gradient(1100px 640px at 62% 34%, #7a1f1c 0%, #4a1315 44%, #230e0f 82%);
+    overflow:hidden;
+  }
+  .hero:before{
+    content:"";position:absolute;right:-120px;top:-90px;width:520px;height:520px;
+    border:2px solid rgba(255,111,87,.16);border-radius:50%;
+  }
+  .hero:after{
+    content:"";position:absolute;right:-40px;bottom:-140px;width:360px;height:360px;
+    border:2px solid rgba(255,111,87,.12);border-radius:50%;
+  }
+  .htop{position:absolute;top:44px;left:64px;right:64px;display:flex;justify-content:space-between;align-items:center;z-index:3}
+  .brand{font-family:'Oswald';font-weight:700;font-size:30px;letter-spacing:.14em;text-transform:uppercase}
+  .brand span{color:var(--accent2)}
+  .avail{font-family:'Oswald';font-weight:600;font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:#f0d9d7;opacity:.85}
+  .hwrap{position:absolute;left:64px;right:64px;bottom:56px;z-index:3}
+  .hwrap h1{font-family:'Oswald';font-weight:700;text-transform:uppercase;letter-spacing:.01em;
+    font-size:82px;line-height:.9;text-shadow:0 3px 24px rgba(0,0,0,.4)}
+  .hwrap .script{font-family:'Caveat';font-weight:700;font-size:70px;color:var(--accent2);
+    display:block;text-transform:none;letter-spacing:0;line-height:.9;margin-top:8px}
+  .hwrap p{color:#f3e4e2;font-size:22px;line-height:1.45;margin-top:24px;max-width:600px}
+
+  /* ---------- SERVICES ---------- */
+  .svcs{flex:1;padding:44px 64px 0;display:flex;flex-direction:column;gap:20px}
+  .svc{display:flex;align-items:baseline;gap:22px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+  .svc:last-child{border-bottom:none}
+  .svc .no{font-family:'Oswald';font-weight:700;font-size:24px;color:var(--accent);min-width:44px}
+  .svc .mid{flex:1}
+  .svc h3{font-family:'Oswald';font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:30px}
+  .svc .d{color:var(--muted);font-size:18.5px;line-height:1.4;margin-top:5px}
+  .svc .pr{font-family:'Oswald';font-weight:600;font-size:22px;color:var(--accent2);white-space:nowrap;text-align:right;min-width:150px}
+  .svc .pr small{display:block;font-family:'Inter';font-weight:500;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:2px}
+
+  /* ---------- WORK STRIP ---------- */
+  .work{padding:8px 64px 0}
+  .work .lab{font-family:'Oswald';font-weight:600;text-transform:uppercase;letter-spacing:.16em;font-size:15px;color:var(--muted);margin-bottom:14px;display:flex;align-items:center;gap:14px}
+  .work .lab:after{content:"";flex:1;height:1px;background:var(--line)}
+  .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .shot{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel);aspect-ratio:16/10}
+  .shot img{width:100%;height:100%;object-fit:cover;object-position:top center}
+
+  /* ---------- CTA BAR ---------- */
+  .cta{margin-top:auto;background:linear-gradient(90deg,var(--accent) 0%,var(--accent2) 100%);
+    color:#20090a;padding:26px 64px;display:flex;justify-content:space-between;align-items:center}
+  .cta .l .k{font-family:'Oswald';font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:16px;opacity:.8}
+  .cta .l .site{font-family:'Oswald';font-weight:700;font-size:34px;line-height:1.05;margin-top:2px}
+  .cta .r{font-family:'Oswald';font-weight:700;text-transform:uppercase;font-size:22px;letter-spacing:.04em;text-align:right;line-height:1.15}
+  .cta .r small{display:block;font-family:'Inter';font-weight:600;font-size:14px;letter-spacing:.06em;opacity:.75;margin-top:4px}
+</style>
+</head>
+<body>
+  <div class="flyer">
+
+    <div class="hero">
+      <div class="htop">
+        <div class="brand">JENNY <span>C</span></div>
+        <div class="avail">Remote · Worldwide</div>
+      </div>
+      <div class="hwrap">
+        <h1>Websites,<br />Podcasts<br />&amp; Video.</h1>
+        <span class="script">Done for you.</span>
+        <p>I help creators and small businesses show up online. Built fast, done right, no agency price tag.</p>
+      </div>
+    </div>
+
+    <div class="svcs">
+      <div class="svc">
+        <div class="no">01</div>
+        <div class="mid">
+          <h3>Websites &amp; AI Automations</h3>
+          <div class="d">Clean, mobile-friendly sites, plus AI chat that answers FAQs and captures leads.</div>
+        </div>
+        <div class="pr">from $299<small>USD</small></div>
+      </div>
+      <div class="svc">
+        <div class="no">02</div>
+        <div class="mid">
+          <h3>Done-For-You Podcasts</h3>
+          <div class="d">You show up and talk. I record, edit, publish everywhere, plus social clips.</div>
+        </div>
+        <div class="pr">from $500<small>per mo</small></div>
+      </div>
+      <div class="svc">
+        <div class="no">03</div>
+        <div class="mid">
+          <h3>Video Editing &amp; Clips</h3>
+          <div class="d">Long videos and podcasts cut into short, social-ready clips with captions.</div>
+        </div>
+        <div class="pr">per project<small>&nbsp;</small></div>
+      </div>
+    </div>
+
+    <div class="work">
+      <div class="lab">Real work</div>
+      <div class="shots">
+        <div class="shot"><img src="assets/sites/demo-landscaping.png" alt="" /></div>
+        <div class="shot"><img src="assets/sites/vibrnt.png" alt="" /></div>
+        <div class="shot"><img src="assets/sites/demo-bakery.png" alt="" /></div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <div class="l">
+        <div class="k">See my work &amp; get a quote</div>
+        <div class="site">aloomii.com/jenny</div>
+      </div>
+      <div class="r">DM me<br />to get started<small>You own everything · No lock-in</small></div>
+    </div>
+
+  </div>
+</body>
+</html>

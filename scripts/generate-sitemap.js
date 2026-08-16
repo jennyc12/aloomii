@@ -14,16 +14,21 @@ const BLOG_DIR = path.join(SITE_ROOT, 'blog');
 const SITEMAP_PATH = path.join(SITE_ROOT, 'sitemap.xml');
 const BASE_URL = 'https://aloomii.com';
 const TODAY = new Date().toISOString().split('T')[0];
+const EXISTING_SITEMAP = fs.existsSync(SITEMAP_PATH)
+  ? fs.readFileSync(SITEMAP_PATH, 'utf8')
+  : '';
 
 // Static pages — maintain manually only when a new non-blog page is added
 const STATIC_PAGES = [
   { loc: '/',                    changefreq: 'weekly',  priority: '1.0' },
+  { loc: '/events',              changefreq: 'weekly',  priority: '0.8' },
   { loc: '/blog/',               changefreq: 'weekly',  priority: '0.9' },
-  { loc: '/sprint',              changefreq: 'monthly', priority: '0.8' },
+  { loc: '/jenny/',              changefreq: 'monthly', priority: '0.7' },
   { loc: '/aloomii-os.html',     changefreq: 'monthly', priority: '0.8' },
-  { loc: '/privacy.html',        changefreq: 'yearly',  priority: '0.3' },
+  { loc: '/legal/privacy/',      changefreq: 'yearly',  priority: '0.3' },
   { loc: '/terms.html',          changefreq: 'yearly',  priority: '0.3' },
   { loc: '/client-terms.html',   changefreq: 'yearly',  priority: '0.3' },
+  { loc: '/agent-adoption',      changefreq: 'monthly', priority: '0.8' },
 ];
 
 // Blog directories to skip (not real article slugs)
@@ -52,6 +57,21 @@ function urlEntry({ loc, changefreq, priority, lastmod }) {
   ].filter(Boolean).join('\n');
 }
 
+function existingLastmod(loc) {
+  const escaped = loc.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const match = EXISTING_SITEMAP.match(
+    new RegExp(`<loc>${BASE_URL}${escaped}</loc>[\\s\\S]*?<lastmod>([^<]+)</lastmod>`)
+  );
+  return match ? match[1] : TODAY;
+}
+
+function existingBlogDate() {
+  const match = EXISTING_SITEMAP.match(
+    /<!-- Blog Posts \(\d+ articles — auto-generated ([^ )]+)\) -->/
+  );
+  return match ? match[1] : TODAY;
+}
+
 function generate() {
   const slugs = getBlogSlugs();
   const lines = [
@@ -61,12 +81,12 @@ function generate() {
     '  <!-- Core Pages -->',
     ...STATIC_PAGES.map(p => urlEntry(p)),
     '',
-    `  <!-- Blog Posts (${slugs.length} articles — auto-generated ${TODAY}) -->`,
+    `  <!-- Blog Posts (${slugs.length} articles — auto-generated ${existingBlogDate()}) -->`,
     ...slugs.map(slug => urlEntry({
       loc: `/blog/${slug}/`,
       changefreq: 'monthly',
       priority: '0.7',
-      lastmod: TODAY,
+      lastmod: existingLastmod(`/blog/${slug}/`),
     })),
     '',
     '</urlset>',

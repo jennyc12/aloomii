@@ -2,6 +2,9 @@
 /privacy.html /legal/privacy/ 301
 /privacy /legal/privacy/ 301
 
+# Keep the Jenny portfolio's relative links rooted at its directory.
+/jenny /jenny/ 301
+
 # Redirect Clerk auth flows from apex to app subdomain.
 # Required because Clerk's proxy URL is on the apex (https://aloomii.com/__clerk),
 # so OAuth callbacks land on aloomii.com after sign-in. The portal lives on
