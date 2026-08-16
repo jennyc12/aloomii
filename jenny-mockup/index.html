@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/snippets/canonical-nav.css">
+  <link rel="stylesheet" href="/snippets/ghost-background.css">
   <style>
     :root {
       --bg: #0b0b14;
@@ -74,7 +75,11 @@
       font-family: Oswald, sans-serif;
       letter-spacing: .02em;
       text-transform: uppercase;
+      word-break: normal;
+      overflow-wrap: normal;
+      hyphens: none;
     }
+    .nowrap { white-space: nowrap; }
     h1 {
       max-width: 760px;
       margin: 0 0 24px;
@@ -302,15 +307,15 @@
         <div class="wrap hero-grid">
           <div>
             <div class="eyebrow">Remote · Available now</div>
-            <h1>Video editor, podcast producer<br><span>&amp; web designer.</span></h1>
+            <h1>Podcast producer, video editor<br><span>&amp; web designer.</span></h1>
             <p class="lead">Hi, I'm Jenny. I edit video and cut long content into short clips for social, and I work alongside AI through the whole process, generating footage, voice and b-roll and then editing it properly by hand. I also produce podcasts start to finish and design and build websites. Everything below is work I've actually done.</p>
             <div class="hero-cta">
               <a class="button" href="#work">See my work</a>
               <a class="button secondary" href="#contact">Get in touch</a>
             </div>
             <div class="trust">
-              <div><b>Video</b>editing, short-form &amp; AI production</div>
               <div><b>Podcast</b>production end to end</div>
+              <div><b>Video</b>editing, short-form &amp; AI production</div>
               <div><b>Web</b>design, code &amp; automation</div>
             </div>
           </div>
@@ -323,7 +328,7 @@
 
       <section class="block" id="about">
         <div class="wrap">
-          <div class="section-heading"><div class="eyebrow">Profile</div><h2>Creative direction, <span>hands-on.</span></h2></div>
+          <div class="section-heading"><div class="eyebrow">Profile</div><h2>Creative direction, <span class="nowrap">hands-on.</span></h2></div>
           <p class="profile-copy">Creative director and hands-on producer, nine years in content production. I do the creative work and build the AI tooling that produces it. Video and audio end to end, rough cut through sound design, colour and multi-platform delivery. ElevenLabs for voice, music and sound effects, plus MidJourney, Higgsfield, fal.ai and Suno, used in real client work rather than demos, with the pipelines chained together myself via API. Nearly five years leading brand and design for CryptoSlam, a Mark Cuban-backed platform, alongside a studio delivering brand and content for client companies. When there is no playbook I write one, which is how I ran the EOS blockchain launch broadcast and produced the first NFT podcast.</p>
         </div>
       </section>
