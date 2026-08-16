@@ -193,19 +193,6 @@
     .timeline-kind { color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
     .timeline-card p { margin: 16px 0; color: var(--body); font-size: 15px; }
     .timeline-stats { color: var(--accent-soft); font-size: 13px; font-weight: 600; }
-    .photo-section { padding: 30px 0 96px; }
-    .photo-strip {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 6px 40px 22px;
-    }
-    .photo-card { min-width: 0; overflow: hidden; }
-    .photo-card img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
-    .photo-card figcaption { padding: 13px 15px 15px; color: var(--body); font-size: 13px; }
-    .photo-card small { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; }
     .stats-section { padding: 58px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: rgba(255,255,255,.025); }
     .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
     .stat { padding: 20px; text-align: center; }
@@ -257,7 +244,7 @@
     .faq-item.active .faq-answer { max-height: 240px; padding: 0 24px 20px; }
     .faq-item.active .faq-arrow { transform: rotate(45deg); }
     blockquote { margin: 18px 0 12px; color: var(--text); font-size: clamp(25px, 3.5vw, 44px); line-height: 1.16; letter-spacing: -.8px; }
-    .argument-section { padding: 96px 0; }
+    .argument-section { padding: 72px 0 96px; }
     .closing { padding: 110px 0 120px; text-align: center; }
     .closing h2 { margin-bottom: 18px; font-size: clamp(35px, 5vw, 62px); line-height: 1.05; letter-spacing: -2px; }
     .closing p { max-width: 690px; margin: 0 auto 30px; color: var(--body); font-size: 18px; }
@@ -270,7 +257,6 @@
       .hero-proof { max-width: 680px; }
       .pricing-grid { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; }
       .tier-audience { min-height: 0; }
-      .photo-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
     @media (max-width: 768px) {
       .container { width: min(100% - 40px, var(--max)); }
@@ -283,7 +269,6 @@
       .timeline-year { margin-bottom: 12px; }
       .timeline-card { padding: 24px 20px; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-      .photo-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 6px 20px 22px; }
       .argument-grid { grid-template-columns: 1fr; }
       .evidence-copy { grid-template-columns: 1fr; gap: 16px; }
       .closing { padding: 80px 0 92px; }
@@ -293,7 +278,6 @@
       .footer-col a { overflow-wrap: anywhere; }
     }
     @media (max-width: 360px) {
-      .photo-strip { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
       .capability-grid { grid-template-columns: 1fr; }
@@ -420,7 +404,7 @@
             <article class="timeline-item">
               <div class="timeline-year">2017 to 2018</div>
               <div class="timeline-card glass">
-                <div class="timeline-brand"><img src="/images/podcasts/eos-go-logo.png" alt="EOS Go logo"></div>
+                <div class="timeline-brand"><img src="/images/podcasts/orange-cubicle-icon.png" alt="Orange Cubicle logo"></div>
                 <h3>EOS Go</h3><div class="timeline-kind">Podcast and live streams</div>
                 <p>Early crypto. Hosted and produced across Podbean and major directories. Broadcast the EOS blockchain launch live to thousands of viewers worldwide. Sat down with Dan Larimer at Block.one headquarters.</p>
                 <div class="timeline-stats">16K views on launch livestream, 3.6K subscribers</div>
@@ -438,7 +422,7 @@
             <article class="timeline-item">
               <div class="timeline-year">2024</div>
               <div class="timeline-card glass">
-                <div class="timeline-brand"><img src="/images/podcasts/orange-cubicle-icon.png" alt="Orange Cubicle logo"></div>
+                <div class="timeline-brand"><img src="/images/podcasts/eos-go-logo.png" alt="EOS Go logo"></div>
                 <h3>Orange Cubicle</h3><div class="timeline-kind">Pilot series</div>
                 <p>Early format experimentation. Testing what works before it matters. Format research that informed everything that came after.</p>
               </div>
@@ -462,22 +446,6 @@
           <div class="stat"><div class="stat-value" data-count="9">0</div><div class="stat-label">Years producing shows</div></div>
           <div class="stat"><div class="stat-value" data-count="3000">0</div><div class="stat-label">Hours listened on Pale Blue Nexus</div></div>
           <div class="stat"><div class="stat-value" data-count="75" data-suffix="%">0</div><div class="stat-label">Listeners who are not followers</div></div>
-        </div>
-      </section>
-
-      <section class="photo-section" aria-label="Production photos">
-        <div class="container section-heading">
-          <div class="eyebrow">Production photos</div>
-          <h2>From <span>Block.one</span> to the <span>SLAMvision</span> stage.</h2>
-        </div>
-        <div class="photo-strip">
-          <figure class="photo-card glass"><img src="/images/studio/blockone-hq.png" alt="At Block.one headquarters during the EOS Go era"><figcaption>Block.one headquarters<small>EOS Go, 2018</small></figcaption></figure>
-          <figure class="photo-card glass"><img src="/images/studio/eos-go-launch-vote.png" alt="EOS Go launch vote livestream"><figcaption>Launch vote livestream<small>EOS Go, 2018</small></figcaption></figure>
-          <figure class="photo-card glass"><img src="/images/studio/eos-go-streams.png" alt="EOS Go launch party stream series"><figcaption>Launch party stream series<small>EOS Go, 2018</small></figcaption></figure>
-          <figure class="photo-card glass"><img src="/images/studio/yat-siu-interview.png" alt="Yat Siu interview on NFT Hype"><figcaption>Yat Siu interview<small>NFT Hype, 2021</small></figcaption></figure>
-          <figure class="photo-card glass"><img src="/images/studio/orange-cubicle-panel.png" alt="Orange Cubicle SLAMvision panel"><figcaption>SLAMvision panel<small>Orange Cubicle, 2024</small></figcaption></figure>
-          <figure class="photo-card glass"><img src="/images/studio/eos-go-channel.png" alt="EOS Go channel artwork"><figcaption>Channel artwork<small>EOS Go, 2018</small></figcaption></figure>
-          <figure class="photo-card glass"><img src="/images/studio/jim-rogers-video.png" alt="Jim Rogers on Pale Blue Nexus"><figcaption>Jim Rogers production<small>Pale Blue Nexus, 2026</small></figcaption></figure>
         </div>
       </section>
 
