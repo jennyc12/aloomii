@@ -22,26 +22,36 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"From Doing the Work to Directing It: How the Best Person in Your Local Business Becomes 100x","author":{"@type":"Person","name":"Jenny Calpu"},"publisher":{"@type":"Organization","name":"Aloomii"},"datePublished":"2026-05-22","url":"https://aloomii.com/blog/doing-the-work-to-directing-it-100x-operator/"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://aloomii.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://aloomii.com/blog"},{"@type":"ListItem","position":3,"name":"From Doing the Work to Directing It","item":"https://aloomii.com/blog/doing-the-work-to-directing-it-100x-operator"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does the 100x company concept mean for a local business owner?","acceptedAnswer":{"@type":"Answer","text":"The old model of a great employee was someone who could do more than everyone else. The new model is different. The most valuable person is no longer the one who does the most work. It is the one who can direct AI systems to do the work, then apply judgment to make sure it was done right. For a local business in Niagara or Haldimand County, this means the owner goes from doing operational work to directing systems and focusing on customer relationships."}},{"@type":"Question","name":"What does the 100x shift look like for a family business in West Lincoln?","acceptedAnswer":{"@type":"Answer","text":"The owner who currently spends half their day on quoting, invoices, scheduling, and routine questions instead directs AI systems built around their specific business. They go from spending half their day on operational work to almost none. That reclaimed time goes where it always should have: in front of customers, on the relationships that bring the next contract."}},{"@type":"Question","name":"What is an agent manager in a small local business?","acceptedAnswer":{"@type":"Answer","text":"ClickUp's CEO described an agent manager as the person who owns and maintains the AI systems. In a small local business, that is a hat your best person wears, often the owner at first. The people who automate their own work with AI become the owners of the systems. They do not work themselves out of a role. They become the most indispensable person in the company."}},{"@type":"Question","name":"What is the wrong way to measure success with AI in a local business?","acceptedAnswer":{"@type":"Answer","text":"It is tempting to measure by activity: how many messages the system sent, how many things it automated. That is the wrong scoreboard. Volume is not the point. Customer outcomes are. The real scoreboard is: did we keep every client we should have kept, did the work get done right, did we grow without burning out the team, did the owner get their evenings back."}},{"@type":"Question","name":"Why do relationships become more valuable as AI handles more work?","acceptedAnswer":{"@type":"Answer","text":"ClickUp's CEO called direct customer interaction the least automatable role and the one that becomes most valuable as everything else gets automated. In Niagara and West Lincoln, that is how it has always worked. The contract goes to the person the customer trusts. As AI handles more routine work, the human relationship stops being one factor and becomes the whole difference."}}]}</script>
+  <link rel="stylesheet" href="/snippets/canonical-nav.css">
 </head>
 <body>
-<nav class="nav">
-  <a href="/" class="nav-logo"><img src="/images/logos/brand-logo.png" alt="Aloomii" width="120" height="36"></a>
+<!-- CANONICAL_NAV_START -->
+<nav>
+  <a href="/" class="nav-logo"><img src="/images/logos/brand-logo.png" alt="Aloomii"></a>
   <ul class="nav-links">
-    <li><a href="/">Home</a></li>
-    <li><a href="/#offerings">Services</a></li>
-    <li><a href="/#how">How It Works</a></li>
     <li><a href="/studio/">Studio</a></li>
-    <li><a href="/table" style="color:#009e96;font-weight:600;">The Table</a></li>
-    <li><a href="/blog" aria-current="page">Blog</a></li>
-    <li><a href="/#contact">Contact</a></li>
+    <li><a href="https://devkick.com" target="_blank" rel="noopener">DevKick</a></li>
+    <li><a href="/#builds">Builds</a></li>
+    <li><a href="/agent-adoption/">Agent Adoption</a></li>
+    <li><a href="/playbook/">Playbook</a></li>
+    <li><a href="/events">Events</a></li>
+    <li><a href="/#team">Team</a></li>
+    <li><a href="/#contact" class="nav-cta">Start a Conversation</a></li>
   </ul>
-  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <button id="hamburger" class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu"><span></span><span></span><span></span></button>
 </nav>
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-  <a href="/">Home</a><a href="/#offerings">Services</a>
-  <a href="/#how">How It Works</a>
-  <a href="/studio/">Studio</a><a href="/table">The Table</a><a href="/blog">Blog</a><a href="/#contact">Contact</a>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/studio/" onclick="closeMenu()">Studio</a>
+  <a href="https://devkick.com" onclick="closeMenu()">DevKick</a>
+  <a href="/#builds" onclick="closeMenu()">Builds</a>
+  <a href="/agent-adoption/" onclick="closeMenu()">Agent Adoption</a>
+  <a href="/playbook/" onclick="closeMenu()">Playbook</a>
+  <a href="/events" onclick="closeMenu()">Events</a>
+  <a href="/#team" onclick="closeMenu()">Team</a>
+  <a href="/#contact" onclick="closeMenu()">Start a Conversation</a>
 </div>
+<!-- CANONICAL_NAV_END -->
 <div class="page-wrapper">
 <article class="article-layout">
   <header class="article-header content-wrapper">
@@ -170,5 +180,6 @@
     }
   }
 </script>
+  <script src="/snippets/canonical-nav.js"></script>
 </body>
 </html>

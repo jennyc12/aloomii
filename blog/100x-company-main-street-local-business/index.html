@@ -22,26 +22,36 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The 100x Company Comes to Main Street: Why Local Businesses Should Steal ClickUp's Idea and Skip the Layoffs","author":{"@type":"Person","name":"Yohann Calpu"},"publisher":{"@type":"Organization","name":"Aloomii"},"datePublished":"2026-05-22","url":"https://aloomii.com/blog/100x-company-main-street-local-business/"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://aloomii.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://aloomii.com/blog"},{"@type":"ListItem","position":3,"name":"100x Company Main Street Local Business","item":"https://aloomii.com/blog/100x-company-main-street-local-business"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the 100x company concept from ClickUp?","acceptedAnswer":{"@type":"Answer","text":"On May 21, 2026, ClickUp CEO Zeb Evans announced he cut 22 percent of staff to create a 100x organization. The idea is that AI agents do the work that used to require large teams, and remaining employees direct those agents. ClickUp introduced salary bands reaching $1 million a year for employees who produce 100x impact by building or managing AI systems."}},{"@type":"Question","name":"How does the 100x company concept apply to local businesses?","acceptedAnswer":{"@type":"Answer","text":"For local businesses in the GTA, Hamilton, Burlington, and Oakville, the layoff part does not apply because you are not overstaffed. The core idea does: rebuild workflows around AI instead of bolting AI onto old processes. A small local team with real AI leverage can handle two or three times the volume without adding headcount."}},{"@type":"Question","name":"What are the three kinds of people in a 100x organization?","acceptedAnswer":{"@type":"Answer","text":"Evans divides the team into Builders (who create the systems), System Managers (who own and maintain AI agents day to day), and Front-liners (human customer-facing roles). He called direct customer interaction the least automatable role of all, meaning the human relationship becomes the high-value skill."}},{"@type":"Question","name":"Why are local businesses better positioned for this than ClickUp?","acceptedAnswer":{"@type":"Answer","text":"ClickUp had to cut 22 percent of staff because it was built for the old way. A local business like a 12-person manufacturer or 30-person professional services firm has no bloated middle. Every person is close to the work. The orchestrator already exists (you or your best operator). Giving a lean team AI leverage moves the whole team, not just the top."}},{"@type":"Question","name":"What is Aloomii's Agentic Micro Company concept?","acceptedAnswer":{"@type":"Answer","text":"Aloomii calls this structure an Agentic Micro Company. It is the same bet as the 100x org from two directions: a small team, massive leverage, agents doing operational work, and humans doing the relationship work. Aloomii runs process audits for local companies to map where team hours go and identify which workflows to rebuild first."}}]}</script>
+  <link rel="stylesheet" href="/snippets/canonical-nav.css">
 </head>
 <body>
-<nav class="nav">
-  <a href="/" class="nav-logo"><img src="/images/logos/brand-logo.png" alt="Aloomii" width="120" height="36"></a>
+<!-- CANONICAL_NAV_START -->
+<nav>
+  <a href="/" class="nav-logo"><img src="/images/logos/brand-logo.png" alt="Aloomii"></a>
   <ul class="nav-links">
-    <li><a href="/">Home</a></li>
-    <li><a href="/#offerings">Services</a></li>
-    <li><a href="/#how">How It Works</a></li>
     <li><a href="/studio/">Studio</a></li>
-    <li><a href="/table" style="color:#009e96;font-weight:600;">The Table</a></li>
-    <li><a href="/blog" aria-current="page">Blog</a></li>
-    <li><a href="/#contact">Contact</a></li>
+    <li><a href="https://devkick.com" target="_blank" rel="noopener">DevKick</a></li>
+    <li><a href="/#builds">Builds</a></li>
+    <li><a href="/agent-adoption/">Agent Adoption</a></li>
+    <li><a href="/playbook/">Playbook</a></li>
+    <li><a href="/events">Events</a></li>
+    <li><a href="/#team">Team</a></li>
+    <li><a href="/#contact" class="nav-cta">Start a Conversation</a></li>
   </ul>
-  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <button id="hamburger" class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu"><span></span><span></span><span></span></button>
 </nav>
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-  <a href="/">Home</a><a href="/#offerings">Services</a>
-  <a href="/#how">How It Works</a>
-  <a href="/studio/">Studio</a><a href="/table">The Table</a><a href="/blog">Blog</a><a href="/#contact">Contact</a>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/studio/" onclick="closeMenu()">Studio</a>
+  <a href="https://devkick.com" onclick="closeMenu()">DevKick</a>
+  <a href="/#builds" onclick="closeMenu()">Builds</a>
+  <a href="/agent-adoption/" onclick="closeMenu()">Agent Adoption</a>
+  <a href="/playbook/" onclick="closeMenu()">Playbook</a>
+  <a href="/events" onclick="closeMenu()">Events</a>
+  <a href="/#team" onclick="closeMenu()">Team</a>
+  <a href="/#contact" onclick="closeMenu()">Start a Conversation</a>
 </div>
+<!-- CANONICAL_NAV_END -->
 <div class="page-wrapper">
 <article class="article-layout">
   <header class="article-header content-wrapper">
@@ -169,5 +179,6 @@
     }
   }
 </script>
+  <script src="/snippets/canonical-nav.js"></script>
 </body>
 </html>

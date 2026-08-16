@@ -173,22 +173,38 @@
     ]
   }
   </script>
+  <link rel="stylesheet" href="/snippets/canonical-nav.css">
 </head>
 <body>
 
 <!-- Navigation -->
-<nav style="display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;max-width:1200px;margin:0 auto;">
-  <a href="/" style="font-weight:700;font-size:1.25rem;text-decoration:none;color:#111;">Aloomii</a>
-  <div style="display:flex;gap:1.5rem;align-items:center;">
-    <a href="/" style="text-decoration:none;color:#555;">Home</a>
-    <a href="/#offerings" style="text-decoration:none;color:#555;">Services</a>
-    <a href="/#how" style="text-decoration:none;color:#555;">How It Works</a>
-    <a href="/studio/" style="text-decoration:none;color:#555;">Studio</a>
-    <a href="/table" style="text-decoration:none;color:#009e96;font-weight:600;">The Table</a>
-    <a href="/blog" style="text-decoration:none;color:#555;">Blog</a>
-    <a href="/#contact" style="text-decoration:none;color:#555;">Contact</a>
-  </div>
+<!-- CANONICAL_NAV_START -->
+<nav>
+  <a href="/" class="nav-logo"><img src="/images/logos/brand-logo.png" alt="Aloomii"></a>
+  <ul class="nav-links">
+    <li><a href="/studio/">Studio</a></li>
+    <li><a href="https://devkick.com" target="_blank" rel="noopener">DevKick</a></li>
+    <li><a href="/#builds">Builds</a></li>
+    <li><a href="/agent-adoption/">Agent Adoption</a></li>
+    <li><a href="/playbook/">Playbook</a></li>
+    <li><a href="/events">Events</a></li>
+    <li><a href="/#team">Team</a></li>
+    <li><a href="/#contact" class="nav-cta">Start a Conversation</a></li>
+  </ul>
+  <button id="hamburger" class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu"><span></span><span></span><span></span></button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/studio/" onclick="closeMenu()">Studio</a>
+  <a href="https://devkick.com" onclick="closeMenu()">DevKick</a>
+  <a href="/#builds" onclick="closeMenu()">Builds</a>
+  <a href="/agent-adoption/" onclick="closeMenu()">Agent Adoption</a>
+  <a href="/playbook/" onclick="closeMenu()">Playbook</a>
+  <a href="/events" onclick="closeMenu()">Events</a>
+  <a href="/#team" onclick="closeMenu()">Team</a>
+  <a href="/#contact" onclick="closeMenu()">Start a Conversation</a>
+</div>
+<!-- CANONICAL_NAV_END -->
 
 <div class="article-layout">
 
@@ -221,7 +237,7 @@
         <li><a href="#four-options" style="color:#555;text-decoration:none;">The four options founders have</a></li>
         <li><a href="#when-it-makes-sense" style="color:#555;text-decoration:none;">When it makes sense</a></li>
         <li><a href="#accountable-to-pipeline" style="color:#555;text-decoration:none;">What "accountable to pipeline" means</a></li>
-        <li><a href="#how-the-sprint-works" style="color:#555;text-decoration:none;">How The Table works</a></li>
+        <li><a href="#how-the-table-works" style="color:#555;text-decoration:none;">How The Table works</a></li>
         <li><a href="#faq" style="color:#555;text-decoration:none;">FAQ</a></li>
       </ul>
     </aside>
@@ -409,5 +425,6 @@
   &copy; 2026 Aloomii. All rights reserved.
 </footer>
 
+  <script src="/snippets/canonical-nav.js"></script>
 </body>
 </html>

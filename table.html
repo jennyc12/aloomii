@@ -522,24 +522,39 @@
       .not-for-grid { grid-template-columns: 1fr; }
     }
   </style>
+  <link rel="stylesheet" href="/snippets/canonical-nav.css">
+  <meta name="robots" content="noindex, follow">
 </head>
 <body>
 
 <!-- NAV -->
-<nav class="nav">
-  <a href="/" class="nav-logo">
-    <img src="/images/logos/brand-logo.png" alt="Aloomii" width="120" height="36">
-  </a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="/">Home</a></li>
-    <li><a href="/blog">Blog</a></li>
-    <li><a href="/#contact">Contact</a></li>
+<!-- CANONICAL_NAV_START -->
+<nav>
+  <a href="/" class="nav-logo"><img src="/images/logos/brand-logo.png" alt="Aloomii"></a>
+  <ul class="nav-links">
+    <li><a href="/studio/">Studio</a></li>
+    <li><a href="https://devkick.com" target="_blank" rel="noopener">DevKick</a></li>
+    <li><a href="/#builds">Builds</a></li>
+    <li><a href="/agent-adoption/">Agent Adoption</a></li>
+    <li><a href="/playbook/">Playbook</a></li>
+    <li><a href="/events">Events</a></li>
+    <li><a href="/#team">Team</a></li>
+    <li><a href="/#contact" class="nav-cta">Start a Conversation</a></li>
   </ul>
-  <a href="#book" class="nav-cta">Start a Conversation</a>
-  <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
+  <button id="hamburger" class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu"><span></span><span></span><span></span></button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/studio/" onclick="closeMenu()">Studio</a>
+  <a href="https://devkick.com" onclick="closeMenu()">DevKick</a>
+  <a href="/#builds" onclick="closeMenu()">Builds</a>
+  <a href="/agent-adoption/" onclick="closeMenu()">Agent Adoption</a>
+  <a href="/playbook/" onclick="closeMenu()">Playbook</a>
+  <a href="/events" onclick="closeMenu()">Events</a>
+  <a href="/#team" onclick="closeMenu()">Team</a>
+  <a href="/#contact" onclick="closeMenu()">Start a Conversation</a>
+</div>
+<!-- CANONICAL_NAV_END -->
 
 <!-- HERO -->
 <section class="hero">
@@ -972,7 +987,7 @@
         <div class="founder-name">Yohann Calpu</div>
         <div class="founder-title">Co-Founder, Aloomii</div>
         <p class="founder-bio">Technical co-founder turned sales and partnerships. 8 years in government technology, then IBM and JP Morgan Chase. Before Aloomii, Yohann spent four years at CryptoSlam, an NFT data platform backed by Mark Cuban and Animoca Brands. He helped close $2M in client deals, built the business to $50K MRR, and was part of the team that raised a $9M seed round. He built The Table to replace what he was doing manually there. He writes the briefs, runs every strategy call, and reviews everything before it goes out.</p>
-        <a href="/#past-experience" class="founder-link" target="_blank" rel="noopener">See the companies we have worked with &rarr;</a>
+        <a href="/#proof" class="founder-link" target="_blank" rel="noopener">See the companies we have worked with &rarr;</a>
       </div>
     </div>
   </div>
@@ -1118,7 +1133,7 @@
         }
       });
     })();
-    <\/script>
+    </script>
   </div>
 </section>
 
@@ -1134,7 +1149,7 @@
         <h4>Services</h4>
         <a href="https://aloomii.com/table">The Table</a>
         <a href="https://aloomii.com/studio">The Studio</a>
-        <a href="/#offerings">Relationship Intelligence</a>
+        <a href="/services/">Relationship Intelligence</a>
       </div>
       <div class="footer-col">
         <h4>Connect</h4>
@@ -1165,5 +1180,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 </script>
 
+  <script src="/snippets/canonical-nav.js"></script>
 </body>
 </html>

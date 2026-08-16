@@ -637,34 +637,38 @@
     .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
   </style>
+  <link rel="stylesheet" href="/snippets/canonical-nav.css">
 </head>
 <body>
 
   <!-- ───── NAVIGATION ───── -->
-  <nav class="nav">
-    <a href="/" class="nav-logo">
-      <img src="/images/logos/brand-logo.png" alt="Aloomii">
-    </a>
-    <ul class="nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="/aloomii-os.html">Aloomii AI Workforce</a></li>
-      <li><a href="/content-intelligence.html">Content Intelligence</a></li>
-      <li><a href="/blog/">Blog</a></li>
-      <li><a href="/sprint" style="color:#009e96;font-weight:600;">The Sprint</a></li> <li><a href="/sprint">The Sprint</a> <a href="/#contact">Contact</a></li>
-    </ul>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+  <!-- CANONICAL_NAV_START -->
+<nav>
+  <a href="/" class="nav-logo"><img src="/images/logos/brand-logo.png" alt="Aloomii"></a>
+  <ul class="nav-links">
+    <li><a href="/studio/">Studio</a></li>
+    <li><a href="https://devkick.com" target="_blank" rel="noopener">DevKick</a></li>
+    <li><a href="/#builds">Builds</a></li>
+    <li><a href="/agent-adoption/">Agent Adoption</a></li>
+    <li><a href="/playbook/">Playbook</a></li>
+    <li><a href="/events">Events</a></li>
+    <li><a href="/#team">Team</a></li>
+    <li><a href="/#contact" class="nav-cta">Start a Conversation</a></li>
+  </ul>
+  <button id="hamburger" class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="/" onclick="closeMenu()">Home</a>
-    <a href="/aloomii-os.html" onclick="closeMenu()">Aloomii AI Workforce</a>
-    <a href="/content-intelligence.html" onclick="closeMenu()">Content Intelligence</a>
-    <a href="/blog/" onclick="closeMenu()">Blog</a>
-    <a href="/#contact" onclick="closeMenu()">Contact</a>
-  </div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/studio/" onclick="closeMenu()">Studio</a>
+  <a href="https://devkick.com" onclick="closeMenu()">DevKick</a>
+  <a href="/#builds" onclick="closeMenu()">Builds</a>
+  <a href="/agent-adoption/" onclick="closeMenu()">Agent Adoption</a>
+  <a href="/playbook/" onclick="closeMenu()">Playbook</a>
+  <a href="/events" onclick="closeMenu()">Events</a>
+  <a href="/#team" onclick="closeMenu()">Team</a>
+  <a href="/#contact" onclick="closeMenu()">Start a Conversation</a>
+</div>
+<!-- CANONICAL_NAV_END -->
 
   <!-- ───── HERO ───── -->
   <section class="pi-hero">
@@ -941,5 +945,6 @@
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
 
+  <script src="/snippets/canonical-nav.js"></script>
 </body>
 </html>

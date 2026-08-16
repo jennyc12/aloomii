@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Services | Aloomii</title>
+  <meta name="description" content="Studio, DevKick, Builds, the Agent Adoption Program and the Playbook.">
+  <link rel="canonical" href="https://aloomii.com/services/">
+  <style>
+    :root {
+      --bg: #0b0b14;
+      --accent: #00c8be;
+      --text: #fff;
+      --text-body: rgba(255,255,255,0.75);
+      --text-muted: rgba(255,255,255,0.45);
+      --border: rgba(255,255,255,0.14);
+      --nav-height: 72px;
+    }
+    * { box-sizing: border-box; }
+    html { background: var(--bg); }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .page-content { min-height: 100vh; }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 48px;
+      background: #0b0b14;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo img { width: auto; height: 36px; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .nav-links a, .mobile-menu a {
+      color: var(--text-body);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .nav-links a:hover, .mobile-menu a:hover { color: #fff; }
+    .nav-cta {
+      padding: 10px 22px;
+      border-radius: 10px;
+      color: #000 !important;
+      background: var(--accent);
+      font-size: 13px !important;
+      font-weight: 600 !important;
+    }
+    .hamburger {
+      display: none;
+      padding: 8px;
+      border: 0;
+      background: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      margin: 5px 0;
+      background: #fff;
+    }
+    .mobile-menu { display: none; }
+    .hero {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 110px 40px 70px;
+      text-align: center;
+    }
+    .section-label {
+      margin-bottom: 18px;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0 0 22px;
+      font-size: clamp(42px, 6vw, 68px);
+      line-height: 1.05;
+      letter-spacing: -2px;
+    }
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto;
+      color: var(--text-body);
+      font-size: 18px;
+    }
+    .services {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 40px 110px;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+    .glass {
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    .service-card {
+      display: flex;
+      min-height: 250px;
+      flex-direction: column;
+      padding: 32px 28px;
+      text-decoration: none;
+    }
+    .service-card:last-child {
+      grid-column: 1 / -1;
+      max-width: 520px;
+      width: 100%;
+      justify-self: center;
+    }
+    .service-card .eyebrow {
+      margin-bottom: 12px;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    h2 { margin: 0 0 12px; font-size: 26px; }
+    .service-card p {
+      flex: 1;
+      margin: 0;
+      color: var(--text-body);
+      font-size: 15px;
+    }
+    .service-link {
+      margin-top: 22px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 600;
+    }
+    footer {
+      padding: 34px 40px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      text-align: center;
+      font-size: 13px;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .mobile-menu {
+        position: fixed;
+        top: var(--nav-height);
+        left: 0;
+        right: 0;
+        z-index: 9;
+        padding: 20px 24px;
+        border-bottom: 1px solid var(--border);
+        background: rgba(11,11,20,0.97);
+      }
+      .mobile-menu.active { display: block; }
+      .mobile-menu a { display: block; padding: 13px 0; border-bottom: 1px solid var(--border); }
+      .hero { padding: 80px 24px 52px; }
+      .services { padding: 10px 20px 72px; }
+      .service-grid { grid-template-columns: 1fr; }
+      .service-card:last-child { grid-column: auto; max-width: none; }
+    }
+  </style>
+  <link rel="stylesheet" href="/snippets/canonical-nav.css">
+</head>
+<body>
+  <div class="page-content">
+    <!-- CANONICAL_NAV_START -->
+<nav>
+  <a href="/" class="nav-logo"><img src="/images/logos/brand-logo.png" alt="Aloomii"></a>
+  <ul class="nav-links">
+    <li><a href="/studio/">Studio</a></li>
+    <li><a href="https://devkick.com" target="_blank" rel="noopener">DevKick</a></li>
+    <li><a href="/#builds">Builds</a></li>
+    <li><a href="/agent-adoption/">Agent Adoption</a></li>
+    <li><a href="/playbook/">Playbook</a></li>
+    <li><a href="/events">Events</a></li>
+    <li><a href="/#team">Team</a></li>
+    <li><a href="/#contact" class="nav-cta">Start a Conversation</a></li>
+  </ul>
+  <button id="hamburger" class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/studio/" onclick="closeMenu()">Studio</a>
+  <a href="https://devkick.com" onclick="closeMenu()">DevKick</a>
+  <a href="/#builds" onclick="closeMenu()">Builds</a>
+  <a href="/agent-adoption/" onclick="closeMenu()">Agent Adoption</a>
+  <a href="/playbook/" onclick="closeMenu()">Playbook</a>
+  <a href="/events" onclick="closeMenu()">Events</a>
+  <a href="/#team" onclick="closeMenu()">Team</a>
+  <a href="/#contact" onclick="closeMenu()">Start a Conversation</a>
+</div>
+<!-- CANONICAL_NAV_END -->
+    <main>
+      <header class="hero">
+        <div class="section-label">Aloomii services</div>
+        <h1>Communities, media and software.</h1>
+        <p>Studio produces podcasts and video end to end. DevKick is the builder community we run. Builds ships websites, internal tools and systems.</p>
+      </header>
+      <section class="services" aria-labelledby="services-heading">
+        <h2 id="services-heading" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);height:1px;width:1px;overflow:hidden;">Services</h2>
+        <div class="service-grid">
+          <a class="service-card glass" href="/studio/">
+            <div class="eyebrow">Production</div>
+            <h2>Studio</h2>
+            <p>Studio produces podcasts and video end to end. You tape the show. We handle editing, clips, show notes, publishing and distribution.</p>
+            <span class="service-link">See the Studio &rarr;</span>
+          </a>
+          <a class="service-card glass" href="https://devkick.com" target="_blank" rel="noopener">
+            <div class="eyebrow">Community</div>
+            <h2>DevKick</h2>
+            <p>DevKick is the builder community we run. Build nights, live teardowns and show-and-tells for developers shipping at the frontier.</p>
+            <span class="service-link">Visit devkick.com &rarr;</span>
+          </a>
+          <a class="service-card glass" href="/#builds">
+            <div class="eyebrow">Software</div>
+            <h2>Builds</h2>
+            <p>We both build websites and the internal tools that make our own work faster. We also take on a small number of larger platform builds by referral.</p>
+            <span class="service-link">See Builds &rarr;</span>
+          </a>
+          <a class="service-card glass" href="/agent-adoption/">
+            <div class="eyebrow">Training</div>
+            <h2>Agent Adoption Program</h2>
+            <p>Assessment, pilot and team enablement for engineering teams adopting agentic coding tools.</p>
+            <span class="service-link">Explore the program &rarr;</span>
+          </a>
+          <a class="service-card glass" href="/playbook/">
+            <div class="eyebrow">Learn the systems</div>
+            <h2>Playbook</h2>
+            <p>If you want to learn the systems yourself, that's what the Playbook is for. The AI portal where every prompt, every workflow, and every result makes the next one better.</p>
+            <span class="service-link">Open the Playbook &rarr;</span>
+          </a>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <a href="/">Aloomii</a> · Services · <a href="/legal/privacy/">Privacy</a> · <a href="/terms">Terms</a>
+    </footer>
+  </div>
+  <script>
+    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
+    function closeMenu() { document.getElementById('mobileMenu').classList.remove('active'); }
+  </script>
+  <script src="/snippets/canonical-nav.js"></script>
+</body>
+</html>

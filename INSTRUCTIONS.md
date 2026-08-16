@@ -59,12 +59,18 @@ git push origin main
 ## How to Add a New Page
 
 1. Create a new `.html` file in the root folder
-2. Copy the `<nav>` and mobile menu from `index.html`
-3. Add a nav link on ALL existing pages:
-   - `index.html` — both `<ul class="nav-links">` and `<div class="mobile-menu">`
-   - `aloomii-os.html` — both `<ul class="nav-links">` and `<div class="mobile-menu">`
-   - `blog/index.html` — nav
-4. Commit and push (see above)
+2. Add the canonical navigation markers where the page navigation belongs:
+   ```html
+   <!-- CANONICAL_NAV_START -->
+   <!-- CANONICAL_NAV_END -->
+   ```
+3. Run the static navigation sync:
+   ```bash
+   python3 scripts/sync-nav.py
+   ```
+4. Review the generated diff, then commit and push (see above)
+
+The canonical navigation markup in `snippets/canonical-nav.html` is derived from the `index.html` navigation. The homepage is the source of truth and is explicitly excluded from `scripts/sync-nav.py`, so the script never rewrites its markup, classes or handlers. Jenny's `/jenny/` portfolio is also explicitly excluded because it is a preserved port and must not receive Aloomii navigation. The sync script checks that the snippet has not drifted from the homepage before writing static HTML into eligible pages. Shared styling is extracted into `snippets/canonical-nav.css`, and the small interaction helper is `snippets/canonical-nav.js`. Legal pages, the Playbook product page and `aloomii-os.html` intentionally keep their specialized navigation.
 
 ---
 
