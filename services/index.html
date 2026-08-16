@@ -26,7 +26,7 @@
       line-height: 1.6;
     }
     a { color: inherit; }
-    .page-content { min-height: 100vh; }
+    .page-content { min-height: 100vh; position: relative; z-index: 2; }
     nav {
       position: sticky;
       top: 0;
@@ -183,8 +183,10 @@
     }
   </style>
   <link rel="stylesheet" href="/snippets/canonical-nav.css">
+  <link rel="stylesheet" href="/snippets/ghost-background.css">
 </head>
 <body>
+  <canvas id="ghostCanvas"></canvas>
   <div class="page-content">
     <!-- CANONICAL_NAV_START -->
 <nav>
@@ -264,5 +266,6 @@
     function closeMenu() { document.getElementById('mobileMenu').classList.remove('active'); }
   </script>
   <script src="/snippets/canonical-nav.js"></script>
+  <script src="/snippets/ghost-background.js"></script>
 </body>
 </html>
