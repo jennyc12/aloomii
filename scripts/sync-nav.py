@@ -14,6 +14,8 @@ SCRIPT = '<script src="/snippets/canonical-nav.js"></script>'
 EXCLUDED = (
     # The homepage is the source of truth for this snippet and is never rewritten.
     "index.html",
+    # Jenny's portfolio is a preserved port and must not receive Aloomii navigation.
+    "jenny/",
     "legal/",
     "playbook/",
     "aloomii-os.html",
