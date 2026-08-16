@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jenny C | Services &amp; Pricing</title>
+<meta name="description" content="Services and pricing from Jenny C. Small-business websites and AI automations, done-for-you podcast production, and video editing with short-form clips." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#140d0e;
+    --panel:#1e1517;
+    --panel2:#271b1d;
+    --text:#f6f2f2;
+    --muted:#b3a4a6;
+    --accent:#e23b34;
+    --accent2:#ff6f57;
+    --line:#352629;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);color:var(--text);
+    font-family:'Inter',system-ui,sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.brand{font-family:'Oswald',sans-serif;letter-spacing:.02em;text-transform:uppercase}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .accent{color:var(--accent)}
+
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(13,13,15,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-size:20px;font-weight:700}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{color:var(--muted);font-size:14px;font-weight:500}
+  .nav-links a:hover{color:var(--text)}
+  .btn{display:inline-block;background:var(--accent);color:#0d0d0f;font-weight:600;
+    padding:11px 20px;border-radius:8px;font-size:14px;transition:transform .15s ease,background .2s}
+  .btn:hover{background:var(--accent2);transform:translateY(-1px)}
+  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--text)}
+  .btn.ghost:hover{border-color:var(--accent)}
+
+  .hero{padding:76px 0 56px;position:relative;overflow:hidden}
+  .hero:before{content:"";position:absolute;inset:0;
+    background:radial-gradient(1200px 520px at 72% -12%,rgba(226,59,52,.22),transparent 62%);pointer-events:none}
+  .eyebrow{color:var(--accent);font-family:'Oswald';font-weight:600;font-size:14px;letter-spacing:.15em;margin-bottom:18px}
+  h1{font-size:52px;line-height:1.03;font-weight:700;margin-bottom:20px}
+  .hero p.lead{color:var(--muted);font-size:19px;max-width:620px;margin-bottom:30px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+  section.block{padding:66px 0;border-top:1px solid var(--line)}
+  .sec-head{margin-bottom:40px}
+  .sec-head h2{font-size:34px;font-weight:700}
+  .sec-head p{color:var(--muted);max-width:640px;margin-top:10px}
+
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px;transition:border-color .2s,transform .2s}
+  .card:hover{border-color:var(--accent);transform:translateY(-3px)}
+  .card .num{font-family:'Oswald';color:var(--accent);font-size:14px;letter-spacing:.15em;font-weight:600}
+  .card h3{font-size:21px;margin:12px 0 10px;font-weight:600}
+  .card p{color:var(--muted);font-size:15px}
+  .card ul{list-style:none;margin:16px 0 0}
+  .card li{color:var(--muted);font-size:14px;padding-left:20px;position:relative;margin-bottom:7px}
+  .card li:before{content:"›";position:absolute;left:0;color:var(--accent);font-weight:700}
+  .price{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:14px;color:var(--text)}
+  .price b{font-family:'Oswald';color:var(--accent2);font-size:18px}
+
+  .thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+  .thumbs a{border:1px solid var(--line);border-radius:8px;overflow:hidden;aspect-ratio:16/11;display:block}
+  .thumbs img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .25s}
+  .thumbs a:hover img{transform:scale(1.06)}
+
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .step{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px}
+  .step .n{font-family:'Oswald';font-size:30px;color:var(--accent);font-weight:700}
+  .step h3{font-size:16px;margin:8px 0 6px}
+  .step p{color:var(--muted);font-size:14px}
+
+  .faq{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .qa{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px}
+  .qa h3{font-size:16px;margin-bottom:8px}
+  .qa p{color:var(--muted);font-size:14.5px}
+
+  .cta{background:linear-gradient(120deg,#2c1214,#1e1517);border:1px solid var(--line);border-radius:18px;padding:48px;text-align:center}
+  .cta h2{font-size:36px;font-weight:700;margin-bottom:14px}
+  .cta p{color:var(--muted);max-width:520px;margin:0 auto 28px}
+
+  footer{padding:40px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px;text-align:center}
+
+  @media(max-width:860px){
+    .cards,.steps,.faq{grid-template-columns:1fr}
+    h1{font-size:38px}
+    .nav-links a:not(.btn){display:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand"><a href="../index.html">Jenny <span class="accent">C</span></a></div>
+    <nav class="nav-links">
+      <a href="../index.html">Portfolio</a>
+      <a href="../work/index.html">Sample sites</a>
+      <a href="#how">How it works</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Services &amp; pricing</div>
+    <h1>Websites, podcasts &amp; video.<br /><span class="accent">Done for you. Done right.</span></h1>
+    <p class="lead">I help creators and small businesses show up online. I build clean small-business websites and simple AI automations. I produce podcasts start to finish. I edit video and turn long content into short clips for social. Fast, and no agency price tag.</p>
+    <div class="hero-cta">
+      <a class="btn" href="#contact">Start a project</a>
+      <a class="btn ghost" href="../index.html#work">See my work</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="block" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>What I can do for <span class="accent">you</span></h2>
+      <p>Three things I do. Pick one, or stack them. Have a look at my work, then tell me about yours.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01 · MOST POPULAR</div>
+        <h3>Websites &amp; AI Automations</h3>
+        <p>A clean, mobile-friendly website, built fast. Plus AI tools that answer FAQs and capture leads. They reply to enquiries so you don't have to.</p>
+        <ul>
+          <li>One-page &amp; small-business websites</li>
+          <li>AI chatbot / auto-reply for enquiries</li>
+          <li>Booking &amp; lead-capture forms</li>
+          <li>Online store / product-shop setup</li>
+        </ul>
+        <div class="price">Starter one-pager from <b>$299 USD</b> · full sites from <b>$500</b> · automations from <b>$300/mo</b></div>
+        <div class="thumbs">
+          <a href="../work/index.html" title="Havenwood Landscapes sample"><img src="../assets/sites/demo-landscaping.png" alt="Landscaping sample site" loading="lazy" /></a>
+          <a href="../work/index.html" title="Marigold Bakehouse sample"><img src="../assets/sites/demo-bakery.png" alt="Bakery sample site" loading="lazy" /></a>
+          <a href="../work/index.html" title="Tidebloom Cleaning sample"><img src="../assets/sites/demo-cleaning.png" alt="Cleaning sample site" loading="lazy" /></a>
+        </div>
+        <a href="../work/index.html" style="display:inline-block;margin-top:12px;color:var(--accent);font-size:14px;font-weight:600">See all sample sites →</a>
+      </div>
+      <div class="card">
+        <div class="num">02 · HIGH IMPACT</div>
+        <h3>Done-For-You Podcasts</h3>
+        <p>I run the whole podcast backend. You just show up and talk. I handle recording, editing, and publishing everywhere. Every episode turns into a week of social clips.</p>
+        <ul>
+          <li>Remote recording setup &amp; editing (Riverside)</li>
+          <li>Publishing to YouTube, Spotify &amp; Apple</li>
+          <li>Short clips cut &amp; posted to social</li>
+          <li>Show notes, titles &amp; thumbnails</li>
+        </ul>
+        <div class="price">Per-episode from <b>$149 USD</b> · full show retainer from <b>$500/mo</b></div>
+      </div>
+      <div class="card">
+        <div class="num">03 · CREATIVE</div>
+        <h3>Video Editing &amp; Repurposing</h3>
+        <p>Clean, polished editing for your footage. I turn long videos and podcasts into a batch of short clips for social. Real editing. Your content.</p>
+        <ul>
+          <li>Long-form editing &amp; clean-ups</li>
+          <li>Podcast &amp; long video → short clips</li>
+          <li>Captions, music &amp; light motion graphics</li>
+          <li>Thumbnails &amp; social-ready formatting</li>
+        </ul>
+        <div class="price">Clip packs from <b>$99 USD</b> · long-form plus clips from <b>$399</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="block" id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>How it <span class="accent">works</span></h2>
+      <p>Simple and low-pressure. You see exactly what I do before we start.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Tell me the goal</h3><p>Send me a quick message about what you need. No forms. No sales call.</p></div>
+      <div class="step"><div class="n">2</div><h3>See my work</h3><p>Look through my past podcasts, sites, and video. That's the quality you get.</p></div>
+      <div class="step"><div class="n">3</div><h3>Quote and go</h3><p>I send a simple quote. You say yes. I get to work, usually within about a week.</p></div>
+      <div class="step"><div class="n">4</div><h3>Ongoing (optional)</h3><p>Keep me on a simple monthly retainer. For podcasts, content, or website upkeep.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="block" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Common <span class="accent">questions</span></h2>
+    </div>
+    <div class="faq">
+      <div class="qa">
+        <h3>Do I own the website?</h3>
+        <p>Yes, all of it. No lock-in and no monthly fee to me just to keep it online.</p>
+      </div>
+      <div class="qa">
+        <h3>Are there running costs?</h3>
+        <p>A domain is about $15 a year, and hosting is free to a few dollars a month. I can set both up and look after them for you if you'd rather not.</p>
+      </div>
+      <div class="qa">
+        <h3>What if I don't have content ready?</h3>
+        <p>That's normal. I'll tell you exactly what to send, and I can write the copy for you.</p>
+      </div>
+      <div class="qa">
+        <h3>Can you add an online shop?</h3>
+        <p>For a handful of products, yes, with Stripe or PayPal checkout and no monthly subscription. Bigger stores with inventory and shipping rules I quote separately.</p>
+      </div>
+      <div class="qa">
+        <h3>How fast is turnaround?</h3>
+        <p>A one-page site is usually about 4 days. Podcast episodes come back in a few days. Rush work is possible, just ask.</p>
+      </div>
+      <div class="qa">
+        <h3>Can I pay in instalments?</h3>
+        <p>Yes. Websites can be split into two payments, half up front and half when it goes live.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="block" id="contact">
+  <div class="wrap">
+    <div class="cta">
+      <h2>Let's make something.</h2>
+      <p>Tell me what you're working on. I'll reply with ideas and a simple quote. No pressure. No obligation.</p>
+      <div class="hero-cta" style="justify-content:center">
+        <a class="btn" href="mailto:jenny@aloomii.com?subject=Project%20enquiry">Email jenny@aloomii.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© <span id="yr"></span> Jenny C · Available remotely · <a class="accent" href="mailto:jenny@aloomii.com">jenny@aloomii.com</a> · <a class="accent" href="../index.html">Portfolio</a></div>
+</footer>
+
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>

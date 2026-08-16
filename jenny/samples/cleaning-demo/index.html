@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tidebloom Cleaning | Instant Price &amp; Online Booking | Haldimand</title>
+<meta name="description" content="Fresh, friendly, fully-insured house cleaning across Hagersville, Caledonia, Dunnville & Haldimand County. Get an instant price and book online in minutes." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#0c2b28; --pine:#123f39; --aqua:#12c9a4; --aqua-d:#0ea78a;
+    --coral:#ff7a59; --mint:#e9faf4; --mint-2:#d6f5ea; --muted:#5c716d; --line:#d3ece4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+  h1,h2,h3,.logo,.display{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-.02em;line-height:1.05}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .btn{display:inline-block;background:var(--ink);color:#fff;font-weight:600;padding:14px 26px;border-radius:14px;transition:.18s;border:none;cursor:pointer;font-size:15px}
+  .btn:hover{background:var(--pine)}
+  .btn.aqua{background:var(--aqua);color:var(--ink)}
+  .btn.aqua:hover{background:var(--aqua-d)}
+  .btn.ghost{background:transparent;border:1.6px solid rgba(255,255,255,.35);color:#fff}
+  .btn.ghost:hover{background:rgba(255,255,255,.12)}
+
+  header{position:sticky;top:0;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:40}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .logo{font-size:22px;font-weight:700;display:flex;align-items:center;gap:8px}
+  .logo .mk{width:26px;height:26px;border-radius:9px 9px 9px 3px;background:var(--aqua);display:inline-block}
+  .menu{display:flex;gap:28px;align-items:center}
+  .menu a:not(.btn){color:var(--muted);font-size:15px;font-weight:500}
+  .menu a:hover{color:var(--ink)}
+
+  /* hero + booking widget */
+  .hero{color:#fff;border-radius:0 0 34px 34px;overflow:hidden;position:relative;
+    background:linear-gradient(100deg, rgba(9,29,27,.92) 0%, rgba(10,34,31,.82) 40%, rgba(12,43,40,.55) 66%, rgba(12,43,40,.35) 100%),
+    url("https://images.unsplash.com/photo-1758273238415-01ec03d9ef27?auto=format&fit=crop&w=1600&q=80") center 30%/cover no-repeat;
+    background-color:var(--ink)}
+  .hero .wrap{display:grid;grid-template-columns:1.02fr .98fr;gap:44px;align-items:start;padding:56px 24px 72px}
+  .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);color:#cdeee5;font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;margin-bottom:22px}
+  .pill .d{width:8px;height:8px;border-radius:50%;background:var(--aqua)}
+  .hero h1{font-size:clamp(38px,5.4vw,60px);text-shadow:0 2px 22px rgba(6,20,18,.55)}
+  .hero h1 span{color:var(--aqua)}
+  .hero .lead{color:#bfe0d8;font-size:18px;margin:20px 0 26px;max-width:460px}
+  .hero .mini{display:flex;flex-direction:column;gap:12px;margin-top:26px}
+  .hero .mini div{display:flex;gap:11px;align-items:center;color:#daf1eb;font-size:15px}
+  .hero .mini .ic{width:30px;height:30px;border-radius:9px;background:rgba(18,201,164,.16);display:flex;align-items:center;justify-content:center;font-size:15px}
+
+  /* calculator card */
+  .calc{background:#fff;color:var(--ink);border-radius:22px;box-shadow:0 26px 60px rgba(0,0,0,.32);overflow:hidden}
+  .calc-head{background:var(--mint);padding:18px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+  .calc-head .ct{font-family:'Space Grotesk';font-weight:700;font-size:17px}
+  .calc-head .cs{font-size:12.5px;color:var(--muted)}
+  .calc-steps{display:flex;gap:6px}
+  .calc-steps i{width:22px;height:5px;border-radius:999px;background:var(--line)}
+  .calc-steps i.on{background:var(--aqua)}
+  .calc-body{padding:22px}
+  .fld{margin-bottom:18px}
+  .fld > label{display:block;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:9px}
+  .opts{display:flex;flex-wrap:wrap;gap:8px}
+  .opt{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:9px 14px;font-size:14px;font-weight:500;cursor:pointer;transition:.14s;color:var(--ink);user-select:none}
+  .opt:hover{border-color:var(--aqua)}
+  .opt.sel{border-color:var(--aqua);background:var(--mint);color:var(--aqua-d);font-weight:600}
+  .stepper{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:12px;overflow:hidden}
+  .stepper button{border:none;background:var(--mint);width:40px;height:40px;font-size:20px;cursor:pointer;color:var(--ink);font-weight:600}
+  .stepper button:hover{background:var(--mint-2)}
+  .stepper span{width:46px;text-align:center;font-weight:600;font-family:'Space Grotesk'}
+  .addons{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .addon{display:flex;align-items:center;gap:9px;border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;font-size:13.5px;cursor:pointer;transition:.14s}
+  .addon:hover{border-color:var(--aqua)}
+  .addon.sel{border-color:var(--aqua);background:var(--mint)}
+  .addon input{accent-color:var(--aqua-d);width:16px;height:16px}
+  .addon .ap{margin-left:auto;color:var(--muted);font-weight:600;font-size:12.5px}
+  .price-row{display:flex;align-items:baseline;justify-content:space-between;background:var(--ink);color:#fff;border-radius:16px;padding:16px 20px;margin-bottom:16px}
+  .price-row .pl{font-size:13px;color:#bfe0d8}
+  .price-row .pv{font-family:'Space Grotesk';font-weight:700;font-size:34px}
+  .price-row .pv small{font-size:14px;color:#bfe0d8;font-weight:500}
+  .freqnote{font-size:12px;color:var(--aqua-d);font-weight:600;margin-top:3px}
+  .calc-body input[type=text],.calc-body input[type=email]{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;font-family:inherit;font-size:15px;margin-bottom:12px}
+  .summary{background:var(--mint);border-radius:14px;padding:14px 16px;font-size:14px;margin-bottom:14px}
+  .summary b{font-family:'Space Grotesk'}
+  .summary ul{list-style:none;margin-top:8px;color:var(--muted);font-size:13.5px}
+  .summary li{margin-bottom:3px}
+  .cbtn{width:100%;text-align:center;font-size:16px}
+  .back{background:none;border:none;color:var(--muted);font-size:13.5px;cursor:pointer;margin-top:12px;width:100%;font-weight:600}
+  .estimate-note{font-size:11.5px;color:var(--muted);text-align:center;margin-top:12px}
+
+  .trust{margin-top:56px}
+  .trust .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+  .chip{background:var(--mint);border:1px solid var(--line);border-radius:999px;padding:11px 20px;font-size:14px;font-weight:600;display:flex;gap:9px;align-items:center}
+  .chip b{color:var(--aqua-d)}
+
+  section{padding:80px 0}
+  .eyebrow{color:var(--aqua-d);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:12.5px}
+  .sec-title{font-size:clamp(30px,4.4vw,44px);margin:10px 0 10px}
+  .sec-sub{color:var(--muted);max-width:600px;margin-bottom:40px;font-size:17px}
+
+  .why{background:var(--mint)}
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .why-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px}
+  .why-card .ico{width:46px;height:46px;border-radius:13px;background:var(--mint-2);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px}
+  .why-card h3{font-size:18px;margin-bottom:5px}
+  .why-card p{color:var(--muted);font-size:14px}
+
+  /* service tiers */
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .tier{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column}
+  .tier.feat{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .tier .tag{font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--aqua-d)}
+  .tier.feat .tag{color:var(--aqua)}
+  .tier h3{font-size:23px;margin:8px 0 4px}
+  .tier .desc{color:var(--muted);font-size:14px;min-height:42px}
+  .tier.feat .desc{color:#bfe0d8}
+  .tier .amt{font-family:'Space Grotesk';font-size:34px;font-weight:700;margin:14px 0 2px}
+  .tier .amt small{font-size:14px;color:var(--muted);font-weight:500}
+  .tier.feat .amt small{color:#bfe0d8}
+  .tier ul{list-style:none;margin:16px 0 22px;flex:1}
+  .tier li{padding-left:26px;position:relative;margin-bottom:9px;font-size:14px;color:var(--muted)}
+  .tier.feat li{color:#d7ece7}
+  .tier li:before{content:"✓";position:absolute;left:0;color:var(--aqua-d);font-weight:700}
+  .tier.feat li:before{color:var(--aqua)}
+  .tier .btn{width:100%;text-align:center}
+  .ribbon{display:inline-block;background:var(--aqua);color:var(--ink);font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px;margin-bottom:10px}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .step{padding:26px;border:1px solid var(--line);border-radius:20px}
+  .step .n{width:44px;height:44px;border-radius:12px;background:var(--mint-2);color:var(--aqua-d);font-family:'Space Grotesk';font-weight:700;font-size:20px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .step h3{font-size:18px;margin-bottom:6px}
+  .step p{color:var(--muted);font-size:14px}
+
+  /* reviews */
+  .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .rev{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px}
+  .rev .stars{color:var(--coral);margin-bottom:10px;letter-spacing:2px}
+  .rev p{font-size:15px}
+  .rev .who{margin-top:14px;color:var(--muted);font-size:14px;font-weight:600}
+
+  /* faq */
+  .faq{max-width:780px;margin:0 auto}
+  .qa{border:1px solid var(--line);border-radius:16px;margin-bottom:12px;overflow:hidden;background:#fff}
+  .qa button{width:100%;text-align:left;background:none;border:none;padding:20px 22px;font-family:'Space Grotesk';font-weight:600;font-size:16.5px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:var(--ink)}
+  .qa .a{max-height:0;overflow:hidden;transition:.25s;color:var(--muted);font-size:14.5px}
+  .qa .a p{padding:0 22px 20px}
+  .qa.open .a{max-height:240px}
+  .qa .plus{color:var(--aqua-d);font-size:22px;transition:.25s}
+  .qa.open .plus{transform:rotate(45deg)}
+
+  .cta-band{background:var(--ink);color:#fff;border-radius:30px;text-align:center;padding:56px 30px}
+  .cta-band h2{font-size:clamp(28px,4vw,42px);color:#fff}
+  .cta-band p{color:#bfe0d8;margin:12px 0 26px;font-size:17px}
+
+  footer{background:#071d1b;color:#8fb3ac;padding:44px 0;font-size:14px;margin-top:70px}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
+  footer .logo{color:#fff}
+
+  .chat-fab{position:fixed;bottom:22px;right:22px;background:var(--aqua);color:var(--ink);border-radius:999px;padding:14px 20px;font-weight:700;box-shadow:0 8px 24px rgba(0,0,0,.25);cursor:pointer;z-index:60;display:flex;gap:8px;align-items:center}
+  .chat-panel{position:fixed;bottom:80px;right:22px;width:320px;background:#fff;border-radius:18px;box-shadow:0 16px 48px rgba(0,0,0,.3);overflow:hidden;z-index:60;display:none}
+  .chat-panel.open{display:block}
+  .chat-head{background:var(--ink);color:#fff;padding:16px}
+  .chat-head b{font-family:'Space Grotesk'}
+  .chat-body{padding:16px;max-height:280px;overflow:auto}
+  .bubble{padding:10px 13px;border-radius:12px;margin-bottom:10px;font-size:14px;max-width:85%}
+  .bubble.bot{background:var(--mint-2);color:var(--ink)}
+  .bubble.user{background:var(--aqua);color:var(--ink);margin-left:auto}
+  .chat-foot{border-top:1px solid var(--line);padding:10px;display:flex;gap:8px}
+  .chat-foot input{flex:1;border:1px solid var(--line);border-radius:999px;padding:9px 14px;font-family:inherit}
+  .chat-foot button{background:var(--aqua);color:var(--ink);border:none;border-radius:999px;padding:0 16px;cursor:pointer;font-weight:600}
+
+  .demo-ribbon{background:var(--coral);color:#3a1409;text-align:center;font-size:13px;font-weight:600;padding:8px}
+
+  @media(max-width:900px){
+    .hero .wrap{grid-template-columns:1fr;padding-bottom:48px}
+    .why-grid{grid-template-columns:1fr 1fr}
+    .tiers,.steps,.reviews{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr 1fr}
+    .menu a:not(.btn){display:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="demo-ribbon">DEMO SITE, sample by Jenny C to show what your cleaning business could look like online. Example business.</div>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo"><span class="mk"></span> Tidebloom</div>
+    <nav class="menu">
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn aqua" href="#book">Get instant price</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="pill"><span class="d"></span> Now booking in Haldimand County</div>
+      <h1>Instant price.<br /><span>Book in minutes.</span></h1>
+      <p class="lead">Friendly, fully-insured house cleaning across Hagersville, Caledonia, Dunnville &amp; Haldimand County. Build your clean, see your price right away, and book online, no phone tag.</p>
+      <div class="mini">
+        <div><span class="ic">🛡️</span> Insured, bonded &amp; police-checked cleaners</div>
+        <div><span class="ic">👤</span> The same trusted cleaner, every visit</div>
+        <div><span class="ic">💬</span> Real, local support, a person always answers</div>
+        <div><span class="ic">💳</span> Transparent pricing, no hidden fees, ever</div>
+      </div>
+    </div>
+
+    <!-- INSTANT QUOTE / BOOKING WIDGET -->
+    <div class="calc" id="book">
+      <div class="calc-head">
+        <div>
+          <div class="ct">Get your instant price</div>
+          <div class="cs" id="stepLabel">Step 1 of 2 · Build your clean</div>
+        </div>
+        <div class="calc-steps"><i class="on" id="dot1"></i><i id="dot2"></i></div>
+      </div>
+
+      <!-- STEP 1 -->
+      <div class="calc-body" id="step1">
+        <div class="price-row">
+          <div>
+            <div class="pl">Your estimated price</div>
+            <div class="freqnote" id="freqNote">One-time clean</div>
+          </div>
+          <div class="pv" id="priceOut">$120<small></small></div>
+        </div>
+
+        <div class="fld">
+          <label>Type of clean</label>
+          <div class="opts" id="typeOpts">
+            <div class="opt sel" data-add="0">Standard</div>
+            <div class="opt" data-add="80">Deep clean</div>
+            <div class="opt" data-add="110">Move in / out</div>
+          </div>
+        </div>
+
+        <div class="fld">
+          <label>How often?</label>
+          <div class="opts" id="freqOpts">
+            <div class="opt" data-mult="1" data-label="One-time clean">One-time</div>
+            <div class="opt sel" data-mult="0.82" data-label="Weekly · save 18%">Weekly</div>
+            <div class="opt" data-mult="0.85" data-label="Biweekly · save 15%">Biweekly</div>
+            <div class="opt" data-mult="0.9" data-label="Monthly · save 10%">Monthly</div>
+          </div>
+        </div>
+
+        <div class="fld" style="display:flex;gap:24px;flex-wrap:wrap">
+          <div>
+            <label>Bedrooms</label>
+            <div class="stepper"><button type="button" onclick="bump('bed',-1)">–</button><span id="bedV">3</span><button type="button" onclick="bump('bed',1)">+</button></div>
+          </div>
+          <div>
+            <label>Bathrooms</label>
+            <div class="stepper"><button type="button" onclick="bump('bath',-1)">–</button><span id="bathV">2</span><button type="button" onclick="bump('bath',1)">+</button></div>
+          </div>
+        </div>
+
+        <div class="fld">
+          <label>Add-ons (optional)</label>
+          <div class="addons" id="addonWrap">
+            <label class="addon"><input type="checkbox" data-add="25" /> Inside oven <span class="ap">+$25</span></label>
+            <label class="addon"><input type="checkbox" data-add="20" /> Inside fridge <span class="ap">+$20</span></label>
+            <label class="addon"><input type="checkbox" data-add="30" /> Interior windows <span class="ap">+$30</span></label>
+            <label class="addon"><input type="checkbox" data-add="25" /> Laundry &amp; linens <span class="ap">+$25</span></label>
+          </div>
+        </div>
+
+        <button class="btn aqua cbtn" onclick="goStep(2)">Continue →</button>
+        <div class="estimate-note">Instant estimate for planning, we confirm the final price before your first clean.</div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="calc-body" id="step2" style="display:none">
+        <div class="summary" id="summary"></div>
+        <input type="text" id="cname" placeholder="Your name" />
+        <input type="text" id="cphone" placeholder="Phone or email" />
+        <input type="text" id="ctown" placeholder="Town (e.g. Hagersville)" />
+        <input type="text" id="cdate" placeholder="Preferred day (e.g. Tue mornings)" />
+        <button class="btn aqua cbtn" onclick="submitBooking()">Request this booking</button>
+        <button class="back" onclick="goStep(1)">← Back to edit my clean</button>
+        <div class="estimate-note">We reply within 1 business day to confirm. Your info is never shared.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap">
+    <div class="chip">⭐ <b>5.0</b> from local homeowners</div>
+    <div class="chip">🛡️ Insured, bonded &amp; police-checked</div>
+    <div class="chip">🕒 <b>15+ yrs</b> cleaning local homes</div>
+    <div class="chip">✅ Satisfaction guarantee</div>
+  </div>
+</div>
+
+<section class="why">
+  <div class="wrap">
+    <div class="eyebrow">Why Tidebloom</div>
+    <h2 class="sec-title">Cleaning done right, every time</h2>
+    <p class="sec-sub">Not a faceless app. A small local team you get to know, held to the same high standard on every single visit.</p>
+    <div class="why-grid">
+      <div class="why-card"><div class="ico">👤</div><h3>Your cleaner, every time</h3><p>The same trusted person each visit, so you never have to explain your home twice.</p></div>
+      <div class="why-card"><div class="ico">🛡️</div><h3>Fully insured &amp; vetted</h3><p>Bonded, insured and police-checked. We treat your home like our own.</p></div>
+      <div class="why-card"><div class="ico">💳</div><h3>Upfront pricing</h3><p>See your price before you book. No surprise fees, no awkward cash handoffs.</p></div>
+      <div class="why-card"><div class="ico">✨</div><h3>Satisfaction guarantee</h3><p>Missed a spot? Tell us within 24 hours and we'll make it right, free.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="eyebrow">Our cleans</div>
+    <h2 class="sec-title">Pick the clean you need</h2>
+    <p class="sec-sub">Starting prices for an average 3-bedroom home. Use the instant-price tool up top for your exact number.</p>
+    <div class="tiers">
+      <div class="tier">
+        <div class="tag">Standard</div>
+        <h3>Refresh clean</h3>
+        <div class="desc">Routine upkeep of the rooms you use most.</div>
+        <div class="amt">$120<small> / from</small></div>
+        <ul><li>Kitchen &amp; bathrooms</li><li>Floors, dusting &amp; surfaces</li><li>Great for a regular reset</li></ul>
+        <a class="btn" href="#book">Get my price</a>
+      </div>
+      <div class="tier feat">
+        <span class="ribbon">Most popular</span>
+        <div class="tag">Recurring</div>
+        <h3>Weekly / biweekly</h3>
+        <div class="desc">Same cleaner on a schedule, and you save up to 18%.</div>
+        <div class="amt">$98<small> / visit</small></div>
+        <ul><li>Everything in Refresh</li><li>Same cleaner each visit</li><li>Priority booking</li><li>Best value per clean</li></ul>
+        <a class="btn aqua" href="#book">Get my price</a>
+      </div>
+      <div class="tier">
+        <div class="tag">Deep &amp; move</div>
+        <h3>Deep clean</h3>
+        <div class="desc">Top-to-bottom detail, or move-in / move-out.</div>
+        <div class="amt">$200<small> / from</small></div>
+        <ul><li>Baseboards &amp; hard-to-reach</li><li>Inside oven &amp; fridge available</li><li>Perfect before or after a move</li></ul>
+        <a class="btn" href="#book">Get my price</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how" style="background:var(--mint)">
+  <div class="wrap">
+    <div class="eyebrow">How it works</div>
+    <h2 class="sec-title">Booked in about a minute</h2>
+    <p class="sec-sub"></p>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Build your clean</h3><p>Choose your rooms, how often, and any add-ons, see your price instantly.</p></div>
+      <div class="step"><div class="n">2</div><h3>Book online</h3><p>Send your details and preferred day. No calls or waiting for a quote.</p></div>
+      <div class="step"><div class="n">3</div><h3>We clean</h3><p>Your vetted cleaner arrives on schedule with everything they need.</p></div>
+      <div class="step"><div class="n">4</div><h3>Relax &amp; repeat</h3><p>Love it? Recurring visits keep your home fresh automatically.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="eyebrow">Happy clients</div>
+    <h2 class="sec-title">Loved by local homeowners</h2>
+    <p class="sec-sub"></p>
+    <div class="reviews">
+      <div class="rev"><div class="stars">★★★★★</div><p>"Booking took two minutes and the price was exactly what the site said. My house has never looked better."</p><div class="who">Sarah L., Hagersville</div></div>
+      <div class="rev"><div class="stars">★★★★★</div><p>"Loved seeing the price up front. Booked a move-out clean and got my full deposit back."</p><div class="who">Mike D., Caledonia</div></div>
+      <div class="rev"><div class="stars">★★★★★</div><p>"Biweekly cleans have been a lifesaver with two kids, same lovely cleaner every time."</p><div class="who">Jen P., Dunnville</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center">Good to know</div>
+    <h2 class="sec-title" style="text-align:center">Frequently asked</h2>
+    <p class="sec-sub" style="margin:10px auto 40px;text-align:center">The quick answers, anything else, just ask in chat.</p>
+    <div class="faq">
+      <div class="qa"><button onclick="toggleFaq(this)">Do I need to be home during the clean? <span class="plus">+</span></button><div class="a"><p>Nope. Most clients give us secure entry instructions and come home to a fresh place. Whatever's most comfortable for you.</p></div></div>
+      <div class="qa"><button onclick="toggleFaq(this)">Do you bring your own supplies? <span class="plus">+</span></button><div class="a"><p>Yes, we bring everything, including eco-friendly options on request. If you'd prefer we use your products, just let us know.</p></div></div>
+      <div class="qa"><button onclick="toggleFaq(this)">Is the online price the final price? <span class="plus">+</span></button><div class="a"><p>It's an accurate instant estimate based on your home. We confirm the final price before your first clean, so there are never surprises.</p></div></div>
+      <div class="qa"><button onclick="toggleFaq(this)">What if I'm not happy with something? <span class="plus">+</span></button><div class="a"><p>Tell us within 24 hours and we'll come back and re-clean the area free. Your satisfaction is guaranteed.</p></div></div>
+      <div class="qa"><button onclick="toggleFaq(this)">Which areas do you serve? <span class="plus">+</span></button><div class="a"><p>Hagersville, Caledonia, Dunnville, Cayuga, Jarvis and the surrounding Haldimand County area. Not sure if we reach you? Just ask.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Ready for a fresh home?</h2>
+      <p>Get your instant price and book online in about a minute.</p>
+      <a class="btn aqua" href="#book">Get my instant price</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <div class="logo">Tidebloom Cleaning</div>
+      <p style="margin-top:8px">Serving Hagersville &amp; Haldimand County, Ontario</p>
+    </div>
+    <div>📞 (905) 555-1234 · ✉️ hello@tidebloomcleaning.example</div>
+  </div>
+</footer>
+
+<div class="chat-fab" onclick="document.getElementById('cp').classList.toggle('open')">💬 Chat with us</div>
+<div class="chat-panel" id="cp">
+  <div class="chat-head"><b>Tidebloom Assistant</b><div style="font-size:12px;opacity:.85">Usually replies instantly</div></div>
+  <div class="chat-body" id="cb">
+    <div class="bubble bot">Hi! 👋 I'm the Tidebloom assistant. I can help with pricing, service areas, and booking. What do you need?</div>
+    <div class="bubble user">How much for a biweekly clean of a 3-bedroom house?</div>
+    <div class="bubble bot">Around $119 biweekly for a 3-bed, 2-bath. Try the instant-price tool at the top for your exact number!</div>
+  </div>
+  <div class="chat-foot">
+    <input id="ci" placeholder="Type a message..." onkeydown="if(event.key==='Enter')sendMsg()" />
+    <button onclick="sendMsg()">Send</button>
+  </div>
+</div>
+
+<script>
+/* ---------- instant price calculator ---------- */
+var state={type:0, mult:0.82, freqLabel:'Weekly · save 18%', bed:3, bath:2};
+
+function calcBase(){
+  // base for a standard clean, scaled by rooms
+  var base=70 + state.bed*14 + state.bath*13;
+  base+=state.type; // deep / move add-on
+  var addons=0;
+  document.querySelectorAll('#addonWrap input:checked').forEach(function(c){addons+=parseInt(c.dataset.add);});
+  return {perVisit:Math.round((base+addons)*state.mult), addons:addons};
+}
+function fmtFreqSuffix(){ return state.mult===1?'':' / visit'; }
+function render(){
+  var r=calcBase();
+  document.getElementById('priceOut').innerHTML='$'+r.perVisit+'<small>'+fmtFreqSuffix()+'</small>';
+  document.getElementById('freqNote').textContent=state.freqLabel;
+  document.getElementById('bedV').textContent=state.bed;
+  document.getElementById('bathV').textContent=state.bath;
+}
+function bump(k,d){
+  if(k==='bed'){state.bed=Math.max(1,Math.min(6,state.bed+d));}
+  else{state.bath=Math.max(1,Math.min(5,state.bath+d));}
+  render();
+}
+document.querySelectorAll('#typeOpts .opt').forEach(function(o){
+  o.onclick=function(){
+    document.querySelectorAll('#typeOpts .opt').forEach(function(x){x.classList.remove('sel');});
+    o.classList.add('sel'); state.type=parseInt(o.dataset.add); render();
+  };
+});
+document.querySelectorAll('#freqOpts .opt').forEach(function(o){
+  o.onclick=function(){
+    document.querySelectorAll('#freqOpts .opt').forEach(function(x){x.classList.remove('sel');});
+    o.classList.add('sel'); state.mult=parseFloat(o.dataset.mult); state.freqLabel=o.dataset.label; render();
+  };
+});
+document.querySelectorAll('#addonWrap input').forEach(function(c){
+  c.onchange=function(){ c.closest('.addon').classList.toggle('sel',c.checked); render(); };
+});
+
+function goStep(n){
+  document.getElementById('step1').style.display=n===1?'block':'none';
+  document.getElementById('step2').style.display=n===2?'block':'none';
+  document.getElementById('dot1').classList.toggle('on',true);
+  document.getElementById('dot2').classList.toggle('on',n===2);
+  document.getElementById('stepLabel').textContent=n===1?'Step 1 of 2 · Build your clean':'Step 2 of 2 · Your details';
+  if(n===2){buildSummary();}
+  document.getElementById('book').scrollIntoView({behavior:'smooth',block:'center'});
+}
+function buildSummary(){
+  var r=calcBase();
+  var typeTxt=document.querySelector('#typeOpts .opt.sel').textContent;
+  var addOns=[];
+  document.querySelectorAll('#addonWrap input:checked').forEach(function(c){addOns.push(c.closest('.addon').childNodes[1].textContent.trim());});
+  var html='<b>Your clean · $'+r.perVisit+fmtFreqSuffix()+'</b><ul>'+
+    '<li>'+typeTxt+' · '+state.freqLabel+'</li>'+
+    '<li>'+state.bed+' bed · '+state.bath+' bath</li>'+
+    (addOns.length?'<li>Add-ons: '+addOns.join(', ')+'</li>':'')+
+    '</ul>';
+  document.getElementById('summary').innerHTML=html;
+}
+function submitBooking(){
+  var name=document.getElementById('cname').value.trim();
+  if(!name){document.getElementById('cname').focus();return;}
+  var r=calcBase();
+  var box=document.getElementById('step2');
+  box.innerHTML='<div style="text-align:center;padding:18px 6px">'+
+    '<div style="font-size:40px">✅</div>'+
+    '<h3 style="font-family:Space Grotesk;color:#0ea78a;margin:8px 0">Booking request sent!</h3>'+
+    '<p style="color:#5c716d;font-size:14.5px">Thanks '+name.replace(/</g,'')+', we\'ve got your '+
+    '$'+r.perVisit+fmtFreqSuffix()+' clean. A team member will confirm within one business day.</p>'+
+    '<p style="color:#8a9a96;font-size:12px;margin-top:16px">(Demo confirmation, on a live site this would email the booking straight to the business.)</p>'+
+    '</div>';
+}
+render();
+
+/* ---------- faq ---------- */
+function toggleFaq(btn){ btn.parentElement.classList.toggle('open'); }
+
+/* ---------- chat ---------- */
+function sendMsg(){
+  var i=document.getElementById('ci'),b=document.getElementById('cb');
+  if(!i.value.trim())return;
+  var u=document.createElement('div');u.className='bubble user';u.textContent=i.value;b.appendChild(u);
+  i.value='';
+  setTimeout(function(){var r=document.createElement('div');r.className='bubble bot';r.textContent="Perfect, I've noted that. A team member will confirm your booking shortly. (This is a demo AI assistant Jenny can build for your business.)";b.appendChild(r);b.scrollTop=b.scrollHeight;},500);
+  b.scrollTop=b.scrollHeight;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Havenwood Landscapes | Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --forest:#26372b; --forest-d:#1c2a21; --moss:#4f6b4b; --cedar:#b06a3c; --cedar-d:#95592f;
+    --sand:#f3ede2; --paper:#fbf8f2; --ink:#2b2a26; --muted:#736d61; --line:#e3dcce;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.6}
+  h1,h2,h3,.serif{font-family:'Fraunces',serif;font-weight:600;line-height:1.1;color:var(--forest)}
+  .demo{background:var(--forest-d);color:#eae2d2;text-align:center;font-size:13px;font-weight:500;padding:9px 14px;letter-spacing:.02em}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+  a{text-decoration:none}
+  .btn{display:inline-block;background:var(--cedar);color:#fff;padding:14px 26px;border-radius:6px;font-weight:600;font-size:15px;border:none;cursor:pointer;transition:.2s}
+  .btn:hover{background:var(--cedar-d)}
+  .btn.line{background:transparent;border:1.5px solid rgba(255,255,255,.7);color:#fff}
+  .btn.line:hover{background:#fff;color:var(--forest)}
+  .btn.dark{background:var(--forest)}
+  .btn.dark:hover{background:var(--forest-d)}
+  /* nav */
+  header{position:absolute;top:33px;left:0;right:0;z-index:20}
+  nav{display:flex;align-items:center;justify-content:space-between;max-width:1160px;margin:0 auto;padding:22px 28px}
+  .logo{color:#fff;font-family:'Fraunces';font-weight:600;font-size:22px;display:flex;align-items:center;gap:9px}
+  .logo .mark{width:30px;height:30px;border:2px solid var(--cedar);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px}
+  .links{display:flex;gap:30px;align-items:center}
+  .links a{color:rgba(255,255,255,.9);font-size:14px;font-weight:500}
+  .links a:hover{color:#fff}
+  /* hero */
+  .hero{position:relative;min-height:640px;display:flex;align-items:center;
+    background:linear-gradient(180deg,rgba(20,28,20,.65),rgba(20,28,20,.35) 45%,rgba(20,28,20,.72)),
+    url('https://images.unsplash.com/photo-1527359443443-84a48aec73d2?auto=format&fit=crop&w=1600&q=80') center/cover}
+  .hero .inner{color:#fff;max-width:640px;padding:120px 0 70px}
+  .hero .eyebrow{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(4px);padding:7px 15px;border-radius:999px;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:22px}
+  .hero h1{color:#fff;font-size:clamp(42px,6.2vw,74px)}
+  .hero p{font-size:19px;margin:20px 0 30px;max-width:520px;color:rgba(255,255,255,.94)}
+  .hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+  /* trust strip */
+  .trust{background:var(--forest);color:#e8e0d0}
+  .trust .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding:22px 28px}
+  .trust .t{display:flex;align-items:center;gap:10px;font-size:14px}
+  .trust .t b{color:#fff;font-family:'Fraunces';font-size:20px;font-weight:600}
+  /* sections */
+  section{padding:88px 0}
+  .head{max-width:640px;margin-bottom:48px}
+  .head.center{margin-left:auto;margin-right:auto;text-align:center}
+  .kicker{color:var(--cedar);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:12.5px;margin-bottom:14px}
+  .head h2{font-size:clamp(30px,4.4vw,46px)}
+  .head p{color:var(--muted);margin-top:14px;font-size:17px}
+  /* services */
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .svc{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:28px;transition:.2s}
+  .svc:hover{border-color:var(--cedar);box-shadow:0 14px 34px rgba(38,55,43,.09);transform:translateY(-3px)}
+  .svc .ic{width:46px;height:46px;border-radius:10px;background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px}
+  .svc h3{font-size:21px}
+  .svc p{color:var(--muted);font-size:14.5px;margin-top:8px}
+  /* work gallery */
+  .work{background:var(--sand)}
+  .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .gal figure{position:relative;margin:0;border-radius:12px;overflow:hidden;aspect-ratio:4/3}
+  .gal img{width:100%;height:100%;object-fit:cover;display:block;transition:.4s}
+  .gal figure:hover img{transform:scale(1.06)}
+  .gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:16px;color:#fff;font-weight:600;font-size:15px;
+    background:linear-gradient(transparent,rgba(20,28,20,.78))}
+  /* why band */
+  .why{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .why .imgwrap{border-radius:14px;overflow:hidden;aspect-ratio:5/4}
+  .why img{width:100%;height:100%;object-fit:cover}
+  .why ul{list-style:none;margin-top:22px}
+  .why li{display:flex;gap:12px;align-items:flex-start;padding:10px 0;font-size:16px}
+  .why li .ck{color:var(--cedar);font-weight:700;flex:none}
+  .why .note{margin-top:20px;background:var(--sand);border-left:3px solid var(--cedar);padding:16px 18px;border-radius:0 8px 8px 0;font-size:15px;color:var(--forest)}
+  /* contact */
+  .contact{background:var(--forest);color:#eae2d2}
+  .contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .contact h2{color:#fff}
+  .contact .kicker{color:var(--cedar)}
+  .contact p.sub{color:#cfc7b5;margin-top:14px;font-size:17px}
+  .contact .info{margin-top:26px}
+  .contact .info div{display:flex;gap:12px;align-items:center;padding:9px 0;font-size:15px;color:#e8e0d0}
+  .form{background:var(--paper);border-radius:14px;padding:30px}
+  .form label{display:block;font-size:13px;font-weight:600;color:var(--forest);margin:14px 0 6px}
+  .form label:first-child{margin-top:0}
+  .form input,.form select,.form textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:15px;background:#fff;color:var(--ink)}
+  .form textarea{resize:vertical;min-height:90px}
+  .form .btn{width:100%;margin-top:20px}
+  .form .fine{font-size:12.5px;color:var(--muted);text-align:center;margin-top:12px}
+  #ok{display:none;background:#e7f0e5;border:1px solid #b6d3ad;color:#2f5127;padding:14px;border-radius:8px;margin-top:16px;font-size:14px}
+  footer{background:var(--forest-d);color:#b9b19f;padding:30px 0;font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  @media(max-width:860px){
+    .links{display:none}
+    .svc-grid,.gal{grid-template-columns:1fr 1fr}
+    .why,.contact .grid{grid-template-columns:1fr;gap:30px}
+  }
+  @media(max-width:560px){.svc-grid,.gal{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="demo">DEMO SITE, sample by Jenny C to show what your landscaping business could look like online. Example business.</div>
+
+<header>
+  <nav>
+    <div class="logo"><span class="mark">HW</span> Havenwood</div>
+    <div class="links">
+      <a href="#services">Services</a>
+      <a href="#work">Our Work</a>
+      <a href="#why">Why Us</a>
+      <a class="btn line" href="#contact">Get a free quote</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap inner">
+    <span class="eyebrow">Decks · Fences · Gazebos · Water Features</span>
+    <h1>Beautiful backyards, built to last.</h1>
+    <p>Custom decks, cedar fences, gazebos, and water features across Haldimand &amp; Hamilton, quality craftsmanship at a fair, honest price.</p>
+    <div class="cta">
+      <a class="btn" href="#contact">Get a free quote</a>
+      <a class="btn line" href="#work">See our work</a>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap">
+    <div class="t"><b>15+ yrs</b><span>building outdoor spaces</span></div>
+    <div class="t"><b>4.9★</b><span>on 90+ local reviews</span></div>
+    <div class="t"><b>Fully</b><span>licensed &amp; insured</span></div>
+    <div class="t"><b>Free</b><span>no-pressure quotes</span></div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="head center">
+      <div class="kicker">What we build</div>
+      <h2>One crew for the whole backyard</h2>
+      <p>From a simple fence to a complete outdoor-living space, designed and built to look like it belongs together.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc"><div class="ic">🪵</div><h3>Decks &amp; Patios</h3><p>Custom cedar and composite decks, stone patios, and multi-level builds made for how you actually use your yard.</p></div>
+      <div class="svc"><div class="ic">🧱</div><h3>Fences &amp; Privacy</h3><p>Cedar privacy fences, gates, and screens, straight, solid, and finished to last through Ontario winters.</p></div>
+      <div class="svc"><div class="ic">🏡</div><h3>Gazebos &amp; Pergolas</h3><p>Shade structures, pergolas, and gazebos that turn a plain yard into a place you want to spend the evening.</p></div>
+      <div class="svc"><div class="ic">💧</div><h3>Water Features</h3><p>Ponds, waterfalls, and low-maintenance water gardens that add calm and character to any space.</p></div>
+      <div class="svc"><div class="ic">🌿</div><h3>Gardens &amp; Planting</h3><p>Garden beds, mulching, and planting designed to look great now and grow in beautifully over the years.</p></div>
+      <div class="svc"><div class="ic">❄️</div><h3>Seasonal Care</h3><p>Spring &amp; fall cleanups plus reliable winter snow clearing, one trusted crew, all year round.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="work" class="work">
+  <div class="wrap">
+    <div class="head center">
+      <div class="kicker">Our work</div>
+      <h2>Recent projects</h2>
+      <p>A few backyards we've built around the region. Cohesive, clean, and made to last.</p>
+    </div>
+    <div class="gal">
+      <figure><img src="https://images.unsplash.com/photo-1613544723412-b331bda01e87?auto=format&fit=crop&w=700&q=80" alt="Cedar deck" /><figcaption>Cedar deck &amp; dining space</figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1601042860368-debed90085e0?auto=format&fit=crop&w=700&q=80" alt="Wood privacy fence" /><figcaption>Cedar privacy fence</figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1700373857722-f8719b13722c?auto=format&fit=crop&w=700&q=80" alt="Garden gazebo" /><figcaption>Backyard gazebo</figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1556010117-29c6a0a69e0f?auto=format&fit=crop&w=700&q=80" alt="Pond water feature" /><figcaption>Pond &amp; water feature</figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1769503236428-7773271074cf?auto=format&fit=crop&w=700&q=80" alt="Pergola dining area" /><figcaption>Pergola &amp; outdoor kitchen</figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1757851704368-3ae8d337943d?auto=format&fit=crop&w=700&q=80" alt="Fire pit patio" /><figcaption>Stone fire-pit patio</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap why">
+    <div class="imgwrap"><img src="https://images.unsplash.com/photo-1716904519810-349244919824?auto=format&fit=crop&w=900&q=80" alt="Finished deck" /></div>
+    <div>
+      <div class="kicker">Why Havenwood</div>
+      <h2>Quality craftsmanship, without the premium price tag.</h2>
+      <ul>
+        <li><span class="ck">✓</span> Honest, detailed quotes, you know the price before we start, no surprises.</li>
+        <li><span class="ck">✓</span> The same small crew on your project start to finish.</li>
+        <li><span class="ck">✓</span> Quality materials and clean workmanship built to last decades.</li>
+        <li><span class="ck">✓</span> Fully licensed &amp; insured, and we clean up when we're done.</li>
+      </ul>
+      <div class="note">Good work doesn't have to break the bank. We keep our overhead low so you get a beautiful backyard at a price that makes sense.</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="kicker">Get started</div>
+        <h2>Request your free quote</h2>
+        <p class="sub">Tell us about your project and we'll get back to you within one business day. No cost, no obligation, ever.</p>
+        <div class="info">
+          <div>📞 (905) 555-0164</div>
+          <div>✉️ hello@havenwoodlandscapes.example</div>
+          <div>📍 Serving Caledonia, Hagersville, Dunnville, Hamilton &amp; area</div>
+          <div>🕘 Mon–Sat, 8am–6pm</div>
+        </div>
+      </div>
+      <form class="form" onsubmit="event.preventDefault(); this.querySelector('#ok').style.display='block'; this.querySelector('button').textContent='Request sent ✓';">
+        <label>Name</label>
+        <input type="text" placeholder="Your name" required />
+        <label>Phone or email</label>
+        <input type="text" placeholder="How can we reach you?" required />
+        <label>What are you looking to build?</label>
+        <select>
+          <option>Deck or patio</option>
+          <option>Fence</option>
+          <option>Gazebo or pergola</option>
+          <option>Water feature</option>
+          <option>Garden / planting</option>
+          <option>Seasonal / snow</option>
+          <option>Something else</option>
+        </select>
+        <label>Project details (optional)</label>
+        <textarea placeholder="Tell us a bit about your yard and what you have in mind"></textarea>
+        <button class="btn" type="submit">Send my free quote request</button>
+        <div class="fine">We reply within 1 business day. Your info is never shared.</div>
+        <div id="ok">Thanks! This is a demo form, on your live site this would email straight to your inbox.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b style="color:#eae2d2">Havenwood Landscapes</b> · Serving Haldimand County &amp; Hamilton, ON</div>
+    <div>(905) 555-0164 · hello@havenwoodlandscapes.example</div>
+  </div>
+</footer>
+</body>
+</html>
