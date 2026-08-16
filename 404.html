@@ -6,6 +6,7 @@
   <title>Page not found | Aloomii</title>
   <meta name="robots" content="noindex">
   <link rel="stylesheet" href="/snippets/canonical-nav.css">
+  <link rel="stylesheet" href="/snippets/ghost-background.css">
   <style>
     :root {
       --bg: #0b0b14;
@@ -15,6 +16,7 @@
     }
     * { box-sizing: border-box; }
     html, body { min-height: 100%; }
+    .page-content { position: relative; z-index: 2; }
     body {
       margin: 0;
       color: #fff;
@@ -62,6 +64,7 @@
   </style>
 </head>
 <body>
+  <canvas id="ghostCanvas"></canvas>
   <div class="page-content">
     <!-- CANONICAL_NAV_START -->
 <nav>
@@ -100,5 +103,6 @@
     </main>
   </div>
   <script src="/snippets/canonical-nav.js"></script>
+  <script src="/snippets/ghost-background.js"></script>
 </body>
 </html>
