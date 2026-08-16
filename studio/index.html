@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Studio | Aloomii podcast and video production</title>
-  <meta name="description" content="End-to-end podcast and video production for clients. Editing, clips, show notes, publishing and distribution from one studio.">
+  <title>Studio | Aloomii podcast production</title>
+  <meta name="description" content="End-to-end podcast production for clients. Editing, clips, show notes, publishing and distribution from one studio.">
   <link rel="canonical" href="https://aloomii.com/studio/">
   <link rel="stylesheet" href="/assets/css/aloomii-tokens.css">
   <link rel="stylesheet" href="/snippets/canonical-nav.css">
@@ -37,6 +37,17 @@
     }
     a { color: inherit; }
     .studio-page { position: relative; z-index: 2; overflow: hidden; }
+    main { display: flex; flex-direction: column; }
+    .hero { order: 1; }
+    .capability-section { order: 2; }
+    .pricing-section { order: 3; }
+    .timeline-section { order: 4; }
+    .stats-section { order: 5; }
+    .photo-section { order: 6; }
+    .story-section { order: 7; }
+    .proof-section { order: 8; }
+    .faq-section { order: 9; }
+    .closing { order: 10; }
     .container { width: min(var(--max), calc(100% - 80px)); margin: 0 auto; }
     .glass {
       border: 1px solid var(--border);
@@ -109,11 +120,11 @@
       background: transparent;
       border-color: var(--border-strong);
     }
-    .hero-video { overflow: hidden; }
-    .hero-video a { display: block; text-decoration: none; }
-    .hero-video-media { position: relative; aspect-ratio: 16 / 9; overflow: hidden; }
-    .hero-video img { width: 100%; height: 100%; display: block; object-fit: cover; }
-    .hero-video-media::after {
+    .hero-proof { overflow: hidden; }
+    .hero-proof a { display: block; text-decoration: none; }
+    .hero-proof-media { position: relative; aspect-ratio: 16 / 9; overflow: hidden; }
+    .hero-proof img { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .hero-proof-media::after {
       position: absolute;
       inset: 0;
       display: grid;
@@ -124,19 +135,19 @@
       text-indent: 3px;
       background: rgba(0,200,190,.16);
     }
-    .hero-video-copy { padding: 22px 24px 26px; }
-    .hero-video-copy small { color: var(--accent); font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; }
-    .hero-video-copy h2 { margin: 10px 0 8px; font-size: 25px; line-height: 1.2; }
-    .hero-video-copy p { margin: 0; color: var(--muted); font-size: 14px; }
+    .hero-proof-copy { padding: 22px 24px 26px; }
+    .hero-proof-copy small { color: var(--accent); font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; }
+    .hero-proof-copy h2 { margin: 10px 0 8px; font-size: 25px; line-height: 1.2; }
+    .hero-proof-copy p { margin: 0; color: var(--muted); font-size: 14px; }
     .section { padding: 96px 0; }
-    .section-heading { max-width: 760px; margin-bottom: 46px; }
+    .section-heading { max-width: 760px; margin: 0 auto 46px; text-align: center; }
     .section-heading h2 {
       margin: 10px 0 14px;
       font-size: clamp(32px, 4vw, 54px);
       line-height: 1.08;
       letter-spacing: -1.5px;
     }
-    .section-heading p { max-width: 680px; margin: 0; color: var(--body); font-size: 17px; }
+    .section-heading p { max-width: 680px; margin: 0 auto; color: var(--body); font-size: 17px; }
     .story-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 76px; }
     .story-grid h2 { margin: 10px 0 0; font-size: clamp(30px, 4vw, 48px); line-height: 1.12; }
     .story-body { color: var(--body); font-size: 16px; }
@@ -189,15 +200,14 @@
     .timeline-stats { color: var(--accent-soft); font-size: 13px; font-weight: 600; }
     .photo-section { padding: 30px 0 96px; }
     .photo-strip {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 16px;
-      max-width: 100vw;
-      padding: 6px max(20px, calc((100vw - var(--max)) / 2)) 22px;
-      overflow-x: auto;
-      scrollbar-width: thin;
-      scrollbar-color: var(--accent) transparent;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 6px 40px 22px;
     }
-    .photo-card { flex: 0 0 265px; overflow: hidden; }
+    .photo-card { min-width: 0; overflow: hidden; }
     .photo-card img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
     .photo-card figcaption { padding: 13px 15px 15px; color: var(--body); font-size: 13px; }
     .photo-card small { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; }
@@ -253,10 +263,10 @@
     .faq-item.active .faq-answer { max-height: 240px; padding: 0 24px 20px; }
     .faq-item.active .faq-arrow { transform: rotate(45deg); }
     .proof-section { padding: 96px 0; }
-    .proof-card { padding: 48px; }
+    .proof-card { padding: 48px; text-align: center; }
     blockquote { margin: 18px 0 12px; color: var(--text); font-size: clamp(25px, 3.5vw, 44px); line-height: 1.16; letter-spacing: -.8px; }
     .proof-card cite { color: var(--accent-soft); font-size: 13px; font-style: normal; }
-    .proof-copy { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 34px; color: var(--body); font-size: 16px; }
+    .proof-copy { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 34px; color: var(--body); font-size: 16px; text-align: left; }
     .proof-copy p { margin: 0; }
     .closing { padding: 110px 0 120px; text-align: center; }
     .closing h2 { margin-bottom: 18px; font-size: clamp(35px, 5vw, 62px); line-height: 1.05; letter-spacing: -2px; }
@@ -267,9 +277,10 @@
     @media (max-width: 900px) {
       .hero-grid, .story-grid { grid-template-columns: 1fr; gap: 42px; }
       .hero { padding-top: 76px; }
-      .hero-video { max-width: 680px; }
+      .hero-proof { max-width: 680px; }
       .pricing-grid { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; }
       .tier-audience { min-height: 0; }
+      .photo-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
     @media (max-width: 768px) {
       .container { width: min(100% - 40px, var(--max)); }
@@ -284,9 +295,17 @@
       .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
       .capability-grid { grid-template-columns: 1fr; }
       .capability-card:last-child { grid-column: auto; max-width: none; }
+      .photo-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 6px 20px 22px; }
       .proof-card { padding: 28px 22px; }
       .proof-copy { grid-template-columns: 1fr; gap: 16px; }
       .closing { padding: 80px 0 92px; }
+      .site-footer { padding: 48px 20px 30px; }
+      .footer-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 24px; }
+      .footer-inner > * { min-width: 0; }
+      .footer-col a { overflow-wrap: anywhere; }
+    }
+    @media (max-width: 360px) {
+      .photo-strip { grid-template-columns: 1fr; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -332,14 +351,14 @@
           <div>
             <div class="eyebrow">Aloomii Studio</div>
             <h1>Make the show. <span>Keep the relationship.</span></h1>
-            <p class="hero-copy">End-to-end podcast production and client video. You record the conversation. We handle the edit, the clips, the publishing and the details that make it feel like your show.</p>
-            <div class="hero-note"><span>Podcast production</span><span>Client video</span><span>Built for consistency</span></div>
+            <p class="hero-copy">End-to-end podcast production. You record the conversation. We handle the edit, the clips, the publishing and the details that make it feel like your show.</p>
+            <div class="hero-note"><span>Podcast production</span><span>Built for consistency</span></div>
             <div class="buttons"><a class="button" href="/#contact">Start a Conversation</a><a class="button secondary" href="https://youtu.be/t3dDHRRZyHk" target="_blank" rel="noopener">Watch an episode</a></div>
           </div>
-          <article class="hero-video glass">
+          <article class="hero-proof glass">
             <a href="https://youtu.be/t3dDHRRZyHk" target="_blank" rel="noopener">
-              <div class="hero-video-media"><img src="/images/studio/jim-rogers-video.png" alt="Jim Rogers on Pale Blue Nexus Episode 1"></div>
-              <div class="hero-video-copy">
+              <div class="hero-proof-media"><img src="/images/studio/jim-rogers-video.png" alt="Jim Rogers on Pale Blue Nexus Episode 1"></div>
+              <div class="hero-proof-copy">
                 <small>Now streaming, Episode 1</small>
                 <h2>Pursue what you love. The world will pay you for it.</h2>
                 <p>Jim Rogers on Pale Blue Nexus, after 17 years of correspondence.</p>
@@ -349,7 +368,7 @@
         </div>
       </header>
 
-      <section class="section">
+      <section class="section story-section">
         <div class="container story-grid">
           <div class="section-heading">
             <div class="eyebrow">The Jim Rogers story</div>
@@ -365,7 +384,7 @@
         </div>
       </section>
 
-      <section class="section">
+      <section class="section timeline-section">
         <div class="container">
           <div class="section-heading">
             <div class="eyebrow">Five shows, three eras, one through line</div>
@@ -424,7 +443,7 @@
           <figure class="photo-card glass"><img src="/images/studio/yat-siu-interview.png" alt="Yat Siu interview on NFT Hype"><figcaption>Yat Siu interview<small>NFT Hype, 2021</small></figcaption></figure>
           <figure class="photo-card glass"><img src="/images/studio/orange-cubicle-panel.png" alt="Orange Cubicle SLAMvision panel"><figcaption>SLAMvision panel<small>Orange Cubicle, 2024</small></figcaption></figure>
           <figure class="photo-card glass"><img src="/images/studio/eos-go-channel.png" alt="EOS Go channel artwork"><figcaption>Channel artwork<small>EOS Go, 2018</small></figcaption></figure>
-          <figure class="photo-card glass"><img src="/images/studio/jim-rogers-video.png" alt="Jim Rogers video production"><figcaption>Jim Rogers production<small>Pale Blue Nexus, 2026</small></figcaption></figure>
+          <figure class="photo-card glass"><img src="/images/studio/jim-rogers-video.png" alt="Jim Rogers on Pale Blue Nexus"><figcaption>Jim Rogers production<small>Pale Blue Nexus, 2026</small></figcaption></figure>
         </div>
       </section>
 
@@ -437,7 +456,7 @@
         </div>
       </section>
 
-      <section class="section">
+      <section class="section capability-section">
         <div class="container">
           <div class="section-heading">
             <div class="eyebrow">What Studio handles</div>
@@ -449,7 +468,6 @@
             <article class="capability-card glass"><div class="capability-icon">↗</div><h3>Clips that travel</h3><p>Vertical clips cut from each episode with strong hooks, captions and formatting for each platform.</p></article>
             <article class="capability-card glass"><div class="capability-icon">◌</div><h3>Publishing and distribution</h3><p>We publish to the platforms and your host through delegated access inside your own accounts. You never hand over passwords, and access can be revoked.</p></article>
             <article class="capability-card glass"><div class="capability-icon">✦</div><h3>Brand voice and creative direction</h3><p>The show looks and sounds like you, not a template. We set the visual and editorial direction once and hold it consistently.</p></article>
-            <article class="capability-card glass"><div class="capability-icon">▣</div><h3>Video for clients</h3><p>Editing your footage, turning long form into short form, captions, music, light motion graphics, thumbnails and social-ready formatting.</p></article>
           </div>
         </div>
       </section>
@@ -518,7 +536,7 @@
           <h2>The show is the excuse.<br><span>The relationship is the asset.</span></h2>
           <p>A good production system gives the conversation room to compound. Tell us what you are recording and where you want it to go.</p>
           <a class="button" href="/#contact">Start a Conversation</a>
-          <div class="footer-note">Studio is client production for podcasts and video. Month-to-month, with no lock-in.</div>
+          <div class="footer-note">Studio is podcast production for clients. Month-to-month, with no lock-in.</div>
         </div>
       </section>
     </main>
