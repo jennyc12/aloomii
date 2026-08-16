@@ -37,17 +37,6 @@
     }
     a { color: inherit; }
     .studio-page { position: relative; z-index: 2; overflow: hidden; }
-    main { display: flex; flex-direction: column; }
-    .hero { order: 1; }
-    .capability-section { order: 2; }
-    .pricing-section { order: 3; }
-    .timeline-section { order: 4; }
-    .stats-section { order: 5; }
-    .photo-section { order: 6; }
-    .story-section { order: 7; }
-    .proof-section { order: 8; }
-    .faq-section { order: 9; }
-    .closing { order: 10; }
     .container { width: min(var(--max), calc(100% - 80px)); margin: 0 auto; }
     .glass {
       border: 1px solid var(--border);
@@ -368,19 +357,53 @@
         </div>
       </header>
 
-      <section class="section story-section">
-        <div class="container story-grid">
+      <section class="section capability-section">
+        <div class="container">
           <div class="section-heading">
-            <div class="eyebrow">The Jim Rogers story</div>
-            <h2>A cold email in <span>2009</span>. A podcast guest in <span>2026</span>.</h2>
+            <div class="eyebrow">What Studio handles</div>
+            <h2>Your show. <span>Our studio.</span></h2>
+            <p>Production that keeps the voice, look and rhythm of the show consistent.</p>
           </div>
-          <div class="story-body">
-            <p>In 2009, Yohann sent a cold email to <strong>Jim Rogers</strong>, co-founder of the Quantum Fund with George Soros. 4,200% returns in a single decade. One of the most sought-after investors alive.</p>
-            <p>Rogers replied. Most people would have asked for something immediately. Yohann did not. He kept the conversation going, year after year. <strong>No pitch. No ask.</strong> Just genuine connection maintained over time.</p>
-            <p>Seventeen years later, Jim sat down as the first guest on Pale Blue Nexus. The episode is live.</p>
-            <p>No agency would have kept that thread alive for 17 years. This is the difference between transactional media and <strong>relationship-driven media</strong>. We build the second kind.</p>
-            <div class="quote"><p>Please figure out a way to find out what you love the most. Many people never find it. Pursue it, pursue it, pursue it.</p><cite>Jim Rogers, Pale Blue Nexus, Episode 1</cite></div>
+          <div class="capability-grid">
+            <article class="capability-card glass"><div class="capability-icon">◉</div><h3>End-to-end production</h3><p>You record. We handle the full edit and mix, show notes and titles, episode thumbnail and publishing, so every episode arrives finished.</p></article>
+            <article class="capability-card glass"><div class="capability-icon">↗</div><h3>Clips that travel</h3><p>Vertical clips cut from each episode with strong hooks, captions and formatting for each platform.</p></article>
+            <article class="capability-card glass"><div class="capability-icon">◌</div><h3>Publishing and distribution</h3><p>We publish to the platforms and your host through delegated access inside your own accounts. You never hand over passwords, and access can be revoked.</p></article>
+            <article class="capability-card glass"><div class="capability-icon">✦</div><h3>Brand voice and creative direction</h3><p>The show looks and sounds like you, not a template. We set the visual and editorial direction once and hold it consistently.</p></article>
           </div>
+        </div>
+      </section>
+
+      <section class="pricing-section" id="pricing">
+        <div class="container">
+          <div class="section-heading pricing-heading">
+            <div class="eyebrow">Engagement options</div>
+            <h2>Three ways to <span>start.</span></h2>
+            <p>Choose the production level that matches the recordings and archive you already have.</p>
+          </div>
+          <div class="pricing-grid">
+            <article class="tier glass">
+              <div class="tier-label">Tier A</div><h3>Clips</h3>
+              <p class="tier-audience">For people who already have recordings sitting there.</p>
+              <div class="price">$749 <span>per month</span></div><div class="tier-note">Month-to-month</div>
+              <ul><li>12 vertical clips a month from existing recordings</li><li>Hooks, captions and per-platform formatting</li><li>Delivered ready to post or scheduled through your own tools</li><li>No new recording required</li></ul>
+              <a class="button secondary" href="/#contact">Start with Clips</a>
+            </article>
+            <article class="tier glass featured">
+              <div class="tier-label">Tier B, most popular</div><h3>Production</h3>
+              <p class="tier-audience">For a full show with a reliable publishing rhythm.</p>
+              <div class="price">$1,100 <span>per month</span></div><div class="tier-note">$349 for a single episode, month-to-month</div>
+              <ul><li>4 episodes a month fully produced</li><li>Full edit and mix, show notes, titles and chapter markers</li><li>Episode thumbnail and 12 vertical clips a month</li><li>Published to the platforms and your host</li><li>48-hour turnaround per episode</li></ul>
+              <a class="button" href="/#contact">Build the show</a>
+            </article>
+            <article class="tier glass">
+              <div class="tier-label">Tier C</div><h3>Multiply</h3>
+              <p class="tier-audience">For an archive of podcasts, talks, webinars, panels or interviews.</p>
+              <div class="price">$1,799 <span>per month</span></div><div class="tier-note">Existing archive</div>
+              <ul><li>Up to 40 short-form videos a month</li><li>Platform-specific hooks, titles and metadata</li><li>Distribution across five platforms</li><li>Built from the content you already have</li></ul>
+              <a class="button secondary" href="/#contact">Multiply what you have</a>
+            </article>
+          </div>
+          <p class="setup-note">Starting a show from zero adds a one-time $1,500 show setup, covering format, artwork, channel and directory setup and the first episode.</p>
         </div>
       </section>
 
@@ -431,6 +454,15 @@
         </div>
       </section>
 
+      <section class="stats-section">
+        <div class="container stats-grid">
+          <div class="stat"><div class="stat-value" data-count="5" data-suffix="M+">0</div><div class="stat-label">Total views across all shows</div></div>
+          <div class="stat"><div class="stat-value" data-count="9">0</div><div class="stat-label">Years producing shows</div></div>
+          <div class="stat"><div class="stat-value" data-count="3000">0</div><div class="stat-label">Hours listened on Pale Blue Nexus</div></div>
+          <div class="stat"><div class="stat-value" data-count="75" data-suffix="%">0</div><div class="stat-label">Listeners who are not followers</div></div>
+        </div>
+      </section>
+
       <section class="photo-section" aria-label="Production photos">
         <div class="container section-heading">
           <div class="eyebrow">Nine years in the room</div>
@@ -447,62 +479,19 @@
         </div>
       </section>
 
-      <section class="stats-section">
-        <div class="container stats-grid">
-          <div class="stat"><div class="stat-value" data-count="5" data-suffix="M+">0</div><div class="stat-label">Total views across all shows</div></div>
-          <div class="stat"><div class="stat-value" data-count="9">0</div><div class="stat-label">Years producing shows</div></div>
-          <div class="stat"><div class="stat-value" data-count="3000">0</div><div class="stat-label">Hours listened on Pale Blue Nexus</div></div>
-          <div class="stat"><div class="stat-value" data-count="75" data-suffix="%">0</div><div class="stat-label">Listeners who are not followers</div></div>
-        </div>
-      </section>
-
-      <section class="section capability-section">
-        <div class="container">
+      <section class="section story-section">
+        <div class="container story-grid">
           <div class="section-heading">
-            <div class="eyebrow">What Studio handles</div>
-            <h2>Your show. <span>Our studio.</span></h2>
-            <p>Production that keeps the voice, look and rhythm of the show consistent.</p>
+            <div class="eyebrow">The Jim Rogers story</div>
+            <h2>A cold email in <span>2009</span>. A podcast guest in <span>2026</span>.</h2>
           </div>
-          <div class="capability-grid">
-            <article class="capability-card glass"><div class="capability-icon">◉</div><h3>End-to-end production</h3><p>You record. We handle the full edit and mix, show notes and titles, episode thumbnail and publishing, so every episode arrives finished.</p></article>
-            <article class="capability-card glass"><div class="capability-icon">↗</div><h3>Clips that travel</h3><p>Vertical clips cut from each episode with strong hooks, captions and formatting for each platform.</p></article>
-            <article class="capability-card glass"><div class="capability-icon">◌</div><h3>Publishing and distribution</h3><p>We publish to the platforms and your host through delegated access inside your own accounts. You never hand over passwords, and access can be revoked.</p></article>
-            <article class="capability-card glass"><div class="capability-icon">✦</div><h3>Brand voice and creative direction</h3><p>The show looks and sounds like you, not a template. We set the visual and editorial direction once and hold it consistently.</p></article>
+          <div class="story-body">
+            <p>In 2009, Yohann sent a cold email to <strong>Jim Rogers</strong>, co-founder of the Quantum Fund with George Soros. 4,200% returns in a single decade. One of the most sought-after investors alive.</p>
+            <p>Rogers replied. Most people would have asked for something immediately. Yohann did not. He kept the conversation going, year after year. <strong>No pitch. No ask.</strong> Just genuine connection maintained over time.</p>
+            <p>Seventeen years later, Jim sat down as the first guest on Pale Blue Nexus. The episode is live.</p>
+            <p>No agency would have kept that thread alive for 17 years. This is the difference between transactional media and <strong>relationship-driven media</strong>. We build the second kind.</p>
+            <div class="quote"><p>Please figure out a way to find out what you love the most. Many people never find it. Pursue it, pursue it, pursue it.</p><cite>Jim Rogers, Pale Blue Nexus, Episode 1</cite></div>
           </div>
-        </div>
-      </section>
-
-      <section class="pricing-section" id="pricing">
-        <div class="container">
-          <div class="section-heading pricing-heading">
-            <div class="eyebrow">Engagement options</div>
-            <h2>Three ways to <span>start.</span></h2>
-            <p>Choose the production level that matches the recordings and archive you already have.</p>
-          </div>
-          <div class="pricing-grid">
-            <article class="tier glass">
-              <div class="tier-label">Tier A</div><h3>Clips</h3>
-              <p class="tier-audience">For people who already have recordings sitting there.</p>
-              <div class="price">$749 <span>per month</span></div><div class="tier-note">Month-to-month</div>
-              <ul><li>12 vertical clips a month from existing recordings</li><li>Hooks, captions and per-platform formatting</li><li>Delivered ready to post or scheduled through your own tools</li><li>No new recording required</li></ul>
-              <a class="button secondary" href="/#contact">Start with Clips</a>
-            </article>
-            <article class="tier glass featured">
-              <div class="tier-label">Tier B, most popular</div><h3>Production</h3>
-              <p class="tier-audience">For a full show with a reliable publishing rhythm.</p>
-              <div class="price">$1,100 <span>per month</span></div><div class="tier-note">$349 for a single episode, month-to-month</div>
-              <ul><li>4 episodes a month fully produced</li><li>Full edit and mix, show notes, titles and chapter markers</li><li>Episode thumbnail and 12 vertical clips a month</li><li>Published to the platforms and your host</li><li>48-hour turnaround per episode</li></ul>
-              <a class="button" href="/#contact">Build the show</a>
-            </article>
-            <article class="tier glass">
-              <div class="tier-label">Tier C</div><h3>Multiply</h3>
-              <p class="tier-audience">For an archive of podcasts, talks, webinars, panels or interviews.</p>
-              <div class="price">$1,799 <span>per month</span></div><div class="tier-note">Existing archive</div>
-              <ul><li>Up to 40 short-form videos a month</li><li>Platform-specific hooks, titles and metadata</li><li>Distribution across five platforms</li><li>Built from the content you already have</li></ul>
-              <a class="button secondary" href="/#contact">Multiply what you have</a>
-            </article>
-          </div>
-          <p class="setup-note">Starting a show from zero adds a one-time $1,500 show setup, covering format, artwork, channel and directory setup and the first episode.</p>
         </div>
       </section>
 
