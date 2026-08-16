@@ -145,27 +145,24 @@
     .section-heading { max-width: 760px; margin: 0 auto 46px; text-align: center; }
     .section-heading h2 { margin: 0; font-size: clamp(34px, 5vw, 54px); line-height: 1.02; }
     .section-heading p { max-width: 680px; margin: 14px auto 0; color: var(--body); font-size: 17px; }
-    .profile-copy { max-width: 820px; margin: 0 auto; color: var(--body); font-size: 18px; text-align: center; }
     .stat-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
     .stat-card { padding: 24px; text-align: center; }
     .stat-value { color: var(--accent-bright); font-size: 42px; line-height: 1; }
     .stat-label { margin-top: 10px; color: var(--body); font-size: 13px; }
-    .experience-grid { display: grid; gap: 14px; }
-    .experience-card { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 24px; padding: 24px; }
-    .experience-date { color: var(--accent-bright); font-family: Oswald, sans-serif; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
-    .experience-card h3 { margin: 0 0 5px; font-size: 21px; }
-    .experience-card p { margin: 0; color: var(--body); font-size: 14px; }
-    .highlight-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .highlight-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
     .highlight-card { padding: 28px; }
     .highlight-card h3 { margin: 12px 0 9px; font-size: 24px; }
     .highlight-card p { margin: 0; color: var(--body); font-size: 15px; }
     .resume-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
     .resume-card { padding: 26px; }
+    .wide-card { grid-column: 1 / -1; }
     .resume-card h3 { margin: 0 0 14px; font-size: 20px; }
     .resume-card p { margin: 0; color: var(--body); font-size: 14px; }
     .resume-card ul { margin: 0; padding: 0; list-style: none; }
     .resume-card li { position: relative; margin-bottom: 8px; padding-left: 18px; color: var(--body); font-size: 14px; }
     .resume-card li::before { position: absolute; left: 0; color: var(--accent-bright); content: "›"; font-weight: 700; }
+    .resume-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .resume-pills span { padding: 6px 10px; border: 1px solid var(--border); border-radius: 999px; color: var(--muted); background: var(--surface); font-size: 12px; }
     .subhead {
       margin: 42px 0 18px;
       color: var(--accent-bright);
@@ -213,8 +210,6 @@
     .site .link { margin-top: 14px; color: var(--accent-bright); font-size: 13px; font-weight: 600; }
     .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .skill { min-height: 270px; }
-    .tools { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 28px; }
-    .tools span { padding: 7px 14px; border: 1px solid var(--border); border-radius: 999px; color: var(--muted); background: var(--surface); font-size: 13px; }
     .steps { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     .step { min-height: 180px; }
     .step .n { color: var(--accent-bright); font-family: Oswald, sans-serif; font-size: 30px; }
@@ -244,6 +239,7 @@
       .cards, .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .sites { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .reels { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .highlight-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 768px) {
       .wrap { width: min(var(--max), calc(100% - 40px)); }
@@ -255,7 +251,6 @@
       .skill { min-height: 0; }
       .section-heading { margin-bottom: 34px; }
       .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .experience-card { grid-template-columns: 1fr; gap: 8px; }
       .highlight-grid, .resume-grid { grid-template-columns: 1fr; }
       .site-footer { padding: 48px 20px 30px; }
       .footer-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 24px; }
@@ -306,7 +301,6 @@
       <header class="hero">
         <div class="wrap hero-grid">
           <div>
-            <div class="eyebrow">Remote · Available now</div>
             <h1>Podcast producer, video editor<br><span>&amp; web designer.</span></h1>
             <p class="lead">Hi, I'm Jenny. I edit video and cut long content into short clips for social, and I work alongside AI through the whole process, generating footage, voice and b-roll and then editing it properly by hand. I also produce podcasts start to finish and design and build websites. Everything below is work I've actually done.</p>
             <div class="hero-cta">
@@ -326,31 +320,14 @@
         </div>
       </header>
 
-      <section class="block" id="about">
-        <div class="wrap">
-          <div class="section-heading"><div class="eyebrow">Profile</div><h2>Creative direction, <span class="nowrap">hands-on.</span></h2></div>
-          <p class="profile-copy">Creative director and hands-on producer, nine years in content production. I do the creative work and build the AI tooling that produces it. Video and audio end to end, rough cut through sound design, colour and multi-platform delivery. ElevenLabs for voice, music and sound effects, plus MidJourney, Higgsfield, fal.ai and Suno, used in real client work rather than demos, with the pipelines chained together myself via API. Nearly five years leading brand and design for CryptoSlam, a Mark Cuban-backed platform, alongside a studio delivering brand and content for client companies. When there is no playbook I write one, which is how I ran the EOS blockchain launch broadcast and produced the first NFT podcast.</p>
-        </div>
-      </section>
-
       <section class="block" aria-label="Career highlights">
         <div class="wrap">
+          <div class="section-heading"><div class="eyebrow">Experience</div><h2>Creative direction, <span class="nowrap">hands-on.</span></h2></div>
           <div class="stat-grid">
             <div class="stat-card glass reveal"><div class="stat-value">9 yrs</div><div class="stat-label">Content production</div></div>
-            <div class="stat-card glass reveal"><div class="stat-value">5 yrs</div><div class="stat-label">Brand lead, CryptoSlam</div></div>
+            <div class="stat-card glass reveal"><div class="stat-value">5 yrs</div><div class="stat-label">Brand lead</div></div>
             <div class="stat-card glass reveal"><div class="stat-value">50K+</div><div class="stat-label">Podcast downloads</div></div>
             <div class="stat-card glass reveal"><div class="stat-value">200</div><div class="stat-label">Guest live launch</div></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="block" id="experience">
-        <div class="wrap">
-          <div class="section-heading"><div class="eyebrow">Experience</div><h2>Work that <span>ships.</span></h2></div>
-          <div class="experience-grid">
-            <article class="experience-card glass reveal"><div class="experience-date">Jan 2020 · Present</div><div><h3>Co-Founder &amp; Creative Director</h3><p>Aloomii Inc. · Brand, content &amp; product studio serving client companies</p></div></article>
-            <article class="experience-card glass reveal"><div class="experience-date">Dec 2020 · Sep 2025</div><div><h3>Head Designer, Brand</h3><p>CryptoSlam Inc. · Mark Cuban-backed NFT data platform</p></div></article>
-            <article class="experience-card glass reveal"><div class="experience-date">Dec 2017 · Present</div><div><h3>Freelance Creative &amp; Content Producer</h3><p>Self-Employed · Clients including EOS Go and Prospectors</p></div></article>
           </div>
         </div>
       </section>
@@ -390,10 +367,11 @@
 
       <section class="block" id="highlights">
         <div class="wrap">
-          <div class="section-heading"><div class="eyebrow">Career highlights</div><h2>Proof in the <span>work.</span></h2><p>Two production stories that show the scale and range of the work.</p></div>
+          <div class="section-heading"><div class="eyebrow">Career highlights</div><h2>Proof in the <span>work.</span></h2><p>Three proof points that show the scale and range of the work.</p></div>
           <div class="highlight-grid">
             <article class="highlight-card glass reveal"><div class="eyebrow">EOS Go blockchain launch</div><h3>Live broadcast for a global audience.</h3><p>Ran the live broadcast for a 200-guest global audience, including the Go/No-Go call. Owned pre-production, live setup and post, and built the workflow from scratch with no precedent at that scale.</p></article>
             <article class="highlight-card glass reveal"><div class="eyebrow">NFT Hype</div><h3>The first NFT podcast.</h3><p>Produced every episode from recording to publish, reaching 50,000+ downloads and owning the full audio pipeline from capture through final episode.</p></article>
+            <article class="highlight-card glass reveal"><div class="eyebrow">Pale Blue Nexus</div><h3>Built from scratch.</h3><p>One of the sites Jenny built from scratch, alongside aloomii.com and vibrnt.ai.</p></article>
           </div>
         </div>
       </section>
@@ -403,12 +381,9 @@
           <div class="section-heading"><div class="eyebrow">Capabilities</div><h2>What I <span>do.</span></h2><p>The short version of my skills, split by the four things I get hired for.</p></div>
           <div class="skills">
             <div class="skill glass reveal"><h3>Video editing &amp; AI production</h3><ul><li>Long-form editing, clean-ups and short vertical clips</li><li>AI-generated footage, voice and b-roll, cut into finished ads</li><li>Prompt work and shot planning for consistent AI scenes</li><li>Captions, music and light motion graphics</li><li>AI tools for transcripts, cuts and clip selection</li><li>Every frame reviewed by hand before it ships</li></ul></div>
-            <div class="skill glass reveal"><h3>Podcast production</h3><ul><li>Riverside setup and remote recording support</li><li>Full episode edit and mix</li><li>Publishing to YouTube, Spotify and Apple</li><li>Show notes, titles and episode art</li><li>Clips cut and scheduled for social</li></ul></div>
+            <div class="skill glass reveal"><h3>Podcast production</h3><ul><li>Setup and remote recording support</li><li>Full episode edit and mix</li><li>Publishing to YouTube, Spotify and Apple</li><li>Show notes, titles and episode art</li><li>Clips cut and scheduled for social</li></ul></div>
             <div class="skill glass reveal"><h3>Web &amp; brand</h3><ul><li>Small-business sites in HTML, CSS and JavaScript</li><li>Mobile-first, fast-loading builds</li><li>Brand concept, visual direction and graphics</li><li>Content planning and social distribution</li><li>Thumbnails, graphics and episode art</li></ul></div>
             <div class="skill glass reveal"><h3>Building &amp; automation</h3><ul><li>Web apps in TypeScript, Astro and Cloudflare Workers</li><li>Python services and scripts</li><li>LLM and API integrations, AI chat assistants</li><li>Databases, deploys and version control</li><li>Internal tools that automate my own workflow</li></ul></div>
-          </div>
-          <div class="tools">
-            <span>Premiere Pro</span><span>After Effects</span><span>Photoshop</span><span>Illustrator</span><span>Riverside</span><span>Descript</span><span>CapCut</span><span>Canva</span><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>TypeScript</span><span>Python</span><span>Astro</span><span>Tailwind</span><span>Cloudflare Workers</span><span>Fly.io</span><span>SQL</span><span>Git</span><span>REST APIs</span><span>Figma</span><span>YouTube Studio</span><span>Spotify for Creators</span><span>ElevenLabs</span><span>Kling</span><span>Seedance</span><span>Prompt design</span><span>LLM APIs</span>
           </div>
         </div>
       </section>
@@ -417,23 +392,21 @@
         <div class="wrap">
           <div class="section-heading"><div class="eyebrow">Strengths</div><h2>How I <span>work.</span></h2><p>Creative direction backed by repeatable production systems.</p></div>
           <div class="resume-grid">
-            <article class="resume-card glass reveal"><h3>AI production stack</h3><p>ElevenLabs for voice, music, sound effects and video. Suno, MidJourney, Higgsfield, including Nano Banana, Kling, Seedance and Seedream, plus fal.ai.</p></article>
-            <article class="resume-card glass reveal"><h3>Workflow and prototyping</h3><p>Prompt engineering, API-chained content pipelines, Claude Code, Cowork, Devin AI, workflow documentation and repeatable templates.</p></article>
-            <article class="resume-card glass reveal"><h3>Production pipelines</h3><p>Rough cut to final delivery, sound design and audio EQ, colour correction, motion and pacing, live stream production and multi-platform export.</p></article>
-            <article class="resume-card glass reveal"><h3>Creative direction</h3><p>Brand identity and visual language, creative direction, art direction, campaign concepting, creative briefs and copywriting.</p></article>
-            <article class="resume-card glass reveal"><h3>Content formats</h3><p>Podcasts, brand films, announcement videos, YouTube, TikTok and Reels short-form, founder-on-camera and live.</p></article>
-            <article class="resume-card glass reveal"><h3>Design and post</h3><p>Photoshop, Premiere Pro, Final Cut Pro, CapCut, colour and sound. Working knowledge of Illustrator.</p></article>
+            <article class="resume-card glass reveal"><h3>AI production stack</h3><p>ElevenLabs for voice, music, sound effects and video. Suno, MidJourney, Higgsfield, including Nano Banana, Kling, Seedance and Seedream, and fal.ai.</p><div class="resume-pills"><span>ElevenLabs</span><span>Suno</span><span>MidJourney</span><span>Higgsfield</span><span>Nano Banana</span><span>Kling</span><span>Seedance</span><span>Seedream</span><span>Fal.ai</span></div></article>
+            <article class="resume-card glass reveal"><h3>Workflow and prototyping</h3><p>Prompt engineering, API-chained content pipelines, Claude Code, Cowork, Devin AI, workflow documentation and repeatable templates.</p><div class="resume-pills"><span>Prompt engineering</span><span>API-chained pipelines</span><span>Claude Code</span><span>Cowork</span><span>Devin AI</span><span>Workflow documentation</span><span>Repeatable templates</span></div></article>
+            <article class="resume-card glass reveal"><h3>Production pipelines</h3><p>Rough cut to final delivery, sound design and audio EQ, colour correction, motion and pacing, live stream production and multi-platform export.</p><div class="resume-pills"><span>Rough cut</span><span>Final delivery</span><span>Sound design</span><span>Audio EQ</span><span>Colour correction</span><span>Motion</span><span>Pacing</span><span>Live stream production</span><span>Multi-platform export</span></div></article>
+            <article class="resume-card glass reveal"><h3>Creative direction</h3><p>Brand identity and visual language, creative direction, art direction and campaign concepting.</p><div class="resume-pills"><span>Brand identity</span><span>Visual language</span><span>Creative direction</span><span>Art direction</span><span>Campaign concepting</span></div></article>
+            <article class="resume-card glass reveal"><h3>Content formats</h3><p>Podcasts, brand films, announcement videos, YouTube, TikTok and Reels short-form, founder-on-camera, live and gameplay.</p><div class="resume-pills"><span>Podcasts</span><span>Brand films</span><span>Announcement videos</span><span>YouTube</span><span>TikTok</span><span>Reels short-form</span><span>Founder-on-camera</span><span>Live</span><span>Gameplay</span></div></article>
+            <article class="resume-card glass reveal"><h3>Design and post</h3><p>Photoshop, Premiere Pro, Final Cut Pro, CapCut, colour and sound. Working knowledge of Illustrator.</p><div class="resume-pills"><span>Photoshop</span><span>Premiere Pro</span><span>Final Cut Pro</span><span>CapCut</span><span>Colour</span><span>Sound</span><span>Illustrator</span></div></article>
           </div>
         </div>
       </section>
 
-      <section class="block" id="education">
+      <section class="block" id="background">
         <div class="wrap">
-          <div class="section-heading"><div class="eyebrow">Background</div><h2>Built from scratch, <span>kept learning.</span></h2></div>
+          <div class="section-heading"><div class="eyebrow">Background</div><h2>Built from <span>scratch.</span></h2></div>
           <div class="resume-grid">
-            <article class="resume-card glass reveal"><h3>Built from scratch</h3><p>aloomii.com, vibrnt.ai and palebluenexus.com, with production tooling in house and generative AI models chained via API into automated content pipelines.</p></article>
-            <article class="resume-card glass reveal"><h3>Education</h3><ul><li>Creative Writing, University of Toronto, 2011</li><li>Business Administration Diploma, Humber College, Toronto, 2006</li><li>MidJourney for Creatives, Maven, 2023</li></ul></article>
-            <article class="resume-card glass reveal"><h3>Availability</h3><p>Remote from Ontario, Canada, Eastern Time. Open to travel and on-site customer work. Work directly with client creative and founder partners: learn how they work, define the brief and deliver finished creative that fits the need.</p></article>
+            <article class="resume-card wide-card glass reveal"><h3>Built from scratch</h3><p>aloomii.com, topkpop.com, vibrnt.ai and palebluenexus.com, with production tooling in house and generative AI models chained via API into automated content pipelines.</p></article>
           </div>
         </div>
       </section>
@@ -445,7 +418,7 @@
     <footer class="site-footer">
       <div class="footer-inner">
         <div class="footer-brand"><div class="footer-logo"><img src="/images/logos/brand-logo.png" alt="Aloomii"></div><p>Jenny C, inside the Aloomii design system.</p></div>
-        <div class="footer-col"><h4>Jenny</h4><a href="#about">About</a><a href="#work">Work</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div>
+        <div class="footer-col"><h4>Jenny</h4><a href="#work">Work</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div>
         <div class="footer-col"><h4>Aloomii</h4><a href="/">Home</a><a href="/studio/">Studio</a><a href="/agent-adoption/">Agent Adoption</a><a href="/services/">Services</a></div>
         <div class="footer-col"><h4>Legal</h4><a href="/legal/privacy/">Privacy Policy</a><a href="/terms">Terms of Service</a><a href="/client-terms">Client Terms</a></div>
       </div>
