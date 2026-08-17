@@ -7,13 +7,13 @@ Aloomii builds and operates Agentic Micro Companies (AMCs): businesses run by ti
 ## Core pages
 - [Home](https://aloomii.com/): What Aloomii does, who it serves, and the four-stage engagement model.
 - [The Table](https://aloomii.com/table): A 90-day founder-led go-to-market engagement that keeps your voice in market and delivers 12 qualified conversations in 90 days.
-- [Studio](https://aloomii.com/studio/): Podcast and short-form video production powered by Velocity, an AI content multiplication engine, optimized for AI search visibility.
+- [Studio](https://aloomii.com/studio): Podcast and short-form video production powered by Velocity, an AI content multiplication engine, optimized for AI search visibility.
 - [The Aloomii Playbook](https://aloomii.com/playbook): Three editions (Founder, Solopreneur, Operator Leader) on running an Agentic Micro Company.
 - [GTM Audit](https://aloomii.com/gtm-audit/): A free two-minute self-assessment that scores what is broken in your go-to-market and what to fix first.
 
 ## Services
 - [The Audit](https://aloomii.com/#offerings): A 1,199 dollar one-time process-mapping diagnosis that identifies the three to five workflows burning the most time and the order to automate them.
-- [Studio and Velocity](https://aloomii.com/studio/): Three tiers. Clips at 699 dollars per month, Show at 1,299 dollars per month, Velocity Pro at 1,899 dollars per month.
+- [Studio and Velocity](https://aloomii.com/studio): Three tiers. Clips at 699 dollars per month, Show at 1,299 dollars per month, Velocity Pro at 1,899 dollars per month.
 - [Relationship Intelligence](https://aloomii.com/#offerings): The Company Brain installed on your existing CRM. Three tiers. Foundation at 3,500 dollars per month, Operator at 6,500 dollars per month, Enterprise at 9,500 dollars per month.
 - AI Search Visibility (AEO and GEO): Making relationship-driven and local businesses the answer that AI engines recommend.
 

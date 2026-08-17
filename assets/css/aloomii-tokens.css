@@ -702,7 +702,7 @@
     .section-sub { padding: 0 24px; font-size: 16px; text-align: center; }
 
     /* Studio Highlight Card (Jim Rogers) */
-    .offering-card[href="/studio/"] > div {
+    .offering-card[href="/studio"] > div {
       grid-template-columns: 1fr !important;
       padding: 24px !important;
       gap: 20px !important;
