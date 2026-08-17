@@ -5,10 +5,8 @@
 # Keep the Jenny portfolio's relative links rooted at its directory.
 /jenny /jenny/ 301
 
-# Keep Studio on its clean canonical URL while serving the directory rebuild.
+# Keep the legacy slashed Studio URL pointed at the root-level canonical page.
 /studio/ /studio 301
-/studio/index.html /studio 301
-/studio /studio/index.html 200
 
 # Redirect Clerk auth flows from apex to app subdomain.
 # Required because Clerk's proxy URL is on the apex (https://aloomii.com/__clerk),
