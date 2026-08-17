@@ -51,13 +51,8 @@
       line-height: 1.4;
       text-transform: uppercase;
     }
-    .hero { padding: 112px 0 92px; }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(320px, .72fr);
-      align-items: end;
-      gap: 72px;
-    }
+    .hero { padding: 112px 0 92px; text-align: center; }
+    .hero-grid { display: block; }
     h1, h2, h3, p { margin-top: 0; }
     h1 {
       max-width: 760px;
@@ -69,7 +64,7 @@
     h1 span, h2 span { color: var(--accent-soft); }
     .hero-copy {
       max-width: 650px;
-      margin-bottom: 30px;
+      margin: 0 auto 30px;
       color: var(--body);
       font-size: clamp(19px, 2.2vw, 25px);
       line-height: 1.5;
@@ -95,27 +90,20 @@
       background: transparent;
       color: var(--text);
     }
-    .hero-note {
-      display: grid;
-      gap: 12px;
-      padding: 26px 28px;
-      border-left: 2px solid var(--accent);
-      color: var(--body);
-      font-size: 16px;
-    }
-    .hero-note strong { display: block; margin-bottom: 4px; color: var(--text); font-size: 20px; }
     .section { padding: 90px 0; }
     .section-heading {
       max-width: 720px;
-      margin: 12px 0 16px;
+      margin: 12px auto 16px;
       font-size: clamp(34px, 5vw, 58px);
       line-height: 1.08;
       letter-spacing: -2px;
+      text-align: center;
     }
-    .section-intro { max-width: 680px; color: var(--body); font-size: 18px; }
+    .section > .container > .eyebrow { text-align: center; }
+    .section-intro { max-width: 680px; margin: 0 auto; color: var(--body); font-size: 18px; text-align: center; }
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
       margin-top: 38px;
     }
@@ -137,6 +125,7 @@
     .project-copy h3 { margin: 8px 0 8px; font-size: 24px; }
     .project-copy p { margin-bottom: 18px; color: var(--body); }
     .project-link { color: var(--accent-soft); font-size: 14px; font-weight: 700; }
+    .project-card-text .project-copy { display: flex; flex: 1; flex-direction: column; justify-content: center; min-height: 100%; }
     .systems {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -146,16 +135,15 @@
     .system-card { padding: 30px; }
     .system-card h3 { margin: 10px 0 10px; font-size: 26px; }
     .system-card p { margin: 0; color: var(--body); }
-    .text-proof {
+    .people-grid {
       display: grid;
-      grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
-      gap: 48px;
-      align-items: start;
-      padding: 34px;
-      border-left: 3px solid var(--accent);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 36px;
     }
-    .text-proof h3 { margin: 0; font-size: 28px; }
-    .text-proof p { margin: 0; color: var(--body); font-size: 17px; }
+    .person-card { padding: 30px; }
+    .person-card h3 { margin: 10px 0; font-size: 26px; }
+    .person-card p { margin: 0; color: var(--body); }
     .closing { padding: 96px 0 120px; text-align: center; }
     .closing h2 { max-width: 760px; margin: 0 auto 18px; font-size: clamp(38px, 6vw, 70px); line-height: 1.02; letter-spacing: -3px; }
     .closing p { max-width: 580px; margin: 0 auto 28px; color: var(--body); font-size: 18px; }
@@ -195,14 +183,13 @@
     @media (max-width: 800px) {
       .container { width: min(100% - 40px, var(--max)); }
       .hero { padding: 72px 0 68px; }
-      .hero-grid, .text-proof { grid-template-columns: 1fr; gap: 30px; }
-      .project-grid, .systems { grid-template-columns: 1fr; }
+      .project-grid, .systems, .people-grid { grid-template-columns: 1fr; }
       .section { padding: 72px 0; }
       h1 { letter-spacing: -2px; }
       .footer-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 24px; }
     }
     @media (max-width: 520px) {
-      .hero-note, .text-proof, .project-copy, .system-card { padding: 24px 20px; }
+      .project-copy, .system-card, .person-card { padding: 24px 20px; }
       .footer-inner { grid-template-columns: 1fr 1fr; }
       .footer-bottom { display: block; }
       .footer-social { margin-top: 12px; }
@@ -254,10 +241,6 @@
             <p class="hero-copy">Right now that means websites and internal tools. We build the thing that needs to exist, then leave it clear enough to use.</p>
             <a class="button" href="/#contact">Start a Conversation</a>
           </div>
-          <div class="hero-note glass">
-            <strong>Websites and internal tools</strong>
-            The current work is practical: a public site people can find, or an internal tool that makes the work easier to run.
-          </div>
         </div>
       </header>
 
@@ -272,32 +255,36 @@
               <div class="project-copy">
                 <div class="eyebrow">Website</div>
                 <h3>Aloomii</h3>
-                <p>The site you are on. A home for the work, the shows and the systems.</p>
+                <p>Software and community studio. Dark, modern marketing site.</p>
                 <span class="project-link">Visit aloomii.com &rarr;</span>
               </div>
             </a>
             <a class="project-card glass reveal" href="https://vibrnt.ai" target="_blank" rel="noopener">
-              <div class="project-image"><img src="/jenny/assets/sites/vibrnt.png" alt="Vibrnt website"></div>
+              <div class="project-image"><img src="/jenny/assets/sites/vibrnt.png" alt="VIBRNT website"></div>
               <div class="project-copy">
                 <div class="eyebrow">Website</div>
-                <h3>Vibrnt</h3>
-                <p>A live site built for the work it needs to present.</p>
+                <h3>VIBRNT</h3>
+                <p>Mood-based clothing brand. Full Shopify store with quiz and mood collections.</p>
                 <span class="project-link">Visit vibrnt.ai &rarr;</span>
               </div>
             </a>
             <a class="project-card glass reveal" href="https://topkpop.com" target="_blank" rel="noopener">
-              <div class="project-image"><img src="/jenny/assets/sites/topkpop.png" alt="Top K-Pop website"></div>
+              <div class="project-image"><img src="/jenny/assets/sites/topkpop.png" alt="TopKpop website"></div>
               <div class="project-copy">
                 <div class="eyebrow">Website</div>
-                <h3>Top K-Pop</h3>
-                <p>A live site built for Top K-Pop.</p>
+                <h3>TopKpop</h3>
+                <p>K-pop index and community platform with real-time artist rankings and music data.</p>
                 <span class="project-link">Visit topkpop.com &rarr;</span>
               </div>
             </a>
-          </div>
-          <div class="text-proof glass reveal" style="margin-top: 18px;">
-            <h3>Pale Blue Nexus</h3>
-            <p>We built and shipped the site for Pale Blue Nexus. It is also the home of the show we started together.</p>
+            <a class="project-card project-card-text glass reveal" href="https://palebluenexus.com" target="_blank" rel="noopener">
+              <div class="project-copy">
+                <div class="eyebrow">Website and show</div>
+                <h3>Pale Blue Nexus</h3>
+                <p>We started Pale Blue Nexus and built the show and site from scratch with Claude Code and Devin. The Jim Rogers episode was the show's first guest episode.</p>
+                <span class="project-link">Visit palebluenexus.com &rarr;</span>
+              </div>
+            </a>
           </div>
         </div>
       </section>
@@ -316,6 +303,26 @@
               <div class="eyebrow">Internal tools</div>
               <h3>Make the working thing useful.</h3>
               <p>Internal tools are described here, not shown. The point is to make a real part of the work easier to run.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="builders-heading">
+        <div class="container">
+          <div class="eyebrow reveal">Two builders</div>
+          <h2 class="section-heading reveal" id="builders-heading">The work is <span>shared.</span></h2>
+          <p class="section-intro reveal">Both of us build. The websites are public proof. The internal tools stay behind the work until there is something useful to show.</p>
+          <div class="people-grid">
+            <article class="person-card glass reveal">
+              <div class="eyebrow">Yohann</div>
+              <h3>Software and internal tools.</h3>
+              <p>Yohann is a formally trained software engineer who shipped production code at JP Morgan, IBM and the Ontario Government. He builds the software underneath the work.</p>
+            </article>
+            <article class="person-card glass reveal">
+              <div class="eyebrow">Jenny</div>
+              <h3>Websites and her own tools.</h3>
+              <p>Jenny builds her own tools, built aloomii.com and vibrnt.ai from scratch, then started palebluenexus.com and built it out with Yohann.</p>
             </article>
           </div>
         </div>
