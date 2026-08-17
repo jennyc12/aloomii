@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <title>Builds | Aloomii websites and internal tools</title>
+  <meta name="description" content="Aloomii builds websites and internal tools. See the sites we have shipped and start a conversation about what needs to exist next.">
+  <link rel="canonical" href="https://aloomii.com/builds">
+  <link rel="stylesheet" href="/assets/css/aloomii-tokens.css">
+  <link rel="stylesheet" href="/snippets/canonical-nav.css">
+  <link rel="stylesheet" href="/snippets/ghost-background.css">
+  <style>
+    :root {
+      --bg: #0b0b14;
+      --card: rgba(255,255,255,0.07);
+      --text: #fff;
+      --body: rgba(255,255,255,0.76);
+      --muted: rgba(255,255,255,0.5);
+      --accent: #00c8be;
+      --accent-soft: #72e3dc;
+      --border: rgba(255,255,255,0.14);
+      --max: 1120px;
+      --ease: cubic-bezier(.2,.8,.2,1);
+    }
+    * { box-sizing: border-box; }
+    html { background: var(--bg); scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .builds-page { position: relative; z-index: 2; overflow: hidden; }
+    .container { width: min(var(--max), calc(100% - 80px)); margin: 0 auto; }
+    .glass {
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--card);
+      box-shadow: 0 18px 60px rgba(0,0,0,.24);
+      backdrop-filter: blur(14px);
+    }
+    .eyebrow {
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+    .hero { padding: 112px 0 92px; text-align: center; }
+    .hero-grid { display: block; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 760px;
+      margin-bottom: 24px;
+      font-size: clamp(48px, 7vw, 88px);
+      line-height: 1;
+      letter-spacing: -4px;
+    }
+    h1 span, h2 span { color: var(--accent-soft); }
+    .hero-copy {
+      max-width: 650px;
+      margin: 0 auto 30px;
+      color: var(--body);
+      font-size: clamp(19px, 2.2vw, 25px);
+      line-height: 1.5;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 22px;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      background: var(--accent);
+      color: #071313;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .25s var(--ease), box-shadow .25s ease;
+    }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,200,190,.2); }
+    .button.secondary {
+      border-color: var(--border);
+      background: transparent;
+      color: var(--text);
+    }
+    .section { padding: 90px 0; }
+    .section-heading {
+      max-width: 720px;
+      margin: 12px auto 16px;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      text-align: center;
+    }
+    .section > .container > .eyebrow { text-align: center; }
+    .section-intro { max-width: 680px; margin: 0 auto; color: var(--body); font-size: 18px; text-align: center; }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 38px;
+    }
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      text-decoration: none;
+    }
+    .project-image {
+      aspect-ratio: 1280 / 800;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+      background: rgba(0,0,0,.2);
+    }
+    .project-image img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .45s var(--ease); }
+    .project-card:hover .project-image img { transform: scale(1.03); }
+    .project-copy { padding: 24px; }
+    .project-copy h3 { margin: 8px 0 8px; font-size: 24px; }
+    .project-copy p { margin-bottom: 18px; color: var(--body); }
+    .project-link { color: var(--accent-soft); font-size: 14px; font-weight: 700; }
+    .project-card-text { align-self: start; border-top: 2px solid var(--accent); }
+    .project-card-text .project-copy { display: flex; flex: 1; flex-direction: column; justify-content: flex-start; min-height: 0; }
+    .systems {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 36px;
+    }
+    .system-card { padding: 30px; }
+    .system-card h3 { margin: 10px 0 10px; font-size: 26px; }
+    .system-card p { margin: 0; color: var(--body); }
+    .people-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 36px;
+    }
+    .person-card { padding: 30px; }
+    .person-card h3 { margin: 10px 0; font-size: 26px; }
+    .person-card p { margin: 0; color: var(--body); }
+    .closing { padding: 96px 0 120px; text-align: center; }
+    .closing h2 { max-width: 760px; margin: 0 auto 18px; font-size: clamp(38px, 6vw, 70px); line-height: 1.02; letter-spacing: -3px; }
+    .closing p { max-width: 580px; margin: 0 auto 28px; color: var(--body); font-size: 18px; }
+    .site-footer {
+      position: relative;
+      z-index: 2;
+      padding: 56px 40px 30px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(3, 1fr);
+      gap: 40px;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .footer-brand img { width: 128px; height: auto; }
+    .footer-brand p { max-width: 240px; font-size: 13px; }
+    .footer-col h4 { margin: 0 0 12px; color: var(--text); font-size: 13px; }
+    .footer-col a { display: block; margin: 7px 0; color: var(--muted); font-size: 13px; text-decoration: none; }
+    .footer-col a:hover { color: var(--accent-soft); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      max-width: var(--max);
+      margin: 38px auto 0;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+    }
+    .footer-social { display: flex; gap: 18px; }
+    .footer-social a { color: var(--muted); text-decoration: none; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s var(--ease); }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (max-width: 800px) {
+      .container { width: min(100% - 40px, var(--max)); }
+      .hero { padding: 72px 0 68px; }
+      .project-grid, .systems, .people-grid { grid-template-columns: 1fr; }
+      .section { padding: 72px 0; }
+      h1 { letter-spacing: -2px; }
+      .footer-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 24px; }
+    }
+    @media (max-width: 520px) {
+      .project-copy, .system-card, .person-card { padding: 24px 20px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { display: block; }
+      .footer-social { margin-top: 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .button, .project-image img { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="ghostCanvas"></canvas>
+  <div class="builds-page">
+    <!-- CANONICAL_NAV_START -->
+<nav>
+  <a href="/" class="nav-logo"><img src="/images/logos/brand-logo.png" alt="Aloomii"></a>
+  <ul class="nav-links">
+    <li><a href="/studio">Studio</a></li>
+    <li><a href="https://devkick.com" target="_blank" rel="noopener">DevKick</a></li>
+    <li><a href="/builds">Builds</a></li>
+    <li><a href="/agent-adoption/">Agent Adoption</a></li>
+    <li><a href="/playbook/">Playbook</a></li>
+    <li><a href="/events">Events</a></li>
+    <li><a href="/#team">Team</a></li>
+    <li><a href="/#contact" class="nav-cta">Start a Conversation</a></li>
+  </ul>
+  <button id="hamburger" class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/studio" onclick="closeMenu()">Studio</a>
+  <a href="https://devkick.com" onclick="closeMenu()">DevKick</a>
+  <a href="/builds" onclick="closeMenu()">Builds</a>
+  <a href="/agent-adoption/" onclick="closeMenu()">Agent Adoption</a>
+  <a href="/playbook/" onclick="closeMenu()">Playbook</a>
+  <a href="/events" onclick="closeMenu()">Events</a>
+  <a href="/#team" onclick="closeMenu()">Team</a>
+  <a href="/#contact" onclick="closeMenu()">Start a Conversation</a>
+</div>
+<!-- CANONICAL_NAV_END -->
+
+    <main>
+      <header class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow">Aloomii Builds</div>
+            <h1>We each <span>build.</span></h1>
+            <p class="hero-copy">Right now that means websites and internal tools. We build the thing that needs to exist, then leave it clear enough to use.</p>
+            <a class="button" href="/#contact">Start a Conversation</a>
+          </div>
+        </div>
+      </header>
+
+      <section class="section" aria-labelledby="shipped-heading">
+        <div class="container">
+          <div class="eyebrow reveal">Shipped</div>
+          <h2 class="section-heading reveal" id="shipped-heading">Sites that are <span>live.</span></h2>
+          <p class="section-intro reveal">These are the websites we have actually shipped. Internal tools stay described in words until we are ready to share them.</p>
+          <div class="project-grid">
+            <a class="project-card glass reveal" href="https://aloomii.com" target="_blank" rel="noopener">
+              <div class="project-image"><img src="/jenny/assets/sites/aloomii.png" alt="Aloomii website"></div>
+              <div class="project-copy">
+                <div class="eyebrow">Website</div>
+                <h3>Aloomii</h3>
+                <p>Software and community studio. Dark, modern marketing site.</p>
+                <span class="project-link">Visit aloomii.com &rarr;</span>
+              </div>
+            </a>
+            <a class="project-card glass reveal" href="https://vibrnt.ai" target="_blank" rel="noopener">
+              <div class="project-image"><img src="/jenny/assets/sites/vibrnt.png" alt="VIBRNT website"></div>
+              <div class="project-copy">
+                <div class="eyebrow">Website</div>
+                <h3>VIBRNT</h3>
+                <p>Mood-based clothing brand. Full Shopify store with quiz and mood collections.</p>
+                <span class="project-link">Visit vibrnt.ai &rarr;</span>
+              </div>
+            </a>
+            <a class="project-card glass reveal" href="https://topkpop.com" target="_blank" rel="noopener">
+              <div class="project-image"><img src="/jenny/assets/sites/topkpop.png" alt="TopKpop website"></div>
+              <div class="project-copy">
+                <div class="eyebrow">Website</div>
+                <h3>TopKpop</h3>
+                <p>K-pop index and community platform with real-time artist rankings and music data.</p>
+                <span class="project-link">Visit topkpop.com &rarr;</span>
+              </div>
+            </a>
+            <a class="project-card project-card-text glass reveal" href="https://palebluenexus.com" target="_blank" rel="noopener">
+              <div class="project-copy">
+                <div class="eyebrow">Website and show</div>
+                <h3>Pale Blue Nexus</h3>
+                <p>We started Pale Blue Nexus and built the show and site from scratch with Claude Code and Devin. The Jim Rogers episode was the show's first guest episode.</p>
+                <span class="project-link">Visit palebluenexus.com &rarr;</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="work-heading">
+        <div class="container">
+          <div class="eyebrow reveal">How the work runs</div>
+          <h2 class="section-heading reveal" id="work-heading">Build what the work <span>needs.</span></h2>
+          <div class="systems">
+            <article class="system-card glass reveal">
+              <div class="eyebrow">Websites</div>
+              <h3>Make the public thing clear.</h3>
+              <p>A website should make the work easy to understand and give people a clear next step.</p>
+            </article>
+            <article class="system-card glass reveal">
+              <div class="eyebrow">Internal tools</div>
+              <h3>Make the working thing useful.</h3>
+              <p>Internal tools are described here, not shown. The point is to make a real part of the work easier to run.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="builders-heading">
+        <div class="container">
+          <div class="eyebrow reveal">Two builders</div>
+          <h2 class="section-heading reveal" id="builders-heading">The work is <span>shared.</span></h2>
+          <p class="section-intro reveal">Both of us build. The websites are public proof. The internal tools stay behind the work until there is something useful to show.</p>
+          <div class="people-grid">
+            <article class="person-card glass reveal">
+              <div class="eyebrow">Yohann</div>
+              <h3>Software and internal tools.</h3>
+              <p>Yohann is a formally trained software engineer who shipped production code at JP Morgan, IBM and the Ontario Government. He builds the software underneath the work.</p>
+            </article>
+            <article class="person-card glass reveal">
+              <div class="eyebrow">Jenny</div>
+              <h3>Websites and her own tools.</h3>
+              <p>Jenny builds her own tools, built aloomii.com and vibrnt.ai from scratch, then started palebluenexus.com and built it out with Yohann.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing">
+        <div class="container reveal">
+          <div class="eyebrow">Have something to build?</div>
+          <h2>Bring us the thing that needs to <span>exist.</span></h2>
+          <p>Tell us what you are trying to make. We will tell you what we can build and whether we are the right fit.</p>
+          <a class="button" href="/#contact">Start a Conversation</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="/images/logos/brand-logo.png" alt="Aloomii">
+          <p>Communities, media and software. Built in Caledonia, Ontario.</p>
+        </div>
+        <div class="footer-col"><h4>The Studio</h4><a href="/studio">Studio</a><a href="https://devkick.com" target="_blank" rel="noopener">DevKick</a><a href="/builds">Builds</a><a href="/playbook/">Playbook</a><a href="/agent-adoption/">Agent Adoption</a><a href="/events">Events</a></div>
+        <div class="footer-col"><h4>Company</h4><a href="/#team">About</a><a href="/blog/">Blog</a><a href="/#contact">Contact</a></div>
+        <div class="footer-col"><h4>Legal</h4><a href="/legal/privacy/">Privacy Policy</a><a href="/terms">Terms of Service</a><a href="/client-terms">Client Terms</a></div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Aloomii</span>
+        <div class="footer-social"><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:yohann@aloomii.com">Email</a></div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
+    function closeMenu() { document.getElementById('mobileMenu').classList.remove('active'); }
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(function(element) { observer.observe(element); });
+  </script>
+  <script src="/snippets/canonical-nav.js"></script>
+  <script src="/snippets/ghost-background.js"></script>
+</body>
+</html>
