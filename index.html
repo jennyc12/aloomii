@@ -463,72 +463,6 @@
     transform: scale(1) translateY(0);
   }
 
-  /* ==================== PROOF ==================== */
-  .proof { padding: 100px var(--section-pad-h); }
-  .proof .content-wrapper { max-width: 1100px; margin: 0 auto; width: 100%; }
-  .receipt-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .receipt-card {
-    padding: 32px 28px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: all 0.35s ease;
-  }
-  .receipt-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent);
-    box-shadow: 0 8px 40px rgba(0,200,190,0.12);
-  }
-  .receipt-accent {
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: var(--accent);
-    box-shadow: 0 0 16px rgba(0,200,190,0.3);
-  }
-  .receipt-tag {
-    font-size: 11px; font-weight: 700;
-    letter-spacing: 1.2px; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 20px;
-    opacity: 1;
-  }
-  .receipt-number {
-    font-size: 56px; font-weight: 800;
-    letter-spacing: -2px; line-height: 1;
-    color: #fff; margin-bottom: 6px;
-  }
-  .receipt-label {
-    font-size: 15px; font-weight: 600;
-    color: #fff; margin-bottom: 16px;
-  }
-  .receipt-body {
-    font-size: 14px; color: var(--text-body);
-    line-height: 1.65; flex-grow: 1;
-  }
-  .receipt-tags {
-    margin-top: 20px; padding-top: 16px;
-    border-top: 1px solid var(--border);
-    display: flex; gap: 16px; flex-wrap: wrap;
-  }
-  .receipt-tags span {
-    font-size: 11px; font-weight: 600;
-    letter-spacing: 0.05em; color: var(--text-muted);
-  }
-  .proof-bottom-line {
-    margin-top: 56px;
-    padding: 40px 44px;
-    border-left: 3px solid var(--accent);
-    background: rgba(0,200,190,0.04);
-    border-radius: 0 16px 16px 0;
-  }
-  .proof-bottom-line p {
-    font-size: 18px;
-    color: #fff; line-height: 1.7;
-    font-style: italic; margin: 0;
-    font-weight: 500;
-  }
-
   /* ==================== PROOF POINT (legacy) ==================== */
 
   .proof-point { padding: 80px 48px; }
@@ -555,39 +489,6 @@
     flex-shrink: 0; border: 2px solid rgba(255,255,255,0.12);
   }
   .team-member-info { flex: 1; }
-
-  /* ==================== BLOG PREVIEW ==================== */
-  .blog-preview { padding: 80px var(--section-pad-h); }
-  .blog-preview-inner { max-width: 1100px; margin: 0 auto; }
-  .blog-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 48px; }
-  .blog-card {
-    padding: 32px 28px; display: flex; flex-direction: column;
-  }
-  .blog-card .blog-tag {
-    font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 12px;
-  }
-  .blog-card h3 {
-    font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 10px;
-    line-height: 1.35; letter-spacing: -0.3px;
-  }
-  .blog-card p {
-    font-size: 13px; color: var(--text-body); line-height: 1.6; flex: 1; margin-bottom: 16px;
-  }
-  .blog-card .blog-link {
-    font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none;
-    transition: opacity 0.2s;
-  }
-  .blog-card .blog-link:hover { opacity: 0.75; }
-  .blog-view-all {
-    text-align: center; margin-top: 36px;
-  }
-  .blog-view-all a {
-    display: inline-block; padding: 12px 32px; border-radius: 10px;
-    font-size: 14px; font-weight: 600; text-decoration: none; color: #fff;
-    border: 2px solid rgba(255,255,255,0.35); transition: all 0.3s;
-  }
-  .blog-view-all a:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
 
   /* ==================== FREE SCAN ==================== */
   .free-scan { padding: 80px var(--section-pad-h); }
@@ -684,7 +585,7 @@
     }
 
     /* Uniform section vertical spacing */
-    section, .problem, .pillars, .offerings, .how-it-works, .differentiator, .verticals, .team, .newsletter, .blog-preview, .free-scan, .contact-section, .proof {
+    section, .problem, .pillars, .offerings, .how-it-works, .differentiator, .verticals, .team, .newsletter, .free-scan, .contact-section {
       padding-left: 0 !important;
       padding-right: 0 !important;
       padding-top: 60px !important;
@@ -692,7 +593,7 @@
     }
 
     /* Grid & Flex Reset */
-    .offering-grid, .diff-grid, .team-grid, .blog-grid, .receipt-grid, .stat-row, .form-grid, .steps, .tier-grid {
+    .offering-grid, .diff-grid, .team-grid, .stat-row, .form-grid, .steps, .tier-grid {
       display: flex !important;
       flex-direction: column !important;
       gap: 24px !important;
@@ -703,7 +604,7 @@
     }
 
     /* Card/Box Styling */
-    .offering-card, .receipt-card, .diff-card, .team-member, .blog-card, .stat-card, .glass, .trades-spotlight, .proof-story, .proof-bottom-line {
+    .offering-card, .diff-card, .team-member, .stat-card, .glass, .trades-spotlight, .proof-story {
       width: 100% !important;
       max-width: 100% !important;
       margin: 0 !important;
@@ -848,13 +749,11 @@
 }
 .nav-logo,
 .offering-card,
-#eventsBannerLink,
 .linkedin-link {
   color: inherit;
   text-decoration: none;
 }
-.offering-grid > a.offering-card,
-#eventsBannerLink {
+.offering-grid > a.offering-card {
   display: block;
 }
 .offering-card .card-link {
@@ -907,13 +806,6 @@
   .nav-links { gap: 20px; }
   .nav-links .nav-cta { white-space: nowrap; }
 }
-.devkick-events { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; max-width: 1000px; margin: 0 auto; }
-.devkick-event { padding: 24px; text-align: left; }
-.devkick-event .event-date { color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-.devkick-event h3 { color: #fff; font-size: 19px; margin: 10px 0 8px; }
-.devkick-event p { color: rgba(255,255,255,.68); font-size: 14px; line-height: 1.6; margin: 0; }
-.devkick-logos { margin-top: 38px; gap: 48px; }
-@media (max-width: 768px) { .devkick-events { grid-template-columns: 1fr; } }
 </style>
   <link rel="stylesheet" href="/snippets/ghost-background.css">
 </head>
@@ -955,9 +847,7 @@
 <!-- HERO -->
 <section class="hero" style="animation: heroFadeIn 1s ease forwards;">
   <h1>Building Communities and Software</h1>
-  <p class="sub">We produce the shows that build the room, and the software that runs it.</p>
   <div class="hero-ctas">
-    <a href="/studio" class="btn-primary">See the Studio &rarr;</a>
     <a href="#contact" class="btn-secondary">Start a Conversation</a>
   </div>
   <div class="proof-bar reveal">
@@ -973,8 +863,7 @@
 <!-- STUDIO SYSTEM -->
 <section class="pillars reveal" id="studio-system">
   <div class="pillars-inner">
-    <div class="section-label reveal">The studio, literally</div>
-    <h2 class="section-heading reveal">Three properties. One system.</h2>
+    <h2 class="section-heading reveal">The ecosystem</h2>
     <p class="section-sub reveal" style="text-align:center;max-width:700px;margin:0 auto 40px;">Communities on one side, software and media on the other. Each one feeds the next.</p>
     <div class="offering-grid">
       <a href="/studio" class="offering-card founders glass reveal-scale">
@@ -1002,9 +891,6 @@
         <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:600;color:var(--accent);">Explore the program &rarr;</span>
       </a>
     </div>
-    <div class="glass" style="max-width:800px;margin:40px auto 0;padding:32px 40px;border-left:3px solid var(--accent);border-radius:0 20px 20px 0;">
-      <p style="font-size:17px;color:#fff;line-height:1.7;font-weight:500;margin:0;">The properties feed each other. The community surfaces the builders. The shows open the doors. The software ships the work. <a href="https://palebluenexus.com" class="inline-link" target="_blank" rel="noopener">Pale Blue Nexus</a> is the media proof running through all of it.</p>
-    </div>
   </div>
 </section>
 
@@ -1017,105 +903,6 @@
   <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:600;color:var(--accent);">aloomii.com/table &rarr;</span>
 </a>
 -->
-
-<!-- DEVKICK -->
-<section class="pillars reveal" id="devkick">
-  <div class="pillars-inner">
-    <div class="section-label reveal">Community &middot; DevKick</div>
-    <h2 class="section-heading reveal">Demo or it didn't happen.</h2>
-    <p class="section-sub reveal" style="text-align:center;max-width:700px;margin:0 auto 40px;">DevKick is the builders' room we own and run. Build nights, live teardowns and show-and-tells for developers shipping at the frontier in the KW to GTA corridor. No panels, no pitches. Bring what you're working on and show it running.</p>
-    <div id="homepageEvents" class="devkick-events" aria-live="polite"></div>
-    <div class="hero-ctas" style="margin-top:32px;">
-      <a href="https://luma.com/devkick" target="_blank" rel="noopener" class="btn-primary">See the calendar &rarr;</a>
-      <a href="https://devkick.com" target="_blank" rel="noopener" class="btn-secondary">devkick.com &rarr;</a>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURED EVENT CARD -->
-<section id="eventsBanner" style="padding: 0 var(--section-pad-h) 80px;display:none;">
-  <a id="eventsBannerLink" href="/events">
-    <div class="glass" style="max-width: 900px; margin: 0 auto; padding: 40px 48px; display: flex; align-items: center; gap: 40px; border: 1px solid rgba(0,200,190,0.25); border-radius: 16px; position: relative; overflow: hidden;">
-      <div style="flex-shrink:0;position:relative;"><div style="width:64px;height:64px;background:rgba(0,158,150,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;">&#128197;</div></div>
-      <div style="flex:1;"><div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:6px;">Upcoming Event</div><h3 id="eventsBannerTitle" style="font-size:22px;font-weight:700;color:#fff;margin:0 0 8px;line-height:1.3;"></h3><p id="eventsBannerDescription" style="font-size:14px;color:rgba(255,255,255,0.6);margin:0;"></p></div>
-      <div style="flex-shrink:0;display:flex;align-items:center;gap:6px;color:var(--accent);font-weight:600;font-size:14px;white-space:nowrap;">See Events <span style="font-size:18px;">&#8594;</span></div>
-    </div>
-  </a>
-</section>
-
-<!-- PROOF -->
-<section class="proof reveal" id="proof">
-  <div class="content-wrapper">
-    <p class="section-label">What happens when relationships are the strategy</p>
-    <h2 class="section-heading">We don't have a portfolio of logos.<br>We have <span class="highlight">receipts</span>.</h2>
-    <p class="sub" style="max-width: 640px; margin: 0 auto 56px;">Every result below is a community we built before we ever asked for anything. The EOS community. The relationships behind CryptoSlam. The Pale Blue Nexus audience. We build communities that compound into capital. The software comes second.</p>
-
-    <div class="receipt-grid reveal-stagger">
-      <!-- Card 1: CryptoSlam -->
-      <div class="receipt-card glass reveal-child">
-        <div class="receipt-accent"></div>
-        <p class="receipt-tag">Relationship → Introduction → Capital</p>
-        <h3 class="receipt-number">$9M</h3>
-        <p class="receipt-label">Seed round raised</p>
-        <p class="receipt-body">Started a podcast during COVID. Cold-pitched the Chairman of Animoca Brands as a guest. He said yes. We introduced him to the founder of CryptoSlam. He led their $9M seed round, backed by Mark Cuban and Animoca Brands. One podcast. One introduction. One relationship played long.</p>
-        <div class="receipt-tags">
-          <span>ANIMOCA BRANDS</span>
-          <span>MARK CUBAN</span>
-          <span>CRYPTOSLAM</span>
-        </div>
-      </div>
-
-      <!-- Card 2: EOS -->
-      <div class="receipt-card glass reveal-child">
-        <div class="receipt-accent"></div>
-        <p class="receipt-tag">Production → Launch → Global Event</p>
-        <!-- MANUAL UPDATE: Update this launch value if the source metric changes. -->
-        <h3 class="receipt-number">$4B</h3>
-        <p class="receipt-label">ICO, the largest in history</p>
-        <p class="receipt-body">Jenny produced the live broadcast of the EOS blockchain launch. 200 guests. The famous Go/No-Go call. A global audience watching in real time. She created every live show, launch special, and piece of promotional content for EOS Go. No playbook existed. She wrote it.</p>
-        <div class="receipt-tags">
-          <span>EOS GO</span>
-          <span>BLOCK.ONE</span>
-          <span>200 LIVE GUESTS</span>
-        </div>
-      </div>
-
-      <!-- Card 3: PBN / Jim Rogers -->
-      <div class="receipt-card glass reveal-child">
-        <div class="receipt-accent"></div>
-        <p class="receipt-tag">Content → Distribution → Growth</p>
-        <!-- MANUAL UPDATE: Update this view count when the episode metrics change. -->
-        <h3 class="receipt-number">23K+</h3>
-        <p class="receipt-label">Views on Episode 1</p>
-        <!-- MANUAL UPDATE: Update the relationship duration and subscriber count when the source story changes. -->
-        <p class="receipt-body">Our first Pale Blue Nexus guest was Jim Rogers, a billionaire investor and co-founder of the Quantum Fund. Not because we pitched him cold. Because we built a relationship over 17 years before we ever asked. The episode brought the channel to 4,400+ subscribers and counting.</p>
-        <div class="receipt-tags">
-          <span>JIM ROGERS</span>
-          <!-- MANUAL UPDATE: Update the subscriber count when the episode metrics change. -->
-          <span>4,400+ SUBSCRIBERS</span>
-          <span>PALE BLUE NEXUS</span>
-        </div>
-      </div>
-    </div>
-    <!-- END receipt-grid -->
-
-    <!-- Chambers vertical case study placeholder: real content ships with the chamber website this fall. Do not invent metrics. -->
-    <div class="receipt-card glass reveal" style="margin-top:24px;opacity:0.85;border-style:dashed;">
-      <p class="receipt-tag">Community + Software &rarr; One Build</p>
-      <h3 class="receipt-number" style="font-size:26px;">Chambers of Commerce <span style="font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;background:rgba(0,158,150,0.15);color:var(--accent);border:1px solid rgba(0,158,150,0.35);padding:3px 10px;border-radius:100px;vertical-align:middle;margin-left:8px;">Coming</span></h3>
-      <!-- MANUAL UPDATE: Update when the chamber website case study ships. -->
-      <p class="receipt-label">Case study ships this fall</p>
-      <!-- MANUAL UPDATE: Update when the chamber website case study ships. -->
-      <p class="receipt-body">We're building the platform that runs a regional chamber of commerce: website, CRM, and member operations in one system. The full case study lands here when the chamber website ships this fall.</p>
-    </div>
-
-    <!-- Bottom Line -->
-    <div class="proof-bottom-line reveal-scale glass">
-      <!-- MANUAL UPDATE: Update the relationship history and podcast count when the source story changes. -->
-      <p>We didn't start Aloomii with a product. We started with 17 years of relationships, five podcasts, and a track record of turning conversations into capital. The AI and the systems came later. The instinct for relationships came first.</p>
-    </div>
-  </div>
-</section>
 
 <!-- BUILDS -->
 <section class="pillars reveal" id="builds">
@@ -1164,37 +951,6 @@
       <div class="diff-card glass reveal-child"><h3>Not a guest booking service</h3><p>We don't pitch guests or run your outreach. You tape the show, we make it worth watching.</p></div>
       <div class="diff-card glass reveal-child"><h3>Not a marketplace freelancer</h3><p>We've produced five shows, a $4B launch broadcast, and the systems behind them. This isn't a gig.</p></div>
       <div class="diff-card glass reveal-child"><h3>Not a course</h3><p>Studio and Builds are done-for-you. If you want to learn the systems yourself, that's what the <a href="/playbook/" class="inline-link">Playbook</a> is for.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- BLOG PREVIEW -->
-<section class="blog-preview reveal">
-  <div class="blog-preview-inner">
-    <div class="section-label">From the blog</div>
-    <h2 class="section-heading">Ideas we're thinking about.</h2>
-    <div class="blog-grid reveal-stagger">
-      <div class="blog-card glass reveal-child">
-        <div class="blog-tag">Relationships</div>
-        <h3>The Client You're About to Lose</h3>
-        <p>Most churn doesn't start with a complaint. It starts with silence. Here's how to read the signals before it's too late.</p>
-        <a href="https://aloomii.com/blog/the-client-youre-about-to-lose/" class="blog-link">Read more &rarr;</a>
-      </div>
-      <div class="blog-card glass reveal-child">
-        <div class="blog-tag">Founder Playbooks</div>
-        <h3>What Is a Fractional GTM Team? (And When a Startup Actually Needs One)</h3>
-        <p>A fractional GTM team runs your go-to-market operations for a fixed monthly fee. Here is what you get, what it costs, and how it compares to a hire, an agency, and doing it yourself.</p>
-        <a href="https://aloomii.com/blog/fractional-gtm-team-startups-what-it-actually-costs/" class="blog-link">Read more &rarr;</a>
-      </div>
-      <div class="blog-card glass reveal-child">
-        <div class="blog-tag">AI Sales System</div>
-        <h3>Business Development 2.0: The AI Agent Manager</h3>
-        <p>The BD role isn't dead. It's evolving. Here's what BD 2.0 looks like when you manage a fleet of AI agents instead of sending emails.</p>
-        <a href="https://aloomii.com/blog/bus-dev-2-0/" class="blog-link">Read more &rarr;</a>
-      </div>
-    </div>
-    <div class="blog-view-all">
-      <a href="https://aloomii.com/blog/">View All Posts &rarr;</a>
     </div>
   </div>
 </section>
@@ -1344,35 +1100,6 @@ document.querySelectorAll('.faq-question').forEach(function(btn) {
 </div><!-- /page-content -->
 
 <script src="/snippets/ghost-background.js"></script>
-
-<script>
-function renderHomepageEvents(events) {
-  var now = new Date();
-  var upcoming = events.filter(function(ev) {
-    return ev.status === 'upcoming' && new Date(ev.date + 'T23:59:59') >= now;
-  }).sort(function(a, b) { return a.date.localeCompare(b.date); }).slice(0, 3);
-  var container = document.getElementById('homepageEvents');
-  var banner = document.getElementById('eventsBanner');
-  if (!container || !banner) return;
-  container.innerHTML = '';
-  if (!upcoming.length) { banner.style.display = 'none'; container.style.display = 'none'; return; }
-  upcoming.forEach(function(ev) {
-    var date = new Date(ev.date + 'T12:00:00').toLocaleDateString('en-US', {weekday:'short', month:'short', day:'numeric', year:'numeric'});
-    var card = document.createElement('article');
-    card.className = 'devkick-event glass reveal-child';
-    card.innerHTML = '<div class="event-date">' + date + (ev.time ? ' · ' + ev.time : '') + '</div><h3>' + ev.title + '</h3><p>' + (ev.location || '') + (ev.venue ? ' · ' + ev.venue : '') + '</p>';
-    container.appendChild(card);
-  });
-  var next = upcoming[0];
-  document.getElementById('eventsBannerTitle').textContent = next.title + ' / ' + new Date(next.date + 'T12:00:00').toLocaleDateString('en-US', {month:'long', day:'numeric', year:'numeric'});
-  document.getElementById('eventsBannerDescription').textContent = (next.subtitle ? next.subtitle + '. ' : '') + (next.location || '') + (next.description ? '. ' + next.description : '');
-  banner.style.display = '';
-}
-(async function() {
-  try { var response = await fetch('/events.json'); renderHomepageEvents(await response.json()); }
-  catch (error) { renderHomepageEvents([]); }
-})();
-</script>
 
 <!-- ==================== PAGE SCRIPTS ==================== -->
 <script>
