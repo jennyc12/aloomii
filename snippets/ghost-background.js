@@ -5,6 +5,8 @@
   let dpr = 1;
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let frameNumber = 0;
+  const frameMs = 1000 / 60;
+  let lastTimestamp = null;
   const mouse = { x: -9999, y: -9999 };
 
   function resize() {
@@ -43,9 +45,9 @@
       this.vx = Math.cos(driftAngle) * driftSpeed;
       this.vy = Math.sin(driftAngle) * driftSpeed;
     }
-    update() {
-      this.phase += this.speed;
-      this.bx += this.vx; this.by += this.vy;
+    update(deltaFrames) {
+      this.phase += this.speed * deltaFrames;
+      this.bx += this.vx * deltaFrames; this.by += this.vy * deltaFrames;
       if (this.bx < -10) this.bx = w + 10;
       if (this.bx > w + 10) this.bx = -10;
       if (this.by < -10) this.by = h + 10;
@@ -82,48 +84,55 @@
       this.blinkSpeed = 0.008 + Math.random()*0.006;
       const pals = [[0,200,190],[0,180,210],[100,70,200],[0,230,200]];
       this.color = pals[Math.floor(Math.random()*pals.length)];
-      this.state = 'gone'; this.stateTimer = Math.random()*400+100;
+      this.state = 'gone'; this.stateTimer = Math.random()*400+100; this.stateDuration = this.stateTimer;
       this.speed = 0; this.history = []; this.maxHistory = 20;
       this.personality = personality || 'watcher';
       this.pounceCount = 0; this.maxPounces = 2 + Math.floor(Math.random()*4);
       this.blinkCycles = 0; this.maxBlinkCycles = 3 + Math.floor(Math.random()*5);
     }
+    setStateDuration(duration) {
+      this.stateDuration = duration;
+      this.stateTimer = duration;
+    }
+    fadeRemaining() {
+      return this.stateDuration > 0 ? Math.max(0, Math.min(1, this.stateTimer / this.stateDuration)) : 0;
+    }
     transition(state) {
       this.state = state;
-      if (state === 'appear') { this.stateTimer = 40 + Math.random()*60; }
+      if (state === 'appear') { this.setStateDuration(40 + Math.random()*60); }
       else if (state === 'watch') {
-        if (this.personality === 'blinker') { this.stateTimer = 400 + Math.random()*800; this.blinkCycles = 0; }
-        else if (this.personality === 'zoomer') { this.stateTimer = 150 + Math.random()*300; }
-        else if (this.personality === 'pouncer') { this.stateTimer = 200 + Math.random()*400; this.pounceCount = 0; }
-        else { this.stateTimer = 300 + Math.random()*600; }
+        if (this.personality === 'blinker') { this.setStateDuration(400 + Math.random()*800); this.blinkCycles = 0; }
+        else if (this.personality === 'zoomer') { this.setStateDuration(150 + Math.random()*300); }
+        else if (this.personality === 'pouncer') { this.setStateDuration(200 + Math.random()*400); this.pounceCount = 0; }
+        else { this.setStateDuration(300 + Math.random()*600); }
       }
-      else if (state === 'blink_out') { this.stateTimer = 18 + Math.random()*10; }
-      else if (state === 'gone') { this.stateTimer = 80 + Math.random()*220; this.x = Math.random()*w; this.y = Math.random()*h; this.history = []; }
-      else if (state === 'blink_in') { this.stateTimer = 25 + Math.random()*15; }
-      else if (state === 'dart') { this.targetX = this.x + (Math.random()-0.5)*w*0.6; this.targetY = this.y + (Math.random()-0.5)*h*0.4; this.stateTimer = 20 + Math.random()*35; this.speed = 0; }
+      else if (state === 'blink_out') { this.setStateDuration(18 + Math.random()*10); }
+      else if (state === 'gone') { this.setStateDuration(80 + Math.random()*220); this.x = Math.random()*w; this.y = Math.random()*h; this.history = []; }
+      else if (state === 'blink_in') { this.setStateDuration(25 + Math.random()*15); }
+      else if (state === 'dart') { this.targetX = this.x + (Math.random()-0.5)*w*0.6; this.targetY = this.y + (Math.random()-0.5)*h*0.4; this.setStateDuration(20 + Math.random()*35); this.speed = 0; }
       else if (state === 'pounce') {
         const dist = 80 + Math.random()*180, angle = Math.random()*Math.PI*2;
         this.targetX = Math.max(50, Math.min(w-50, this.x + Math.cos(angle)*dist));
         this.targetY = Math.max(50, Math.min(h-50, this.y + Math.sin(angle)*dist));
-        this.stateTimer = 10 + Math.random()*15; this.speed = 0; this.pounceCount++;
+        this.setStateDuration(10 + Math.random()*15); this.speed = 0; this.pounceCount++;
       }
-      else if (state === 'zoom') { this.targetX = Math.random()*w; this.targetY = Math.random()*h; this.stateTimer = 15 + Math.random()*20; this.speed = 0; }
-      else if (state === 'blink_pause') { this.stateTimer = 30 + Math.random()*40; this.blinkCycles++; }
+      else if (state === 'zoom') { this.targetX = Math.random()*w; this.targetY = Math.random()*h; this.setStateDuration(15 + Math.random()*20); this.speed = 0; }
+      else if (state === 'blink_pause') { this.setStateDuration(30 + Math.random()*40); this.blinkCycles++; }
     }
-    update() {
-      this.blinkPhase += this.blinkSpeed; this.stateTimer--;
+    update(deltaFrames) {
+      this.blinkPhase += this.blinkSpeed * deltaFrames; this.stateTimer -= deltaFrames;
       if (this.state === 'appear') {
-        this.alpha = Math.min(this.maxAlpha, this.alpha + this.maxAlpha/30);
+        this.alpha = this.maxAlpha * (1 - this.fadeRemaining());
         if (this.stateTimer <= 0) this.transition('watch');
       } else if (this.state === 'watch') {
         this.alpha = this.maxAlpha;
         // Curious: lock on intensely
         if (mouse.x !== -9999) {
           const target = Math.atan2(mouse.y - this.y, mouse.x - this.x);
-          this.lookAngle += (target - this.lookAngle) * 0.08;
-        } else { this.lookAngle += Math.sin(this.blinkPhase*0.5)*0.01; }
-        this.x += Math.sin(this.blinkPhase*0.7)*0.15;
-        this.y += Math.cos(this.blinkPhase*0.5)*0.1;
+          this.lookAngle += (target - this.lookAngle) * (1 - Math.pow(1 - 0.08, deltaFrames));
+        } else { this.lookAngle += Math.sin(this.blinkPhase*0.5)*0.01*deltaFrames; }
+        this.x += Math.sin(this.blinkPhase*0.7)*0.15*deltaFrames;
+        this.y += Math.cos(this.blinkPhase*0.5)*0.1*deltaFrames;
         if (this.stateTimer <= 0) {
           if (this.personality === 'zoomer') this.transition(Math.random() < 0.6 ? 'zoom' : 'blink_out');
           else if (this.personality === 'pouncer') this.transition(this.pounceCount < this.maxPounces ? 'pounce' : 'blink_out');
@@ -131,36 +140,36 @@
           else this.transition(Math.random() < 0.45 ? 'dart' : 'blink_out');
         }
         // Playful: spontaneous darts
-        if (mouse.x !== -9999 && Math.random() < 0.008) this.transition('dart');
+        if (mouse.x !== -9999 && Math.random() < 1 - Math.pow(1 - 0.008, deltaFrames)) this.transition('dart');
       } else if (this.state === 'blink_out') {
-        this.alpha = this.maxAlpha * (this.stateTimer / 15);
+        this.alpha = this.maxAlpha * this.fadeRemaining();
         if (this.stateTimer <= 0) this.transition('gone');
       } else if (this.state === 'gone') {
         this.alpha = 0;
         if (this.stateTimer <= 0) this.transition('blink_in');
       } else if (this.state === 'blink_in') {
-        this.alpha = this.maxAlpha * (1 - this.stateTimer / 20);
+        this.alpha = this.maxAlpha * (1 - this.fadeRemaining());
         if (this.stateTimer <= 0) this.transition('watch');
       } else if (this.state === 'dart' || this.state === 'zoom') {
         const topSpeed = this.state === 'zoom' ? 28 : 18;
-        this.speed = Math.min(this.speed + (this.state === 'zoom' ? 2.5 : 1.2), topSpeed);
+        this.speed = Math.min(this.speed + (this.state === 'zoom' ? 2.5 : 1.2) * deltaFrames, topSpeed);
         const dx = this.targetX - this.x, dy = this.targetY - this.y, dist = Math.sqrt(dx*dx+dy*dy);
-        if (dist > 1) { this.x += (dx/dist)*this.speed; this.y += (dy/dist)*this.speed; this.lookAngle = Math.atan2(dy, dx); }
+        if (dist > 1) { this.x += (dx/dist)*this.speed*deltaFrames; this.y += (dy/dist)*this.speed*deltaFrames; this.lookAngle = Math.atan2(dy, dx); }
         this.history.push({x:this.x, y:this.y});
         if (this.history.length > this.maxHistory) this.history.shift();
-        this.alpha = this.maxAlpha * Math.max(0, this.stateTimer / 30);
+        this.alpha = this.maxAlpha * this.fadeRemaining();
         if (this.stateTimer <= 0) this.transition('gone');
       } else if (this.state === 'pounce') {
-        this.speed = Math.min(this.speed + 3, 22);
+        this.speed = Math.min(this.speed + 3 * deltaFrames, 22);
         const dx = this.targetX - this.x, dy = this.targetY - this.y, dist = Math.sqrt(dx*dx+dy*dy);
-        if (dist > 1) { this.x += (dx/dist)*this.speed; this.y += (dy/dist)*this.speed; this.lookAngle = Math.atan2(dy, dx); }
+        if (dist > 1) { this.x += (dx/dist)*this.speed*deltaFrames; this.y += (dy/dist)*this.speed*deltaFrames; this.lookAngle = Math.atan2(dy, dx); }
         this.history.push({x:this.x, y:this.y});
         if (this.history.length > this.maxHistory) this.history.shift();
         if (this.stateTimer <= 0) this.transition('watch');
       } else if (this.state === 'blink_pause') {
         this.alpha = this.maxAlpha;
-        this.x += Math.sin(this.blinkPhase*0.7)*0.1;
-        this.y += Math.cos(this.blinkPhase*0.5)*0.08;
+        this.x += Math.sin(this.blinkPhase*0.7)*0.1*deltaFrames;
+        this.y += Math.cos(this.blinkPhase*0.5)*0.08*deltaFrames;
         if (this.stateTimer <= 0) this.transition('watch');
       }
     }
@@ -211,9 +220,10 @@
       const blinkRaw = Math.sin(this.blinkPhase);
       let blink = 1;
       if (this.state === 'watch' && blinkRaw > 0.92) blink = 1-(blinkRaw-0.92)/0.08;
-      if (this.state === 'blink_out') blink = this.stateTimer/15;
-      if (this.state === 'blink_in') blink = 1-this.stateTimer/20;
-      if (this.state === 'blink_pause') { blink = Math.sin(this.blinkPhase*8) > 0.3 ? 1 : 0.1; }
+      if (this.state === 'blink_out') blink = this.fadeRemaining();
+      if (this.state === 'blink_in') blink = 1-this.fadeRemaining();
+      if (this.state === 'blink_pause') blink = 0.1 + 0.9 * (0.5 + 0.5 * Math.sin(this.blinkPhase*8));
+      blink = Math.max(0, Math.min(1, blink));
       this.drawEye(px - this.eyeGap/2, py, blink);
       this.drawEye(px + this.eyeGap/2, py, blink);
     }
@@ -230,17 +240,22 @@
     while (cats.length < catCount) {
       const gc = new GhostCat(personalities[cats.length % personalities.length]);
       gc.stateTimer = Math.random()*300;
+      gc.stateDuration = gc.stateTimer;
       cats.push(gc);
     }
     if (cats.length > catCount) cats.length = catCount;
   }
 
-  function animate() {
+  function animate(timestamp) {
+    const deltaFrames = lastTimestamp === null
+      ? 1
+      : Math.min(4, Math.max(0, (timestamp - lastTimestamp) / frameMs));
+    lastTimestamp = timestamp;
     ctx.clearRect(0,0,w,h);
     try {
       if (!prefersReducedMotion || frameNumber % 2 === 0) {
-        for (const s of stars) s.update();
-        for (const c of cats) c.update();
+        for (const s of stars) s.update(deltaFrames);
+        for (const c of cats) c.update(deltaFrames);
       }
       for (const s of stars) s.draw();
       for (const c of cats) c.draw();
@@ -255,5 +270,5 @@
   window.addEventListener('touchmove', e => { if(e.touches.length) { mouse.x = e.touches[0].clientX; mouse.y = e.touches[0].clientY; } }, { passive: true });
   window.addEventListener('touchend', () => { mouse.x = -9999; mouse.y = -9999; });
 
-  resize(); init(); animate();
+  resize(); init(); requestAnimationFrame(animate);
 })();
