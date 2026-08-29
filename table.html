@@ -151,12 +151,14 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
-      align-items: start;
+      align-items: stretch;
     }
-    .event-card { padding: 32px; }
+    .event-card { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 32px; }
+    .event-card > * { width: 100%; }
+    .event-card > .button { width: auto; }
     .event-photo {
       overflow: hidden;
-      aspect-ratio: 3 / 4;
+      aspect-ratio: 16 / 10;
       margin-bottom: 26px;
       border-radius: 14px;
     }
@@ -258,44 +260,28 @@
       <header class="hero">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <svg class="table-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" role="img" aria-labelledby="table-logo-title table-logo-desc">
+            <svg class="table-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 100" role="img" aria-labelledby="table-logo-title">
               <title id="table-logo-title">The Table</title>
-              <desc id="table-logo-desc">The Table logo with a stylized table and six turquoise seat dots.</desc>
               <defs>
-                <mask id="seat-dots" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
-                  <rect width="100" height="100" fill="#000"/>
-                  <g fill="#fff">
-                    <circle cx="13" cy="24" r="7"/>
-                    <circle cx="24" cy="24" r="6"/>
-                    <circle cx="35" cy="24" r="6"/>
-                    <circle cx="87" cy="24" r="7"/>
-                    <circle cx="76" cy="24" r="6"/>
-                    <circle cx="65" cy="24" r="6"/>
-                  </g>
-                  <g fill="#000">
-                    <circle cx="18.5" cy="24" r="1.25"/>
-                    <circle cx="29.5" cy="24" r="1.25"/>
-                    <circle cx="81.5" cy="24" r="1.25"/>
-                    <circle cx="70.5" cy="24" r="1.25"/>
-                  </g>
-                  <g fill="none" stroke="#000" stroke-width="1.5">
-                    <circle cx="13" cy="24" r="8.1"/>
-                    <circle cx="24" cy="24" r="7.1"/>
-                    <circle cx="87" cy="24" r="8.1"/>
-                    <circle cx="76" cy="24" r="7.1"/>
-                  </g>
-                </mask>
+                <mask id="dot-a"><rect width="100" height="100" fill="#fff"/><circle cx="13" cy="24" r="8.1" fill="#000"/></mask>
+                <mask id="dot-b"><rect width="100" height="100" fill="#fff"/><circle cx="24" cy="24" r="7.1" fill="#000"/></mask>
+                <mask id="dot-c"><rect width="100" height="100" fill="#fff"/><circle cx="87" cy="24" r="8.1" fill="#000"/></mask>
+                <mask id="dot-d"><rect width="100" height="100" fill="#fff"/><circle cx="76" cy="24" r="7.1" fill="#000"/></mask>
               </defs>
-              <g transform="translate(0 0)">
-                <rect width="100" height="100" fill="#3DD9E5" mask="url(#seat-dots)"/>
-                <rect x="7" y="44" width="86" height="10.5" rx="1.5" fill="#fff"/>
-                <rect x="19" y="54.5" width="9.5" height="30" fill="#fff"/>
-                <rect x="71.5" y="54.5" width="9.5" height="30" fill="#fff"/>
+              <g fill="#3DD9E5">
+                <circle cx="35" cy="24" r="6" mask="url(#dot-b)"/>
+                <circle cx="24" cy="24" r="6" mask="url(#dot-a)"/>
+                <circle cx="13" cy="24" r="7"/>
+                <circle cx="65" cy="24" r="6" mask="url(#dot-d)"/>
+                <circle cx="76" cy="24" r="6" mask="url(#dot-c)"/>
+                <circle cx="87" cy="24" r="7"/>
               </g>
-              <g font-family="'Big Shoulders Display', 'Arial Narrow', Arial, sans-serif" font-size="40" font-weight="800" letter-spacing=".5">
-                <text x="112" y="84" fill="none" stroke="#fff" stroke-width="1.5" paint-order="stroke">THE</text>
-                <text x="162" y="84" fill="#fff">TABLE</text>
+              <g fill="#fff">
+                <rect x="7" y="44" width="86" height="10.5" rx="1.5"/>
+                <rect x="19" y="54.5" width="9.5" height="30"/>
+                <rect x="71.5" y="54.5" width="9.5" height="30"/>
               </g>
+              <text x="112" y="84.5" font-family="'Big Shoulders Display', 'Arial Narrow', Arial, sans-serif" font-size="52" font-weight="800" letter-spacing="1"><tspan fill="none" stroke="#fff" stroke-width="1.6">THE</tspan><tspan dx="9" fill="#fff">TABLE</tspan></text>
             </svg>
             <div class="eyebrow">Invite only</div>
             <h1>Canada's builders, at one table.</h1>
